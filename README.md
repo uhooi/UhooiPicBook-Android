@@ -1,4 +1,7 @@
 # UhooiPicBook-Android
+
+![Logo](./Docs/Logo.png)
+
 Uhooi's character book for Android.
 
 ## Screenshots
