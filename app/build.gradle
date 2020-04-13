@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'io.gitlab.arturbosch.detekt'
 
 android {
     compileSdkVersion 29
@@ -37,4 +38,25 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+detekt {
+    failFast = true
+    buildUponDefaultConfig = true
+    // config = files("$projectDir/config/detekt.yml")
+    // baseline = file("$projectDir/config/baseline.xml")
+    reports {
+        xml {
+            enabled = true
+            destination = file("build/reports/detekt.xml")
+        }
+        html {
+            enabled = true
+            destination = file("build/reports/detekt.html")
+        }
+        txt {
+            enabled = true
+            destination = file("build/reports/detekt.txt")
+        }
+    }
 }
