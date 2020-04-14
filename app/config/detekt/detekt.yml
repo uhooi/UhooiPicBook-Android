@@ -1,0 +1,18 @@
+console-reports:
+  active: true
+  exclude:
+  #  - 'ProjectStatisticsReport'
+  #  - 'ComplexityReport'
+  #  - 'NotificationReport'
+  #  - 'FindingsReport'
+  #  - 'FileBasedFindingsReport'
+  #  - 'BuildFailureReport'
+
+processors:
+  active: true
+  exclude:
+  # - 'FunctionCountProcessor'
+  # - 'PropertyCountProcessor'
+  # - 'ClassCountProcessor'
+  # - 'PackageCountProcessor'
+  # - 'KtFileCountProcessor'

@@ -43,20 +43,20 @@ dependencies {
 detekt {
     failFast = true
     buildUponDefaultConfig = true
-    // config = files("$projectDir/config/detekt.yml")
-    // baseline = file("$projectDir/config/baseline.xml")
+    config = files("$projectDir/config/detekt/detekt.yml")
+    baseline = file("$projectDir/config/detekt/baseline.xml")
     reports {
         xml {
             enabled = true
-            destination = file("build/reports/detekt.xml")
+            destination = file("build/reports/detekt/detekt.xml")
         }
         html {
             enabled = true
-            destination = file("build/reports/detekt.html")
+            destination = file("build/reports/detekt/detekt.html")
         }
         txt {
             enabled = true
-            destination = file("build/reports/detekt.txt")
+            destination = file("build/reports/detekt/detekt.txt")
         }
     }
 }
