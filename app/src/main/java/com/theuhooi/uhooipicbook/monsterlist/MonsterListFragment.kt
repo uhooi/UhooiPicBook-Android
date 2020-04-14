@@ -71,7 +71,6 @@ class MonsterListFragment : Fragment() {
     }
 
     companion object {
-
         // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
 

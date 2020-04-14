@@ -1,16 +1,13 @@
 package com.theuhooi.uhooipicbook.monsterlist
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
-
-
 import com.theuhooi.uhooipicbook.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
 import com.theuhooi.uhooipicbook.monsterlist.dummy.DummyContent.DummyItem
-
 import kotlinx.android.synthetic.main.fragment_monster_list.view.*
 
 /**
