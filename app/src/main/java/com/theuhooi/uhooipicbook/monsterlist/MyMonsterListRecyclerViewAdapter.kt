@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
 import com.theuhooi.uhooipicbook.monsterlist.dummy.DummyContent.DummyItem
-import kotlinx.android.synthetic.main.fragment_monster_list.view.*
+import kotlinx.android.synthetic.main.item_monster_list.view.*
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
@@ -33,7 +33,7 @@ class MyMonsterListRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_monster_list, parent, false)
+            .inflate(R.layout.item_monster_list, parent, false)
         return ViewHolder(view)
     }
 
