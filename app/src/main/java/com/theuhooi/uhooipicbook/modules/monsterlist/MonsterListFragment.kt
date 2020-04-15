@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.monsterlist
+package com.theuhooi.uhooipicbook.modules.monsterlist
 
 import android.content.Context
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
-import com.theuhooi.uhooipicbook.monsterlist.dummy.DummyContent
-import com.theuhooi.uhooipicbook.monsterlist.dummy.DummyContent.DummyItem
+import com.theuhooi.uhooipicbook.modules.monsterlist.dummy.DummyContent
+import com.theuhooi.uhooipicbook.modules.monsterlist.dummy.DummyContent.DummyItem
 
 class MonsterListFragment : Fragment() {
 
@@ -45,7 +45,11 @@ class MonsterListFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MyMonsterListRecyclerViewAdapter(DummyContent.ITEMS, listener)
+                adapter =
+                    MyMonsterListRecyclerViewAdapter(
+                        DummyContent.ITEMS,
+                        listener
+                    )
             }
         }
         return view

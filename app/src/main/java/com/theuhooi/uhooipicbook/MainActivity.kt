@@ -2,8 +2,8 @@ package com.theuhooi.uhooipicbook
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.theuhooi.uhooipicbook.monsterlist.MonsterListFragment
-import com.theuhooi.uhooipicbook.monsterlist.dummy.DummyContent
+import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
+import com.theuhooi.uhooipicbook.modules.monsterlist.dummy.DummyContent
 
 class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener {
 

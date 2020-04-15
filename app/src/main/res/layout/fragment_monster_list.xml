@@ -9,5 +9,5 @@
     android:layout_marginLeft="@dimen/left_margin"
     android:layout_marginRight="@dimen/right_margin"
     app:layoutManager="LinearLayoutManager"
-    tools:context=".monsterlist.MonsterListFragment"
+    tools:context=".modules.monsterlist.MonsterListFragment"
     tools:listitem="@layout/item_monster_list" />

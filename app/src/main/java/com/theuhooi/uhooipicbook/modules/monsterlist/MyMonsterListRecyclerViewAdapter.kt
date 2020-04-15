@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.monsterlist
+package com.theuhooi.uhooipicbook.modules.monsterlist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
-import com.theuhooi.uhooipicbook.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
-import com.theuhooi.uhooipicbook.monsterlist.dummy.DummyContent.DummyItem
+import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
+import com.theuhooi.uhooipicbook.modules.monsterlist.dummy.DummyContent.DummyItem
 import kotlinx.android.synthetic.main.item_monster_list.view.*
 
 /**
