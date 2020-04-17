@@ -3,7 +3,7 @@ package com.theuhooi.uhooipicbook
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
-import com.theuhooi.uhooipicbook.modules.monsterlist.dummy.DummyContent
+import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
 
 class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener {
 
@@ -14,7 +14,9 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         setContentView(R.layout.activity_main)
     }
 
-    override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
+    // MARK: MonsterListFragment.OnListFragmentInteractionListener
+
+    override fun onListFragmentInteraction(item: MonsterContent.MonsterItem?) {
     }
 
 }

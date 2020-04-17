@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UhooiPicBook</string>
+    <string name="icon_content_description">Icon</string>
 </resources>

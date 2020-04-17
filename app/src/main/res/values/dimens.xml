@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="card_margin">8dp</dimen>
     <dimen name="left_margin">16dp</dimen>
     <dimen name="right_margin">16dp</dimen>
+
+    <dimen name="icon_width">68dp</dimen>
+    <dimen name="icon_height">68dp</dimen>
+    <dimen name="icon_margin">16dp</dimen>
 </resources>

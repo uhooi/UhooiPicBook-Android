@@ -6,7 +6,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/monster_list_fragment"
-            android:name="com.theuhooi.uhooipicbook.monsterlist.MonsterListFragment"
+            android:name="com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 </LinearLayout>
