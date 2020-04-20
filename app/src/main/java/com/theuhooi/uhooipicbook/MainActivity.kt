@@ -2,6 +2,7 @@ package com.theuhooi.uhooipicbook
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
 
@@ -17,6 +18,13 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
     // MARK: MonsterListFragment.OnListFragmentInteractionListener
 
     override fun onListFragmentInteraction(item: MonsterContent.MonsterItem?) {
+        if (item == null) {
+            return
+        }
+        val transition = supportFragmentManager.beginTransaction()
+        transition.addToBackStack(null)
+        transition.replace(R.id.monster_list_fragment, MonsterDetailFragment.newInstance(item))
+        transition.commit()
     }
 
 }
