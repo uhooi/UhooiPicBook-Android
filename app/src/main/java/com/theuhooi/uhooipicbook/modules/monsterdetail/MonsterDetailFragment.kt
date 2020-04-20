@@ -12,13 +12,17 @@ private const val MONSTER_ARG_PARAM = "monster"
 
 class MonsterDetailFragment : Fragment() {
 
-    private var param: String? = null
+    // MARK: Stored Instance Properties
+
+    private var monster: MonsterContent.MonsterItem? = null
+
+    // MARK: View Life-Cycle Methods
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            param = it.getString(MONSTER_ARG_PARAM)
+            this.monster = it.getParcelable<MonsterContent.MonsterItem>(MONSTER_ARG_PARAM)
         }
     }
 
