@@ -1,5 +1,7 @@
 package com.theuhooi.uhooipicbook.modules.monsterlist.entity
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 object MonsterContent {
@@ -33,6 +35,7 @@ object MonsterContent {
 
     // MARK: MonsterItem
 
+    @Parcelize
     data class MonsterItem(
         val name: String,
         val description: String,
@@ -40,6 +43,6 @@ object MonsterContent {
         val iconUrlString: String,
         val dancingUrlString: String,
         val order: Int
-    )
+    ) : Parcelable
 
 }
