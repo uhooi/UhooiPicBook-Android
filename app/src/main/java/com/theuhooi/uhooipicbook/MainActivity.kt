@@ -17,10 +17,15 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         setContentView(R.layout.activity_main)
 
         this.supportFragmentManager.addOnBackStackChangedListener {
-            if (this.supportFragmentManager.getBackStackEntryCount() >= 1) {
-                this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            } else {
-                this.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            val currentFragment =
+                this.supportFragmentManager.findFragmentById(R.id.fragment_container)
+            when (currentFragment) {
+                is MonsterListFragment -> {
+                    this.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                }
+                is MonsterDetailFragment -> {
+                    this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                }
             }
         }
     }
@@ -30,11 +35,10 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
             android.R.id.home -> {
                 if (this.supportFragmentManager.backStackEntryCount >= 1) {
                     this.supportFragmentManager.popBackStack()
-                    return true
                 } else {
                     finish()
-                    return true
                 }
+                return true
             }
         }
         return super.onOptionsItemSelected(item)
