@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         val transaction = this.supportFragmentManager.beginTransaction()
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
         transaction.addToBackStack(null)
-        transaction.replace(R.id.monster_list_fragment, MonsterDetailFragment.newInstance(item))
+        transaction.replace(R.id.fragment_container, MonsterDetailFragment.newInstance(item))
         transaction.commit()
     }
 
