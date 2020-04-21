@@ -14,20 +14,9 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        this.supportFragmentManager.addOnBackStackChangedListener {
-            val currentFragment =
-                this.supportFragmentManager.findFragmentById(R.id.fragment_container)
-            when (currentFragment) {
-                is MonsterListFragment -> {
-                    this.supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                }
-                is MonsterDetailFragment -> {
-                    this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                }
-            }
-        }
+        setContentView(R.layout.activity_main)
+        configureActionBar()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -42,6 +31,23 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    // MARK: Other Private Methods
+
+    private fun configureActionBar() {
+        this.supportFragmentManager.addOnBackStackChangedListener {
+            val currentFragment =
+                this.supportFragmentManager.findFragmentById(R.id.fragment_container)
+            when (currentFragment) {
+                is MonsterListFragment -> {
+                    this.supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                }
+                is MonsterDetailFragment -> {
+                    this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                }
+            }
+        }
     }
 
     // MARK: MonsterListFragment.OnListFragmentInteractionListener
