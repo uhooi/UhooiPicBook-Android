@@ -1,10 +1,10 @@
 package com.theuhooi.uhooipicbook
 
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentTransaction
-import com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
 
@@ -14,40 +14,20 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
-        configureActionBar()
+        configureToolBar()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
-            android.R.id.home -> {
-                if (this.supportFragmentManager.backStackEntryCount >= 1) {
-                    this.supportFragmentManager.popBackStack()
-                } else {
-                    finish()
-                }
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+    override fun onSupportNavigateUp() = findNavController(R.id.nav_host_fragment).navigateUp()
 
     // MARK: Other Private Methods
 
-    private fun configureActionBar() {
-        this.supportFragmentManager.addOnBackStackChangedListener {
-            val currentFragment =
-                this.supportFragmentManager.findFragmentById(R.id.fragment_container)
-            when (currentFragment) {
-                is MonsterListFragment -> {
-                    this.supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                }
-                is MonsterDetailFragment -> {
-                    this.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                }
-            }
-        }
+    private fun configureToolBar() {
+        setSupportActionBar(findViewById(R.id.toolbar))
+
+        val navController = findNavController(R.id.nav_host_fragment)
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     // MARK: MonsterListFragment.OnListFragmentInteractionListener
@@ -56,11 +36,9 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         if (item == null) {
             return
         }
-        val transaction = this.supportFragmentManager.beginTransaction()
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        transaction.addToBackStack(null)
-        transaction.replace(R.id.fragment_container, MonsterDetailFragment.newInstance(item))
-        transaction.commit()
+        // TODO: 詳細にエンティティを渡す
+        // MonsterDetailFragment.newInstance(item)
+        findNavController(R.id.nav_host_fragment).navigate(R.id.action_list_to_detail)
     }
 
 }
