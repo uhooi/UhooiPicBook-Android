@@ -6,6 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
+import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
 import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
 
 class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener {
@@ -36,9 +37,8 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         if (item == null) {
             return
         }
-        // TODO: 詳細にエンティティを渡す
-        // MonsterDetailFragment.newInstance(item)
-        findNavController(R.id.nav_host_fragment).navigate(R.id.action_list_to_detail)
+        val action = MonsterListFragmentDirections.actionListToDetail(item)
+        findNavController(R.id.nav_host_fragment).navigate(action)
     }
 
 }
