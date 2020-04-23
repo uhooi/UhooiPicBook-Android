@@ -27,6 +27,7 @@
             android:layout_margin="@dimen/text_margin"
             android:text="@string/name_dummy"
             android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@android:color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
     </LinearLayout>
