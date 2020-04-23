@@ -25,7 +25,7 @@ object MonsterContent {
     private fun createMonsterItem(order: Int): MonsterItem {
         return MonsterItem(
             "uhooi",
-            "でぃすくりぷしょん\nてすと",
+            "ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。",
             "#81D674",
             "https://yahoo.co.jp",
             "https://yahoo.co.jp",
