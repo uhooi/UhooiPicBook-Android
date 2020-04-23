@@ -6,15 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import coil.api.load
 import com.theuhooi.uhooipicbook.R
-import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
+import kotlinx.android.synthetic.main.fragment_monster_detail.view.*
 
 class MonsterDetailFragment : Fragment() {
 
     // MARK: Stored Instance Properties
 
-    val args: MonsterDetailFragmentArgs by navArgs()
-    private var monster: MonsterContent.MonsterItem? = null
+    private val args: MonsterDetailFragmentArgs by navArgs()
 
     // MARK: View Life-Cycle Methods
 
@@ -27,7 +27,9 @@ class MonsterDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.monster = this.args.monster
+        view.icon_imageview.load(this.args.monster.iconUrlString)
+        view.name_textview.text = this.args.monster.name
+        view.description_textview.text = this.args.monster.description
     }
 
 }
