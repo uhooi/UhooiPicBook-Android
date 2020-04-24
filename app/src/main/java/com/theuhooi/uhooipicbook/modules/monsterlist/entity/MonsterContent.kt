@@ -33,7 +33,7 @@ object MonsterContent {
         )
     }
 
-    // MARK: MonsterItem
+    // MARK: Data Classes
 
     @Parcelize
     data class MonsterItem(

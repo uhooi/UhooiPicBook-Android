@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
@@ -17,18 +16,9 @@ class MonsterListFragment : Fragment() {
 
     // MARK: Stored Instance Properties
 
-    private var columnCount = 1
     private var listener: OnListFragmentInteractionListener? = null
 
     // MARK: View Life-Cycle Methods
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        arguments?.let {
-            this.columnCount = it.getInt(ARG_COLUMN_COUNT)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,10 +27,7 @@ class MonsterListFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_monster_list, container, false)
         if (view is RecyclerView) {
-            view.layoutManager = when {
-                this.columnCount <= 1 -> LinearLayoutManager(context)
-                else -> GridLayoutManager(context, this.columnCount)
-                }
+            view.layoutManager = GridLayoutManager(context, 1)
             view.adapter = MonsterListRecyclerViewAdapter(MonsterContent.monsters, this.listener)
         }
 
@@ -63,19 +50,10 @@ class MonsterListFragment : Fragment() {
         this.listener = null
     }
 
+    // MARK: Interfaces
+
     interface OnListFragmentInteractionListener {
         fun onListFragmentInteraction(item: MonsterItem?)
-    }
-
-    companion object {
-        const val ARG_COLUMN_COUNT = "column-count"
-
-        @JvmStatic
-        fun newInstance(columnCount: Int): MonsterListFragment {
-            val bundle = Bundle().also { it.putInt(ARG_COLUMN_COUNT, columnCount) }
-            return MonsterListFragment().also { it.arguments = bundle }
-        }
-
     }
 
 }

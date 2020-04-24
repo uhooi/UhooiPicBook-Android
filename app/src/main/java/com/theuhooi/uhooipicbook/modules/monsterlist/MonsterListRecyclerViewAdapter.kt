@@ -39,7 +39,7 @@ class MonsterListRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = monsters[position]
+        val item = this.monsters[position]
         holder.iconImageView.load(item.iconUrlString)
         holder.nameTextView.text = item.name
 
@@ -47,9 +47,9 @@ class MonsterListRecyclerViewAdapter(
         holder.view.setOnClickListener(onClickListener)
     }
 
-    override fun getItemCount(): Int = monsters.size
+    override fun getItemCount(): Int = this.monsters.size
 
-    // MARK: ViewHolder
+    // MARK: Inner Classes
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val iconImageView: ImageView = view.icon_imageview
