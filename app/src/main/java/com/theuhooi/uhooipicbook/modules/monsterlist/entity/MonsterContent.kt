@@ -27,8 +27,7 @@ object MonsterContent {
             "uhooi",
             "ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。",
             "#81D674",
-            "https://yahoo.co.jp",
-            "https://yahoo.co.jp",
+            "https://pbs.twimg.com/profile_images/1210051005032747008/d-y15OUa_400x400.jpg",
             order
         )
     }
@@ -41,7 +40,6 @@ object MonsterContent {
         val description: String,
         val baseColorCode: String,
         val iconUrlString: String,
-        val dancingUrlString: String,
         val order: Int
     ) : Parcelable
 
