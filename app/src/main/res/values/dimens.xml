@@ -6,8 +6,5 @@
     <dimen name="right_margin">16dp</dimen>
 
     <dimen name="toolbar_elevation">4dp</dimen>
-
-    <dimen name="icon_width">68dp</dimen>
-    <dimen name="icon_height">68dp</dimen>
-    <dimen name="icon_margin">16dp</dimen>
+    <dimen name="card_elevation">1dp</dimen>
 </resources>

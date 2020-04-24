@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/card_margin"
     android:foreground="?android:attr/selectableItemBackground"
-    card_view:cardElevation="1dp">
+    card_view:cardElevation="@dimen/card_elevation">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -14,9 +14,9 @@
 
         <ImageView
             android:id="@+id/icon_imageview"
-            android:layout_width="@dimen/icon_width"
-            android:layout_height="@dimen/icon_height"
-            android:layout_margin="@dimen/icon_margin"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:layout_margin="16dp"
             android:contentDescription="@string/icon_content_description" />
 
         <TextView
