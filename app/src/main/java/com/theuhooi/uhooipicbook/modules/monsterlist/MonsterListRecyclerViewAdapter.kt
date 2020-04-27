@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.item_monster_list.view.*
 class MonsterListRecyclerViewAdapter(
     private val monsters: List<MonsterItem>,
     private val listener: OnListFragmentInteractionListener?
-) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<MonsterListRecyclerViewHolder>() {
 
     // region Stored Instance Properties
 
@@ -28,13 +28,13 @@ class MonsterListRecyclerViewAdapter(
 
     // region View Life-Cycle Methods
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterListRecyclerViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_monster_list, parent, false)
-        return ViewHolder(view)
+        return MonsterListRecyclerViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
         val item = this.monsters[position]
         holder.iconImageView.load(item.iconUrlString)
         holder.nameTextView.text = item.name
@@ -47,13 +47,9 @@ class MonsterListRecyclerViewAdapter(
 
     // endregion
 
-    // region Inner Classes
+}
 
-    inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val iconImageView: ImageView = view.icon_imageview
-        val nameTextView: TextView = view.name_textview
-    }
-
-    // endregion
-
+class MonsterListRecyclerViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    val iconImageView: ImageView = view.icon_imageview
+    val nameTextView: TextView = view.name_textview
 }
