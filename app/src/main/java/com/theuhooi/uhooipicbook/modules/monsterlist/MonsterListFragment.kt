@@ -26,10 +26,9 @@ class MonsterListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_monster_list, container, false)
-        if (view is RecyclerView) {
-            view.adapter = MonsterListRecyclerViewAdapter(MonsterContent.monsters, this.listener)
-        }
+        val view =
+            inflater.inflate(R.layout.fragment_monster_list, container, false) as RecyclerView
+        view.adapter = MonsterListRecyclerViewAdapter(MonsterContent.monsters, this.listener)
 
         return view
     }
