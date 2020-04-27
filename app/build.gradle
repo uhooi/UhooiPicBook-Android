@@ -34,22 +34,15 @@ android {
 }
 
 dependencies {
-    def coil_version = '0.9.5'
-    implementation "io.coil-kt:coil:$coil_version"
+    implementation 'io.coil-kt:coil:0.9.5'
 
     // Firebase
-    def firebase_analytics_version = '17.4.0'
-    implementation "com.google.firebase:firebase-core:$firebase_analytics_version"
-    def firebase_crashlytics_version = '17.0.0'
-    implementation "com.google.firebase:firebase-crashlytics:$firebase_crashlytics_version"
-    def firebase_perf_version = '19.0.7'
-    implementation "com.google.firebase:firebase-perf:$firebase_perf_version"
+    implementation 'com.google.firebase:firebase-core:17.4.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
+    implementation 'com.google.firebase:firebase-perf:19.0.7'
 
-    def recyclerview_version = '1.1.0'
-    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
-
-    def cardview_version = '1.0.0'
-    implementation "androidx.cardview:cardview:$cardview_version"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
