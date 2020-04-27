@@ -8,6 +8,6 @@
     android:layout_height="match_parent"
     android:layout_marginStart="@dimen/left_margin"
     android:layout_marginEnd="@dimen/right_margin"
-    app:layoutManager="LinearLayoutManager"
+    app:layoutManager="GridLayoutManager"
     tools:context=".modules.monsterlist.MonsterListFragment"
     tools:listitem="@layout/item_monster_list" />
