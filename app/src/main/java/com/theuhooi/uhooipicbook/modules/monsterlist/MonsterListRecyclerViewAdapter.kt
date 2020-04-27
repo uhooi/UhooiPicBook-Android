@@ -17,11 +17,13 @@ class MonsterListRecyclerViewAdapter(
     private val listener: OnListFragmentInteractionListener?
 ) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.ViewHolder>() {
 
-    // MARK: Stored Instance Properties
+    // region Stored Instance Properties
 
     private val onClickListener: View.OnClickListener
 
-    // MARK: Initializers
+    // endregion
+
+    // region Initializers
 
     init {
         onClickListener = View.OnClickListener { v ->
@@ -30,7 +32,9 @@ class MonsterListRecyclerViewAdapter(
         }
     }
 
-    // MARK: View Life-Cycle Methods
+    // endregion
+
+    // region View Life-Cycle Methods
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -49,11 +53,15 @@ class MonsterListRecyclerViewAdapter(
 
     override fun getItemCount(): Int = this.monsters.size
 
-    // MARK: Inner Classes
+    // endregion
+
+    // region Inner Classes
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val iconImageView: ImageView = view.icon_imageview
         val nameTextView: TextView = view.name_textview
     }
+
+    // endregion
 
 }

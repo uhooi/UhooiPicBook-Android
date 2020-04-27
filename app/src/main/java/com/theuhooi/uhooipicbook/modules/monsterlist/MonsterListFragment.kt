@@ -14,11 +14,13 @@ import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent.Monst
 
 class MonsterListFragment : Fragment() {
 
-    // MARK: Stored Instance Properties
+    // region Stored Instance Properties
 
     private var listener: OnListFragmentInteractionListener? = null
 
-    // MARK: View Life-Cycle Methods
+    // endregion
+
+    // region View Life-Cycle Methods
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,10 +52,14 @@ class MonsterListFragment : Fragment() {
         this.listener = null
     }
 
-    // MARK: Interfaces
+    // endregion
+
+    // region Interfaces
 
     interface OnListFragmentInteractionListener {
         fun onListFragmentInteraction(item: MonsterItem?)
     }
+
+    // endregion
 
 }

@@ -6,11 +6,13 @@ import java.util.*
 
 object MonsterContent {
 
-    // MARK: Stored Instance Properties
+    // region Stored Instance Properties
 
     val monsters: MutableList<MonsterItem> = ArrayList()
 
-    // MARK: Initializers
+    // endregion
+
+    // region Initializers
 
     init {
         // TODO: Firebaseからデータを取得する
@@ -19,7 +21,9 @@ object MonsterContent {
         }
     }
 
-    // MARK: Other Private Methods
+    // endregion
+
+    // region Other Private Methods
 
     // TODO: Firebaseからデータを取得したらメソッドごと削除する
     private fun createMonsterItem(order: Int): MonsterItem {
@@ -32,7 +36,9 @@ object MonsterContent {
         )
     }
 
-    // MARK: Data Classes
+    // endregion
+
+    // region Data Classes
 
     @Parcelize
     data class MonsterItem(
@@ -42,5 +48,7 @@ object MonsterContent {
         val iconUrlString: String,
         val order: Int
     ) : Parcelable
+
+    // endregion
 
 }
