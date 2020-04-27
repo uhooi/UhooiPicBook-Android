@@ -19,17 +19,9 @@ class MonsterListRecyclerViewAdapter(
 
     // region Stored Instance Properties
 
-    private val onClickListener: View.OnClickListener
-
-    // endregion
-
-    // region Initializers
-
-    init {
-        onClickListener = View.OnClickListener { v ->
-            val item = v.tag as MonsterItem
-            this.listener?.onListFragmentInteraction(item)
-        }
+    private val onClickListener = View.OnClickListener { v ->
+        val item = v.tag as MonsterItem
+        this.listener?.onListFragmentInteraction(item)
     }
 
     // endregion
