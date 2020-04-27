@@ -2,6 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.firebase.firebase-perf'
 apply plugin: 'io.gitlab.arturbosch.detekt'
 
 android {
@@ -33,6 +36,14 @@ android {
 dependencies {
     def coil_version = '0.9.5'
     implementation "io.coil-kt:coil:$coil_version"
+
+    // Firebase
+    def firebase_analytics_version = '17.4.0'
+    implementation "com.google.firebase:firebase-core:$firebase_analytics_version"
+    def firebase_crashlytics_version = '17.0.0'
+    implementation "com.google.firebase:firebase-crashlytics:$firebase_crashlytics_version"
+    def firebase_perf_version = '19.0.7'
+    implementation "com.google.firebase:firebase-perf:$firebase_perf_version"
 
     def recyclerview_version = '1.1.0'
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
