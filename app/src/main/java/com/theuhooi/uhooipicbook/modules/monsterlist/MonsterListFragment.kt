@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
@@ -56,7 +55,7 @@ class MonsterListFragment : Fragment() {
     // region Interfaces
 
     interface OnListFragmentInteractionListener {
-        fun onListFragmentInteraction(item: MonsterItem?)
+        fun onListFragmentInteraction(item: MonsterItem)
     }
 
     // endregion

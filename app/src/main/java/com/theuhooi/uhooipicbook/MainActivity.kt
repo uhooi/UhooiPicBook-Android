@@ -38,10 +38,7 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
 
     // region MonsterListFragment.OnListFragmentInteractionListener
 
-    override fun onListFragmentInteraction(item: MonsterContent.MonsterItem?) {
-        if (item == null) {
-            return
-        }
+    override fun onListFragmentInteraction(item: MonsterContent.MonsterItem) {
         val action = MonsterListFragmentDirections.actionListToDetail(item)
         findNavController(R.id.nav_host_fragment).navigate(action)
     }
