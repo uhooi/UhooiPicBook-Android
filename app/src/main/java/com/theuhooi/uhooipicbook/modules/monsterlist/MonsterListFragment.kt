@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
-import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
-import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent.MonsterItem
+import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent
+import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent.MonsterItem
 
 class MonsterListFragment : Fragment() {
 

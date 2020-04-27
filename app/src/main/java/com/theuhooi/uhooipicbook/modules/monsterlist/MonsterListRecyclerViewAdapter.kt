@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
-import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent.MonsterItem
+import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent.MonsterItem
 import kotlinx.android.synthetic.main.item_monster_list.view.*
 
 class MonsterListRecyclerViewAdapter(

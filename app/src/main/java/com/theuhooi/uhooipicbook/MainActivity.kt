@@ -7,7 +7,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
-import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
+import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent
 
 class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener {
 
