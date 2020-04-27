@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent.MonsterItem
+import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreClient
 
 class MonsterListFragment : Fragment() {
 
@@ -28,7 +29,7 @@ class MonsterListFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_monster_list, container, false)
         if (view is RecyclerView) {
             view.layoutManager = GridLayoutManager(context, 1)
-            view.adapter = MonsterListRecyclerViewAdapter(MonsterContent.monsters, this.listener)
+            view.adapter = MonsterListRecyclerViewAdapter(MonsterContent(MonstersFirestoreClient()).monsters, this.listener)
         }
 
         return view
