@@ -44,6 +44,8 @@ dependencies {
     implementation "com.google.firebase:firebase-crashlytics:$firebase_crashlytics_version"
     def firebase_perf_version = '19.0.7'
     implementation "com.google.firebase:firebase-perf:$firebase_perf_version"
+    def firebase_firestore_version = '21.2.1'
+    implementation "com.google.firebase:firebase-firestore-ktx:$firebase_firestore_version"
 
     def recyclerview_version = '1.1.0'
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
