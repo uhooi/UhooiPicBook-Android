@@ -8,11 +8,13 @@ import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent
 
 class MonstersFirestoreClient : MonstersRepository {
 
-    // MARK: Stored Instance Properties
+    // region Stored Instance Properties
 
     private val firestore = Firebase.firestore
 
-    // MARK: MonstersRepository
+    // endregion
+
+    // region MonstersRepository
 
     override fun loadMonsters(
         onSuccess: (monsters: List<MonsterContent.MonsterItem>) -> Unit,
@@ -28,4 +30,7 @@ class MonstersFirestoreClient : MonstersRepository {
                 onFailure(exception)
             }
     }
+
+    // endregion
+
 }
