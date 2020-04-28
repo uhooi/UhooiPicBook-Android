@@ -3,16 +3,19 @@ package com.theuhooi.uhooipicbook.modules.monsterlist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
 import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent.MonsterItem
+import kotlinx.android.synthetic.main.item_monster_list.view.*
 
 class MonsterListRecyclerViewAdapter(
     private val monsters: List<MonsterItem>,
     private val listener: OnListFragmentInteractionListener?
-) : RecyclerView.Adapter<MonsterListRecyclerViewHolder>() {
+) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.MonsterListRecyclerViewHolder>() {
 
     // region Stored Instance Properties
 
@@ -41,6 +44,15 @@ class MonsterListRecyclerViewAdapter(
     }
 
     override fun getItemCount(): Int = this.monsters.size
+
+    // endregion
+
+    // region ViewHolder
+
+    class MonsterListRecyclerViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        val iconImageView: ImageView = view.icon_imageview
+        val nameTextView: TextView = view.name_textview
+    }
 
     // endregion
 
