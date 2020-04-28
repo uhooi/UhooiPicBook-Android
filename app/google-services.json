@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "213960630356",
+    "firebase_url": "https://uhooipicbook.firebaseio.com",
+    "project_id": "uhooipicbook",
+    "storage_bucket": "uhooipicbook.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213960630356:android:233988307063417a318dc1",
+        "android_client_info": {
+          "package_name": "com.theuhooi.uhooipicbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213960630356-nenelnv29rgf3p30bbg3dmj5mckunuis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3BhpzcU_T6R5isthh7XfToBP17WcdX94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213960630356-nenelnv29rgf3p30bbg3dmj5mckunuis.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "213960630356-5bt06269vc4vfmo6fetfictsdpbisvt4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.theuhooi.UhooiPicBook"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

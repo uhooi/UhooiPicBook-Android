@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/monster_list_fragment">
+
+    <fragment
+        android:id="@+id/monster_list_fragment"
+        android:name="com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment"
+        android:label="monster_list_fragment"
+        tools:layout="@layout/fragment_monster_list">
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/monster_detail_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/monster_detail_fragment"
+        android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragment"
+        android:label="monster_detail_fragment"
+        tools:layout="@layout/fragment_monster_detail">
+        <argument
+            android:name="monster"
+            app:argType="com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent$MonsterItem" />
+    </fragment>
+
+</navigation>
