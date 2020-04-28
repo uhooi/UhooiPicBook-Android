@@ -7,11 +7,13 @@ import java.lang.Thread.sleep
 
 class MonsterContent(private val monstersRepository: MonstersRepository) {
 
-    // MARK: Stored Instance Properties
+    // region Stored Instance Properties
 
     var monsters: List<MonsterItem> = ArrayList()
 
-    // MARK: Initializers
+    // endregion
+
+    // region Initializers
 
     init {
         this.monstersRepository.loadMonsters(
@@ -24,7 +26,9 @@ class MonsterContent(private val monstersRepository: MonstersRepository) {
         sleep(10 * 1000) // TODO: スリープしても1件も表示されない
     }
 
-    // MARK: Data Classes
+    // endregion
+
+    // region Data Classes
 
     @Parcelize
     data class MonsterItem(
@@ -35,5 +39,7 @@ class MonsterContent(private val monstersRepository: MonstersRepository) {
         val dancingUrlString: String = "",
         val order: Int = 0
     ) : Parcelable
+
+    // endregion
 
 }

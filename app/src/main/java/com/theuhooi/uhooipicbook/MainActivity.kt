@@ -11,7 +11,7 @@ import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent
 
 class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener {
 
-    // MARK: View Life-Cycle Methods
+    // region View Life-Cycle Methods
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
 
     override fun onSupportNavigateUp() = findNavController(R.id.nav_host_fragment).navigateUp()
 
-    // MARK: Other Private Methods
+    // endregion
+
+    // region Other Private Methods
 
     private fun configureToolBar() {
         setSupportActionBar(findViewById(R.id.toolbar))
@@ -32,14 +34,15 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    // MARK: MonsterListFragment.OnListFragmentInteractionListener
+    // endregion
 
-    override fun onListFragmentInteraction(item: MonsterContent.MonsterItem?) {
-        if (item == null) {
-            return
-        }
+    // region MonsterListFragment.OnListFragmentInteractionListener
+
+    override fun onListFragmentInteraction(item: MonsterContent.MonsterItem) {
         val action = MonsterListFragmentDirections.actionListToDetail(item)
         findNavController(R.id.nav_host_fragment).navigate(action)
     }
+
+    // endregion
 
 }

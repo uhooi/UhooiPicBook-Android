@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent
@@ -15,24 +14,30 @@ import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreC
 
 class MonsterListFragment : Fragment() {
 
-    // MARK: Stored Instance Properties
+    // region Stored Instance Properties
 
     private var listener: OnListFragmentInteractionListener? = null
 
-    // MARK: View Life-Cycle Methods
+    // endregion
+
+    // region View Life-Cycle Methods
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_monster_list, container, false)
-        if (view is RecyclerView) {
-            view.layoutManager = GridLayoutManager(context, 1)
-            view.adapter = MonsterListRecyclerViewAdapter(MonsterContent(MonstersFirestoreClient()).monsters, this.listener)
-        }
+        return inflater.inflate(R.layout.fragment_monster_list, container, false)
+    }
 
-        return view
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val view = view as RecyclerView
+        view.adapter = MonsterListRecyclerViewAdapter(
+            MonsterContent(MonstersFirestoreClient()).monsters,
+            this.listener
+        )
     }
 
     override fun onAttach(context: Context) {
@@ -51,10 +56,14 @@ class MonsterListFragment : Fragment() {
         this.listener = null
     }
 
-    // MARK: Interfaces
+    // endregion
+
+    // region Interfaces
 
     interface OnListFragmentInteractionListener {
-        fun onListFragmentInteraction(item: MonsterItem?)
+        fun onListFragmentInteraction(item: MonsterItem)
     }
+
+    // endregion
 
 }

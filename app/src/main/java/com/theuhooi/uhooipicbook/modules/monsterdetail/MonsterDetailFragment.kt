@@ -12,11 +12,13 @@ import kotlinx.android.synthetic.main.fragment_monster_detail.view.*
 
 class MonsterDetailFragment : Fragment() {
 
-    // MARK: Stored Instance Properties
+    // region Stored Instance Properties
 
     private val args: MonsterDetailFragmentArgs by navArgs()
 
-    // MARK: View Life-Cycle Methods
+    // endregion
+
+    // region View Life-Cycle Methods
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,5 +34,7 @@ class MonsterDetailFragment : Fragment() {
         view.name_textview.text = this.args.monster.name
         view.description_textview.text = this.args.monster.description
     }
+
+    // endregion
 
 }

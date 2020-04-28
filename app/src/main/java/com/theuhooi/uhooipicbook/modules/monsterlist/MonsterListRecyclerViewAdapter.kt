@@ -15,30 +15,26 @@ import kotlinx.android.synthetic.main.item_monster_list.view.*
 class MonsterListRecyclerViewAdapter(
     private val monsters: List<MonsterItem>,
     private val listener: OnListFragmentInteractionListener?
-) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.MonsterListRecyclerViewHolder>() {
 
-    // MARK: Stored Instance Properties
+    // region Stored Instance Properties
 
-    private val onClickListener: View.OnClickListener
-
-    // MARK: Initializers
-
-    init {
-        onClickListener = View.OnClickListener { v ->
-            val item = v.tag as MonsterItem
-            this.listener?.onListFragmentInteraction(item)
-        }
+    private val onClickListener = View.OnClickListener { v ->
+        val item = v.tag as MonsterItem
+        this.listener?.onListFragmentInteraction(item)
     }
 
-    // MARK: View Life-Cycle Methods
+    // endregion
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    // region View Life-Cycle Methods
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterListRecyclerViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_monster_list, parent, false)
-        return ViewHolder(view)
+        return MonsterListRecyclerViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
         val item = this.monsters[position]
         holder.iconImageView.load(item.iconUrlString)
         holder.nameTextView.text = item.name
@@ -49,11 +45,15 @@ class MonsterListRecyclerViewAdapter(
 
     override fun getItemCount(): Int = this.monsters.size
 
-    // MARK: Inner Classes
+    // endregion
 
-    inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    // region ViewHolder
+
+    class MonsterListRecyclerViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val iconImageView: ImageView = view.icon_imageview
         val nameTextView: TextView = view.name_textview
     }
+
+    // endregion
 
 }
