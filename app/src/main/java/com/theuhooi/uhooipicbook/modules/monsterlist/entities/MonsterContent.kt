@@ -19,7 +19,7 @@ class MonsterContent(private val monstersRepository: MonstersRepository) {
         this.monstersRepository.loadMonsters(
             onSuccess = { monsters ->
                 this.monsters = monsters
-            }, onFailure = { _ ->
+            }, onFailure = {
                 // TODO: エラーハンドリング
             }
         )
