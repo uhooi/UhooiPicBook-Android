@@ -33,8 +33,8 @@ class MonsterListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val view = view as RecyclerView
-        view.adapter = MonsterListRecyclerViewAdapter(
+        val recyclerView = view as RecyclerView
+        recyclerView.adapter = MonsterListRecyclerViewAdapter(
             MonsterContent(MonstersFirestoreClient()).monsters,
             this.listener
         )
