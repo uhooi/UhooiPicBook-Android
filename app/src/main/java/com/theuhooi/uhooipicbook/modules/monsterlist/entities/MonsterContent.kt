@@ -3,7 +3,7 @@ package com.theuhooi.uhooipicbook.modules.monsterlist.entities
 import android.os.Parcelable
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonstersRepository
 import kotlinx.android.parcel.Parcelize
-import java.lang.Thread.sleep
+import kotlinx.coroutines.runBlocking
 
 class MonsterContent(private val monstersRepository: MonstersRepository) {
 
@@ -16,14 +16,15 @@ class MonsterContent(private val monstersRepository: MonstersRepository) {
     // region Initializers
 
     init {
-        this.monstersRepository.loadMonsters(
-            onSuccess = { monsters ->
-                this.monsters = monsters
-            }, onFailure = {
-                // TODO: エラーハンドリング
-            }
-        )
-        sleep(10 * 1000) // TODO: スリープしても1件も表示されない
+        runBlocking {
+            monstersRepository.loadMonsters(
+                onSuccess = {
+                    monsters = it
+                }, onFailure = {
+                    // TODO: エラーハンドリング
+                }
+            )
+        }
     }
 
     // endregion
