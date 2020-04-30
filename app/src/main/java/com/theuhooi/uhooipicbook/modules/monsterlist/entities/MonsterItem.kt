@@ -7,8 +7,8 @@ import kotlinx.android.parcel.Parcelize
 data class MonsterItem(
     val name: String = "",
     val description: String = "",
-    val baseColorCode: String = "",
-    val iconUrlString: String = "",
-    val dancingUrlString: String = "",
+    val base_color: String = "",
+    val icon_url: String = "",
+    val dancing_url: String = "",
     val order: Int = 0
 ) : Parcelable

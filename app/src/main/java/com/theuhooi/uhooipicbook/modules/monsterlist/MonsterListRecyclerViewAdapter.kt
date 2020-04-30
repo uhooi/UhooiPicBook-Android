@@ -36,7 +36,7 @@ class MonsterListRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
         val item = this.monsters[position]
-        holder.iconImageView.load(item.iconUrlString)
+        holder.iconImageView.load(item.icon_url)
         holder.nameTextView.text = item.name
 
         holder.view.tag = item
