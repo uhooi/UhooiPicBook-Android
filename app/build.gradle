@@ -40,7 +40,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics:17.4.0'
     implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
     implementation 'com.google.firebase:firebase-perf:19.0.7'
-    implementation 'com.google.firebase:firebase-firestore-ktx:21.2.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
 
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
