@@ -32,7 +32,7 @@ class MonsterDetailFragment : Fragment() {
 
         view.icon_imageview.load(this.args.monster.icon_url)
         view.name_textview.text = this.args.monster.name
-        view.description_textview.text = this.args.monster.description
+        view.description_textview.text = this.args.monster.description.replace("\\n", "\n")
     }
 
     // endregion
