@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_monster_detail">
         <argument
             android:name="monster"
-            app:argType="com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent$MonsterItem" />
+            app:argType=".modules.monsterlist.entities.MonsterItem" />
     </fragment>
 
 </navigation>

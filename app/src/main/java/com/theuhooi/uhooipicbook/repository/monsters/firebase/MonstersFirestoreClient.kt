@@ -4,7 +4,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonstersRepository
-import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent
+import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 
 class MonstersFirestoreClient : MonstersRepository {
 
@@ -17,11 +17,11 @@ class MonstersFirestoreClient : MonstersRepository {
     // region MonstersRepository
 
     override fun loadMonsters(
-        onSuccess: (monsters: List<MonsterContent.MonsterItem>) -> Unit,
+        onSuccess: (monsters: List<MonsterItem>) -> Unit,
         onFailure: (error: Throwable) -> Unit
     ) {
         this.firestore.collection("monsters")
-            .orderBy(MonsterContent.MonsterItem::order.name)
+            .orderBy(MonsterItem::order.name)
             .get()
             .addOnSuccessListener { result ->
                 onSuccess(result.toObjects())

@@ -7,7 +7,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
-import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterContent
+import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 
 class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener {
 
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
 
     // region MonsterListFragment.OnListFragmentInteractionListener
 
-    override fun onListFragmentInteraction(item: MonsterContent.MonsterItem) {
+    override fun onListFragmentInteraction(item: MonsterItem) {
         val action = MonsterListFragmentDirections.actionListToDetail(item)
         findNavController(R.id.nav_host_fragment).navigate(action)
     }
