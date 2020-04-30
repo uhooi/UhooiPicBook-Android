@@ -41,7 +41,6 @@ class MonsterListFragment : Fragment() {
                 // TODO: エラーハンドリング
             }
         )
-
     }
 
     override fun onAttach(context: Context) {
