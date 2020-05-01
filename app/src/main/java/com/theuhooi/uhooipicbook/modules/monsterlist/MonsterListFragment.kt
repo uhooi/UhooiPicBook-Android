@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
-import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent
-import com.theuhooi.uhooipicbook.modules.monsterlist.entity.MonsterContent.MonsterItem
+import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreClient
 
 class MonsterListFragment : Fragment() {
 
@@ -32,9 +32,15 @@ class MonsterListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerView = view as RecyclerView
-        recyclerView.adapter =
-            MonsterListRecyclerViewAdapter(MonsterContent.monsters, this.listener)
+        val monstersRepository: MonstersRepository = MonstersFirestoreClient() // TODO: DIする
+        monstersRepository.loadMonsters(
+            onSuccess = { monsters ->
+                val recyclerView = view as RecyclerView
+                recyclerView.adapter = MonsterListRecyclerViewAdapter(monsters, this.listener)
+            }, onFailure = {
+                // TODO: エラーハンドリング
+            }
+        )
     }
 
     override fun onAttach(context: Context) {

@@ -32,7 +32,8 @@ class MonsterDetailFragment : Fragment() {
 
         view.icon_imageview.load(this.args.monster.iconUrlString)
         view.name_textview.text = this.args.monster.name
-        view.description_textview.text = this.args.monster.description
+        // TODO: 文字列の加工を終わらせた状態で渡す
+        view.description_textview.text = this.args.monster.description.replace("\\n", "\n")
     }
 
     // endregion
