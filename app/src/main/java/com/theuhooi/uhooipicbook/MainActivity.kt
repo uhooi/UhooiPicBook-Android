@@ -5,10 +5,10 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.graphics.ColorUtils
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.theuhooi.uhooipicbook.extensions.actionBarColorToStatusBarColor
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
@@ -56,12 +56,8 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
 
         if (item.baseColorCode.isNotEmpty()) {
             this.supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor(item.baseColorCode)))
-
-            var hsl = FloatArray(3)
-            ColorUtils.colorToHSL(Color.parseColor(item.baseColorCode), hsl)
-            hsl.set(0, hsl[0] - 6) // TODO: 0未満にならないようにする
-            hsl.set(2, hsl[2] - 0.09f) // TODO: 0未満にならないようにする
-            this.window.statusBarColor = ColorUtils.HSLToColor(hsl)
+            this.window.statusBarColor =
+                Color.parseColor(item.baseColorCode).actionBarColorToStatusBarColor()
         }
     }
 
