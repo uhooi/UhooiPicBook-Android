@@ -55,9 +55,9 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         findNavController(R.id.nav_host_fragment).navigate(action)
 
         if (item.baseColorCode.isNotEmpty()) {
-            this.supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor(item.baseColorCode)))
-            this.window.statusBarColor =
-                Color.parseColor(item.baseColorCode).actionBarColorToStatusBarColor()
+            val actionBarColor = Color.parseColor(item.baseColorCode)
+            this.supportActionBar?.setBackgroundDrawable(ColorDrawable(actionBarColor))
+            this.window.statusBarColor = actionBarColor.actionBarColorToStatusBarColor()
         }
     }
 
