@@ -32,6 +32,24 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    sourceSets {
+        test.java.srcDirs += 'src/test/java'
+        androidTest.java.srcDirs += 'src/androidTest/java'
+    }
+
+    testOptions {
+        junitPlatform {
+            filters {
+                engines {
+                    include 'junit-vintage'
+                }
+            }
+        }
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -63,6 +81,15 @@ dependencies {
     def junit5_version = '5.6.2'
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5_version"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit5_version"
+    testImplementation "org.junit.vintage:junit-vintage-engine:$junit5_version"
+
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'org.robolectric:robolectric:4.3.1'
+
+    def androidx_test_version = '1.2.0'
+    testImplementation "androidx.test:core:$androidx_test_version"
+    testImplementation "androidx.test:runner:$androidx_test_version"
+    testImplementation "androidx.test:rules:$androidx_test_version"
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
