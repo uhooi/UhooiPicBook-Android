@@ -12,7 +12,6 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 
 |MonsterList|MonsterDetail|
 |:--|:--|
-|TBD|TBD|
 |![MonsterList](./docs/screenshots/monsterList.png)|![MonsterDetail](./docs/screenshots/monsterDetail.png)|
 
 ## Demo
