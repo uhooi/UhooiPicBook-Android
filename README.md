@@ -4,11 +4,15 @@
 
 Uhooi's character book for Android.
 
+[![](https://github.com/uhooi/UhooiPicBook-Android/workflows/CI/badge.svg)](https://github.com/uhooi/UhooiPicBook-Android/actions?query=workflow%3ACI)
+[![License](https://img.shields.io/github/license/uhooi/UhooiPicBook-Android)](https://github.com/uhooi/UhooiPicBook-Android/blob/master/LICENSE)
+[![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fthe_uhooi)](https://twitter.com/the_uhooi)
+
 ## Screenshots
 
-|MonsterList|MonsterDetail|ImagePopup|
-|:--|:--|:--|
-|TBD|TBD|TBD|
+|MonsterList|MonsterDetail|
+|:--|:--|
+|TBD|TBD|
 
 ## Demo
 
