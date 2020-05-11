@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -17,5 +19,6 @@
         android:clipToPadding="false"
         app:layoutManager="GridLayoutManager"
         tools:context=".modules.monsterlist.MonsterListFragment"
-        tools:listitem="@layout/item_monster_list" />
+        tools:listitem="@layout/item_monster_list"
+        app:observeList="@{viewModel.monsterList}"/>
 </layout>
