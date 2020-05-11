@@ -18,15 +18,19 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 
 TBD
 
-## Environment
+## Development
+
+You can develop UhooiPicBook-Android.
+
+### Environment
 
 - Android Studio: 3.6.1
 
-## Configuration
+### Configuration
 
 - Branching model: Git-flow
 
-## Setup
+### Setup
 
 1. Clone the project.
 
