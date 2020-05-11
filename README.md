@@ -36,7 +36,3 @@ $ cd UhooiPicBook-Android
 ```
 
 2. Open the project in Android Studio.
-
-## Architecture
-
-MVVM
