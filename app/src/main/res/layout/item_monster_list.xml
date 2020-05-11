@@ -30,7 +30,7 @@
                 android:layout_height="68dp"
                 android:layout_margin="16dp"
                 android:contentDescription="@string/icon_content_description"
-                android:src="@{monsterItem.iconUrlString}"/>
+                app:load="@{monsterItem.iconUrlString}"/>
 
             <TextView
                 android:id="@+id/name_textview"
