@@ -6,6 +6,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 apply plugin: 'io.gitlab.arturbosch.detekt'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -36,6 +37,10 @@ android {
         unitTests {
             includeAndroidResources = true
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 }
 
