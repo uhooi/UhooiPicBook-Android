@@ -6,9 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
+import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel
 import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreClient
 
 class MonsterListFragment : Fragment() {
@@ -16,6 +20,7 @@ class MonsterListFragment : Fragment() {
     // region Stored Instance Properties
 
     private var listener: OnListFragmentInteractionListener? = null
+    private val viewModel: MonsterListViewModel by viewModels()
 
     // endregion
 
@@ -25,22 +30,14 @@ class MonsterListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_monster_list, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val monstersRepository: MonstersRepository = MonstersFirestoreClient() // TODO: DIする
-        monstersRepository.loadMonsters(
-            onSuccess = { monsters ->
-                val recyclerView = view as RecyclerView
-                recyclerView.adapter = MonsterListRecyclerViewAdapter(monsters, this.listener)
-            }, onFailure = {
-                // TODO: エラーハンドリング
-            }
-        )
+    ): View? = FragmentMonsterListBinding.inflate(inflater, container, false).let {
+        it.monsterListRecyclerview.apply {
+            adapter = MonsterListRecyclerViewAdapter(listener, context, viewModel, viewLifecycleOwner)
+            layoutManager = LinearLayoutManager(context)
+        }
+        it.viewModel = viewModel
+        it.lifecycleOwner = viewLifecycleOwner
+        it.root
     }
 
     override fun onAttach(context: Context) {
