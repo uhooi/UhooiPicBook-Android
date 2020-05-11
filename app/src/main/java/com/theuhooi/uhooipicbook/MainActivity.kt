@@ -8,12 +8,13 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.theuhooi.uhooipicbook.extensions.actionBarColorToStatusBarColor
+import com.theuhooi.uhooipicbook.extensions.ColorIntInterface
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 
-class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener,
+    ColorIntInterface {
 
     // region View Life-Cycle Methods
 
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         if (item.baseColorCode.isNotEmpty()) {
             val actionBarColor = Color.parseColor(item.baseColorCode)
             this.supportActionBar?.setBackgroundDrawable(ColorDrawable(actionBarColor))
-            this.window.statusBarColor = actionBarColor.actionBarColorToStatusBarColor()
+            this.window.statusBarColor = actionBarColor.actionBarColorToStatusBarColor
         }
     }
 

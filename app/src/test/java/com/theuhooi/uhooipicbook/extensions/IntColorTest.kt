@@ -12,7 +12,7 @@ import org.robolectric.annotation.Config
 
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [Build.VERSION_CODES.P])
-class IntColorTest {
+class IntColorTest : ColorIntInterface {
 
     // region TestCase Life-Cycle Methods
 
@@ -47,7 +47,7 @@ class IntColorTest {
 
         for ((beforeColor, expect) in testCases) {
             assertEquals(
-                ColorUtils.HSLToColor(beforeColor).actionBarColorToStatusBarColor(),
+                ColorUtils.HSLToColor(beforeColor).actionBarColorToStatusBarColor,
                 ColorUtils.HSLToColor(expect)
             )
         }
