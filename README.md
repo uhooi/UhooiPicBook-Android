@@ -6,7 +6,7 @@
 
 ![Logo](./Docs/Logo.png)
 
-Uhooi's character book for Android.
+UhooiPicBook-Android is Uhooi's character book for Android.
 
 ## Screenshots
 
