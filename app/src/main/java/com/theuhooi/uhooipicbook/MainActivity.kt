@@ -8,13 +8,13 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.theuhooi.uhooipicbook.extensions.ColorIntInterface
+import com.theuhooi.uhooipicbook.extensions.IntColorInterface
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 
 class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener,
-    ColorIntInterface {
+    IntColorInterface {
 
     // region View Life-Cycle Methods
 

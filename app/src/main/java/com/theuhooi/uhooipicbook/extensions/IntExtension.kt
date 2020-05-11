@@ -3,7 +3,7 @@ package com.theuhooi.uhooipicbook.extensions
 import androidx.core.graphics.ColorUtils
 import kotlin.math.max
 
-interface ColorIntInterface {
+interface IntColorInterface {
     val Int.actionBarColorToStatusBarColor: Int
         get() {
             val hsl = FloatArray(3)
