@@ -4,18 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
-import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel
-import kotlinx.android.synthetic.main.item_monster_list.view.*
 
 class MonsterListRecyclerViewAdapter(
     private val listener: OnListFragmentInteractionListener?,
@@ -44,6 +38,7 @@ class MonsterListRecyclerViewAdapter(
         holder.binding.apply {
             lifecycleOwner = viewLifecycleOwner
             monsterItem = viewModel.monsterList.value?.get(position)
+            cardView.tag = viewModel.monsterList.value?.get(position)
             cardView.setOnClickListener(onClickListener)
         }
     }
