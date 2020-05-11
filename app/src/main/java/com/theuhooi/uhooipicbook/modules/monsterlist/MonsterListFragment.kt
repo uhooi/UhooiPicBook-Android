@@ -35,6 +35,7 @@ class MonsterListFragment : Fragment() {
             adapter = MonsterListRecyclerViewAdapter(listener, context, viewModel, viewLifecycleOwner)
             layoutManager = LinearLayoutManager(context)
         }
+        viewModel.loadMonsters()
         it.viewModel = viewModel
         it.lifecycleOwner = viewLifecycleOwner
         it.root
