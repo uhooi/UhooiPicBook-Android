@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/github/license/uhooi/UhooiPicBook-Android)](https://github.com/uhooi/UhooiPicBook-Android/blob/master/LICENSE)
 [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fthe_uhooi)](https://twitter.com/the_uhooi)
 
-![Logo](./Docs/Logo.png)
+![Logo](./docs/logo.png)
 
 UhooiPicBook-Android is Uhooi's character book for Android.
 
@@ -13,7 +13,7 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 |MonsterList|MonsterDetail|
 |:--|:--|
 |TBD|TBD|
-|![MonsterList](./Docs/Screenshots/MonsterList.png)|![MonsterDetail](./Docs/Screenshots/MonsterDetail.png)|
+|![MonsterList](./docs/screenshots/monsterList.png)|![MonsterDetail](./docs/screenshots/monsterDetail.png)|
 
 ## Demo
 
