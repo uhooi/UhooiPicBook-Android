@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/monster_list_fragment"
         android:name="com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment"
-        android:label="monster_list_fragment"
+        android:label=""
         tools:layout="@layout/fragment_monster_list">
         <action
             android:id="@+id/action_list_to_detail"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/monster_detail_fragment"
         android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragment"
-        android:label="monster_detail_fragment"
+        android:label=""
         tools:layout="@layout/fragment_monster_detail">
         <argument
             android:name="monster"
