@@ -45,10 +45,10 @@ class IntColorTest : IntColorInterface {
             Pair(floatArrayOf(0F, 0F, 1F), floatArrayOf(0F, 0F, 0.91F))
         )
 
-        for ((beforeColor, expect) in testCases) {
+        for ((beforeColor, expected) in testCases) {
             assertEquals(
                 ColorUtils.HSLToColor(beforeColor).actionBarColorToStatusBarColor,
-                ColorUtils.HSLToColor(expect)
+                ColorUtils.HSLToColor(expected)
             )
         }
     }
