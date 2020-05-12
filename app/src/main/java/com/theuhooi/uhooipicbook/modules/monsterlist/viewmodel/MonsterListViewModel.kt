@@ -14,6 +14,11 @@ class MonsterListViewModel : ViewModel() {
     private val _monsterList = MutableLiveData<List<MonsterItem>>()
     val monsterList: LiveData<List<MonsterItem>> = _monsterList
 
+    init {
+        //インスタンスを作成したタイミングで読み込む
+        loadMonsters()
+    }
+
     fun loadMonsters() {
         repository.loadMonsters(
             onSuccess = {monsters ->

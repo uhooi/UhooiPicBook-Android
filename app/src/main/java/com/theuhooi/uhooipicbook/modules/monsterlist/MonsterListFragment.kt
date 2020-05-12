@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel
@@ -17,7 +20,9 @@ class MonsterListFragment : Fragment() {
     // region Stored Instance Properties
 
     private var listener: OnListFragmentInteractionListener? = null
-    private val viewModel: MonsterListViewModel by viewModels()
+
+    // navGraphViewModelsを使うことで同じnavGraph内で同じViewModelのインスタンスを保有できる
+    private val viewModel: MonsterListViewModel by navGraphViewModels(R.id.nav_graph)
 
     // endregion
 
@@ -32,7 +37,7 @@ class MonsterListFragment : Fragment() {
             adapter = MonsterListRecyclerViewAdapter(listener, context, viewModel, viewLifecycleOwner)
             layoutManager = LinearLayoutManager(context)
         }
-        viewModel.loadMonsters()
+        //viewModel.loadMonsters()
         it.viewModel = viewModel
         it.lifecycleOwner = viewLifecycleOwner
         it.root
