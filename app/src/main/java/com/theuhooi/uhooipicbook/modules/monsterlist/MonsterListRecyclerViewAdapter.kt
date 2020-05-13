@@ -29,7 +29,10 @@ class MonsterListRecyclerViewAdapter(
 
     // region View Life-Cycle Methods
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterListRecyclerViewHolder = ItemMonsterListBinding.inflate(
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): MonsterListRecyclerViewHolder = ItemMonsterListBinding.inflate(
         LayoutInflater.from(context), parent, false).let {
         MonsterListRecyclerViewHolder(it)
     }
