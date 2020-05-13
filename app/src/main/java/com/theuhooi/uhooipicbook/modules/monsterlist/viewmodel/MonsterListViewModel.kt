@@ -24,7 +24,7 @@ class MonsterListViewModel : ViewModel() {
                 _monsterList.value = monsters
             },
             onFailure = {
-                //TODO エラーハンドリング
+                // TODO: エラーハンドリング
             }
         )
     }
