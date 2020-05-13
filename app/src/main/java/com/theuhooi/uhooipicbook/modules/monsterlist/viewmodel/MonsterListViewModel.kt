@@ -15,7 +15,6 @@ class MonsterListViewModel : ViewModel() {
     val monsterList: LiveData<List<MonsterItem>> = _monsterList
 
     init {
-        //インスタンスを作成したタイミングで読み込む
         loadMonsters()
     }
 
