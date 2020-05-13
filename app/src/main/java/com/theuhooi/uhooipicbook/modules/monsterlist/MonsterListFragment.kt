@@ -19,7 +19,6 @@ class MonsterListFragment : Fragment() {
 
     private var listener: OnListFragmentInteractionListener? = null
 
-    // navGraphViewModelsを使うことで同じnavGraph内で同じViewModelのインスタンスを保有できる
     private val viewModel: MonsterListViewModel by navGraphViewModels(R.id.nav_graph)
 
     // endregion
