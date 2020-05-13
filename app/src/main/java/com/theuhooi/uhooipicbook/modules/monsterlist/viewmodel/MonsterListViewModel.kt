@@ -18,7 +18,7 @@ class MonsterListViewModel : ViewModel() {
         loadMonsters()
     }
 
-    fun loadMonsters() {
+    private fun loadMonsters() {
         repository.loadMonsters(
             onSuccess = {monsters ->
                 _monsterList.value = monsters
