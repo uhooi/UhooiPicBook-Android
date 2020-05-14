@@ -4,9 +4,20 @@ on:
   push:
     branches:
       - master
-      - releases/**
+      # - release/**
       - develop
-      - feature/**
+      # - feature/**
+    paths-ignore:
+      - docs/**
+      - README.md
+      - LICENSE
+  pull_request:
+    branches:
+      - develop
+    paths-ignore:
+      - docs/**
+      - README.md
+      - LICENSE
 
 jobs:
   test:
