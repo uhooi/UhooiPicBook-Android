@@ -14,14 +14,18 @@ class MonsterListViewModel : ViewModel() {
     private val _monsterList = MutableLiveData<List<MonsterItem>>()
     val monsterList: LiveData<List<MonsterItem>> = _monsterList
 
+    val isLoading = MutableLiveData(false)
+
     init {
         loadMonsters()
     }
 
     private fun loadMonsters() {
+        isLoading.value = true
         repository.loadMonsters(
-            onSuccess = {monsters ->
+            onSuccess = { monsters ->
                 _monsterList.value = monsters
+                isLoading.value = false
             },
             onFailure = {
                 // TODO: エラーハンドリング
