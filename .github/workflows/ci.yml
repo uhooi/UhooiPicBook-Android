@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - master
-      # - release/**
       - develop
-      # - feature/**
     paths-ignore:
       - docs/**
       - README.md
