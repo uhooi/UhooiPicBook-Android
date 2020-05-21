@@ -31,7 +31,7 @@ class MonsterListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? = FragmentMonsterListBinding.inflate(inflater, container, false).let {
         it.monsterListRecyclerview.apply {
-            adapter = MonsterListRecyclerViewAdapter(listener, context, viewModel, viewLifecycleOwner)
+            adapter = MonsterListRecyclerViewAdapter(listener, viewModel, viewLifecycleOwner)
             layoutManager = LinearLayoutManager(context)
         }
         it.viewModel = viewModel
