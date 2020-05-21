@@ -38,8 +38,9 @@ class MonsterListRecyclerViewAdapter(
     override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
         holder.binding.apply {
             lifecycleOwner = viewLifecycleOwner
-            monsterItem = viewModel.monsterList.value?.get(position)
-            cardView.tag = viewModel.monsterList.value?.get(position)
+            val monster = monsters.value?.get(position)
+            monsterItem = monster
+            cardView.tag = monster
             cardView.setOnClickListener(onClickListener)
         }
     }
