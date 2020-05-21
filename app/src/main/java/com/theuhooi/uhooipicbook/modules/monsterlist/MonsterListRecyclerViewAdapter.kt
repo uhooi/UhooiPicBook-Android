@@ -32,7 +32,7 @@ class MonsterListRecyclerViewAdapter(
         parent: ViewGroup,
         viewType: Int
     ): MonsterListRecyclerViewHolder = ItemMonsterListBinding.inflate(
-        LayoutInflater.from(context), parent, false).let {
+        LayoutInflater.from(parent.context), parent, false).let {
         MonsterListRecyclerViewHolder(it)
     }
 
