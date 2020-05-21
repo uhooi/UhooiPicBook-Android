@@ -45,7 +45,7 @@ class MonsterListRecyclerViewAdapter(
         }
     }
 
-    override fun getItemCount(): Int = viewModel.monsterList.value?.size ?: 0
+    override fun getItemCount(): Int = this.monsters.value?.size ?: 0
 
     // endregion
 
