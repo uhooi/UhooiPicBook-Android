@@ -13,7 +13,6 @@ import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewMo
 
 class MonsterListRecyclerViewAdapter(
     private val listener: OnListFragmentInteractionListener?,
-    private val context: Context,
     private val viewModel: MonsterListViewModel,
     private val viewLifecycleOwner: LifecycleOwner
 ) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.MonsterListRecyclerViewHolder>() {
