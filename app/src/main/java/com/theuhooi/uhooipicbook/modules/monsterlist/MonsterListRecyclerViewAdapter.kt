@@ -1,6 +1,5 @@
 package com.theuhooi.uhooipicbook.modules.monsterlist
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
