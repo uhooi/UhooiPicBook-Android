@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel
 
 class MonsterListRecyclerViewAdapter(
     private val listener: OnListFragmentInteractionListener?,
