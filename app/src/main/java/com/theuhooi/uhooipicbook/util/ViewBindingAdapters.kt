@@ -13,6 +13,6 @@ fun goneUnless(view: View, visible: Boolean) {
 }
 
 @BindingAdapter("imageUrl")
-fun load(imageView: ImageView, imageUrl: String) {
+fun load(imageView: ImageView, imageUrl: String?) {
     imageView.load(imageUrl)
 }
