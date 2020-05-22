@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View" />
-
         <variable
             name="viewModel"
             type="com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel" />
@@ -24,14 +22,14 @@
             android:paddingStart="@dimen/start_padding"
             android:paddingEnd="@dimen/end_padding"
             app:layoutManager="GridLayoutManager"
-            app:observeList="@{viewModel.monsterList}"
+            app:observedList="@{viewModel.monsterList}"
             tools:context=".modules.monsterlist.MonsterListFragment"
             tools:listitem="@layout/item_monster_list" />
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:goneUnless="@{viewModel.isLoading}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
