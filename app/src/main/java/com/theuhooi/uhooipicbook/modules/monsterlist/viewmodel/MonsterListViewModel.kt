@@ -12,7 +12,8 @@ class MonsterListViewModel : ViewModel() {
     private val repository: MonstersRepository = MonstersFirestoreClient()
 
     private val _monsterList = MutableLiveData<List<MonsterItem>>()
-    val monsterList: LiveData<List<MonsterItem>> = _monsterList
+    val monsterList: LiveData<List<MonsterItem>>
+        get() = _monsterList
 
     val isLoading = MutableLiveData(false)
 
