@@ -9,11 +9,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.theuhooi.uhooipicbook.extensions.IntColorInterface
-import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
-import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.util.OnListFragmentInteractionListener
 
-class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener,
+class MainActivity : AppCompatActivity(), OnListFragmentInteractionListener,
     IntColorInterface {
 
     // region View Life-Cycle Methods
@@ -52,8 +51,6 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
     // region MonsterListFragment.OnListFragmentInteractionListener
 
     override fun onListFragmentInteraction(item: MonsterItem) {
-        val action = MonsterListFragmentDirections.actionListToDetail(item)
-        findNavController(R.id.nav_host_fragment).navigate(action)
 
         if (item.baseColorCode.isNotEmpty()) {
             val actionBarColor = Color.parseColor(item.baseColorCode)
