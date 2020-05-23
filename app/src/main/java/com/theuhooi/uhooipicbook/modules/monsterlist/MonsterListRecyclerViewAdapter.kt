@@ -30,9 +30,11 @@ class MonsterListRecyclerViewAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MonsterListRecyclerViewHolder = ItemMonsterListBinding.inflate(
-        LayoutInflater.from(parent.context), parent, false).let {
-        MonsterListRecyclerViewHolder(it)
+    ): MonsterListRecyclerViewHolder {
+        val binding = ItemMonsterListBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
+        return MonsterListRecyclerViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
