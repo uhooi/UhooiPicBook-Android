@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel
 
 class MonsterListFragment : Fragment() {
 
@@ -29,14 +29,18 @@ class MonsterListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = FragmentMonsterListBinding.inflate(inflater, container, false).let {
-        it.monsterListRecyclerview.apply {
-            adapter = MonsterListRecyclerViewAdapter(listener, viewModel.monsterList, viewLifecycleOwner)
-            layoutManager = LinearLayoutManager(context)
-        }
-        it.viewModel = viewModel
-        it.lifecycleOwner = viewLifecycleOwner
-        it.root
+    ): View? {
+        val binding = FragmentMonsterListBinding.inflate(inflater, container, false)
+        binding.monsterListRecyclerview.adapter =
+            MonsterListRecyclerViewAdapter(
+                this.listener,
+                this.viewModel.monsters,
+                this.viewLifecycleOwner
+            )
+        binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
+        binding.viewModel = this.viewModel
+        binding.lifecycleOwner = this.viewLifecycleOwner
+        return binding.root
     }
 
     override fun onAttach(context: Context) {
