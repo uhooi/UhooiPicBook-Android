@@ -17,6 +17,8 @@ class MonsterListViewModel : ViewModel() {
 
     val isLoading = MutableLiveData(false)
 
+    val selectedMonsterItemPosition = MutableLiveData(0)
+
     init {
         loadMonsters()
     }
