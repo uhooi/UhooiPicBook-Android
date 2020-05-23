@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel
 
 class MonsterListFragment : Fragment() {
 

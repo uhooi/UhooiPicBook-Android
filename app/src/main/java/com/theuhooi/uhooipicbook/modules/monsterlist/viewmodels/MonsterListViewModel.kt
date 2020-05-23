@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel
+package com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
