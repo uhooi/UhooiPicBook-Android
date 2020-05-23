@@ -3,18 +3,17 @@ package com.theuhooi.uhooipicbook.modules.monsterlist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
-import com.theuhooi.uhooipicbook.R
+import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import kotlinx.android.synthetic.main.item_monster_list.view.*
 
 class MonsterListRecyclerViewAdapter(
-    private val monsters: List<MonsterItem>,
-    private val listener: OnListFragmentInteractionListener?
+    private val listener: OnListFragmentInteractionListener?,
+    private val monsters: LiveData<List<MonsterItem>>,
+    private val viewLifecycleOwner: LifecycleOwner
 ) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.MonsterListRecyclerViewHolder>() {
 
     // region Stored Instance Properties
@@ -28,31 +27,31 @@ class MonsterListRecyclerViewAdapter(
 
     // region View Life-Cycle Methods
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MonsterListRecyclerViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_monster_list, parent, false)
-        return MonsterListRecyclerViewHolder(view)
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): MonsterListRecyclerViewHolder = ItemMonsterListBinding.inflate(
+        LayoutInflater.from(parent.context), parent, false).let {
+        MonsterListRecyclerViewHolder(it)
     }
 
     override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
-        val item = this.monsters[position]
-        holder.iconImageView.load(item.iconUrlString)
-        holder.nameTextView.text = item.name
-
-        holder.view.tag = item
-        holder.view.setOnClickListener(onClickListener)
+        holder.binding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            val monster = monsters.value?.get(position)
+            monsterItem = monster
+            cardView.tag = monster
+            cardView.setOnClickListener(onClickListener)
+        }
     }
 
-    override fun getItemCount(): Int = this.monsters.size
+    override fun getItemCount(): Int = this.monsters.value?.size ?: 0
 
     // endregion
 
     // region ViewHolder
 
-    class MonsterListRecyclerViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val iconImageView: ImageView = view.icon_imageview
-        val nameTextView: TextView = view.name_textview
-    }
+    class MonsterListRecyclerViewHolder(val binding: ItemMonsterListBinding) : RecyclerView.ViewHolder(binding.root)
 
     // endregion
 

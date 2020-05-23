@@ -1,36 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/card_margin"
-    android:foreground="?android:attr/selectableItemBackground"
-    app:cardElevation="@dimen/card_elevation">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <data>
+        <variable
+            name="monsterItem"
+            type="com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:ignore="UseCompoundDrawables">
+        android:layout_margin="@dimen/card_margin"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardElevation="@dimen/card_elevation">
 
-        <ImageView
-            android:id="@+id/icon_imageview"
-            android:layout_width="68dp"
-            android:layout_height="68dp"
-            android:layout_margin="16dp"
-            android:contentDescription="@string/icon_content_description" />
-
-        <TextView
-            android:id="@+id/name_textview"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@string/name_dummy"
-            android:textAppearance="?attr/textAppearanceListItem"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:id="@+id/icon_imageview"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/icon_content_description"
+                app:imageUrl="@{monsterItem.iconUrlString}"/>
+
+            <TextView
+                android:id="@+id/name_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/text_margin"
+                android:text="@{monsterItem.name, default=@string/name_dummy}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
