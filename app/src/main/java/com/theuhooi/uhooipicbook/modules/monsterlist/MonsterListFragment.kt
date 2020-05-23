@@ -14,7 +14,7 @@ import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
 import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel
 import com.theuhooi.uhooipicbook.util.OnListFragmentInteractionListener
 
 class MonsterListFragment : Fragment() {
@@ -33,14 +33,14 @@ class MonsterListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = FragmentMonsterListBinding.inflate(inflater, container, false).let {
-        it.monsterListRecyclerview.apply {
-            adapter = MonsterListRecyclerAdapter()
-            layoutManager = LinearLayoutManager(context)
-        }
-        it.viewModel = viewModel
-        it.lifecycleOwner = viewLifecycleOwner
-        it.root
+
+    ): View? {
+        val binding = FragmentMonsterListBinding.inflate(inflater, container, false)
+        binding.monsterListRecyclerview.adapter = MonsterListRecyclerAdapter()
+        binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
+        binding.viewModel = this.viewModel
+        binding.lifecycleOwner = this.viewLifecycleOwner
+        return binding.root
     }
 
     override fun onAttach(context: Context) {
@@ -77,7 +77,7 @@ class MonsterListFragment : Fragment() {
         override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
             holder.binding.apply {
                 lifecycleOwner = viewLifecycleOwner
-                val monster = viewModel.monsterList.value?.get(position)
+                val monster = viewModel.monsters.value?.get(position)
                 monsterItem = monster
                 cardView.tag = monster
                 cardView.setOnClickListener { v ->
@@ -90,7 +90,7 @@ class MonsterListFragment : Fragment() {
             }
         }
 
-        override fun getItemCount(): Int = viewModel.monsterList.value?.size ?: 0
+        override fun getItemCount(): Int = viewModel.monsters.value?.size ?: 0
 
     }
 

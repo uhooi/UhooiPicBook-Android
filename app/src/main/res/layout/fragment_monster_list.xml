@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel" />
+            type="com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,7 @@
             android:paddingStart="@dimen/start_padding"
             android:paddingEnd="@dimen/end_padding"
             app:layoutManager="GridLayoutManager"
-            app:observedList="@{viewModel.monsterList}"
+            app:observedList="@{viewModel.monsters}"
             tools:context=".modules.monsterlist.MonsterListFragment"
             tools:listitem="@layout/item_monster_list" />
 

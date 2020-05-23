@@ -13,7 +13,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterDetailBinding
 import com.theuhooi.uhooipicbook.databinding.ItemMonsterDetailBinding
-import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodel.MonsterListViewModel
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel
 import com.theuhooi.uhooipicbook.util.OnListFragmentInteractionListener
 
 class MonsterDetailFragment : Fragment() {
@@ -46,7 +46,7 @@ class MonsterDetailFragment : Fragment() {
 
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
-                    val item = viewModel.monsterList.value?.get(position)
+                    val item = viewModel.monsters.value?.get(position)
                     if (item != null) {
                         listener?.onListFragmentInteraction(item)
                     }
@@ -89,12 +89,12 @@ class MonsterDetailFragment : Fragment() {
 
         override fun onBindViewHolder(holder: MonsterDetailViewHolder, position: Int) {
             holder.binding.also {
-                it.monsterItem = viewModel.monsterList.value?.get(position)
+                it.monsterItem = viewModel.monsters.value?.get(position)
                 it.lifecycleOwner = viewLifecycleOwner
             }
         }
 
-        override fun getItemCount(): Int = viewModel.monsterList.value?.size ?: 0
+        override fun getItemCount(): Int = viewModel.monsters.value?.size ?: 0
     }
 
     // endregion
