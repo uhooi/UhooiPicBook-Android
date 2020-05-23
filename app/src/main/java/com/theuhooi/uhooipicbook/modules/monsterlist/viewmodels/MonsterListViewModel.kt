@@ -9,6 +9,8 @@ import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreC
 
 class MonsterListViewModel : ViewModel() {
 
+    // region Stored Instance Properties
+
     private val repository: MonstersRepository = MonstersFirestoreClient()
 
     private val _monsters = MutableLiveData<List<MonsterItem>>()
@@ -17,9 +19,17 @@ class MonsterListViewModel : ViewModel() {
 
     val isLoading = MutableLiveData(false)
 
+    // endregion
+
+    // region Initializers
+
     init {
         loadMonsters()
     }
+
+    // endregion
+
+    // region Other Private Methods
 
     private fun loadMonsters() {
         isLoading.value = true
@@ -33,4 +43,7 @@ class MonsterListViewModel : ViewModel() {
             }
         )
     }
+
+    // endregion
+
 }
