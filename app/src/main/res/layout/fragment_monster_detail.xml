@@ -27,7 +27,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:tabBackground="@drawable/dots_tab_indicator"
             app:tabGravity="center"
-            app:tabIndicatorGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabMaxWidth="30dp"
             app:tabMode="scrollable" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
