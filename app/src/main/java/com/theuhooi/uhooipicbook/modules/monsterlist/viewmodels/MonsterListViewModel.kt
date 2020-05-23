@@ -11,7 +11,7 @@ class MonsterListViewModel : ViewModel() {
 
     // region Stored Instance Properties
 
-    private val repository: MonstersRepository = MonstersFirestoreClient()
+    private val repository: MonstersRepository = MonstersFirestoreClient() // TODO: DIする
 
     private val _monsters = MutableLiveData<List<MonsterItem>>()
     val monsters: LiveData<List<MonsterItem>>
@@ -35,7 +35,7 @@ class MonsterListViewModel : ViewModel() {
 
     private fun loadMonsters() {
         _isLoading.value = true
-        repository.loadMonsters(
+        this.repository.loadMonsters(
             onSuccess = { monsters ->
                 _monsters.value = monsters
                 _isLoading.value = false
