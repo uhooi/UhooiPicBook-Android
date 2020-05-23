@@ -11,9 +11,9 @@ class MonsterListViewModel : ViewModel() {
 
     private val repository: MonstersRepository = MonstersFirestoreClient()
 
-    private val _monsterList = MutableLiveData<List<MonsterItem>>()
-    val monsterList: LiveData<List<MonsterItem>>
-        get() = _monsterList
+    private val _monsters = MutableLiveData<List<MonsterItem>>()
+    val monsters: LiveData<List<MonsterItem>>
+        get() = _monsters
 
     val isLoading = MutableLiveData(false)
 
@@ -25,7 +25,7 @@ class MonsterListViewModel : ViewModel() {
         isLoading.value = true
         repository.loadMonsters(
             onSuccess = { monsters ->
-                _monsterList.value = monsters
+                _monsters.value = monsters
                 isLoading.value = false
             },
             onFailure = {
