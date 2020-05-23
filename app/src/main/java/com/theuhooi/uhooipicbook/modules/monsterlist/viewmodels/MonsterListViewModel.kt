@@ -17,7 +17,9 @@ class MonsterListViewModel : ViewModel() {
     val monsters: LiveData<List<MonsterItem>>
         get() = _monsters
 
-    val isLoading = MutableLiveData(false)
+    private val _isLoading = MutableLiveData(false)
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
 
     // endregion
 
@@ -32,11 +34,11 @@ class MonsterListViewModel : ViewModel() {
     // region Other Private Methods
 
     private fun loadMonsters() {
-        isLoading.value = true
+        _isLoading.value = true
         repository.loadMonsters(
             onSuccess = { monsters ->
                 _monsters.value = monsters
-                isLoading.value = false
+                _isLoading.value = false
             },
             onFailure = {
                 // TODO: エラーハンドリング
