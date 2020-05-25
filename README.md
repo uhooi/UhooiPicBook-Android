@@ -41,3 +41,10 @@ $ cd UhooiPicBook-Android
 ```
 
 2. Open the project in Android Studio.
+
+## Contribution
+
+I would be happy if you contribute :)
+
+- [New issue](https://github.com/uhooi/UhooiPicBook-Android/issues/new)
+- [New pull request](https://github.com/uhooi/UhooiPicBook-Android/compare)
