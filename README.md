@@ -28,6 +28,7 @@ You can develop UhooiPicBook-Android.
 
 ### Configuration
 
+- Architecture: MVVM
 - Branching model: Git-flow
 
 ### Setup
