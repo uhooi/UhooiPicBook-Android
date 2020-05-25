@@ -16,7 +16,7 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 
 ## Demo
 
-TBD
+![Demo](./docs/demo/demo.gif)
 
 ## Development
 
