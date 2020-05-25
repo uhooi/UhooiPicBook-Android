@@ -6,6 +6,7 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 apply plugin: 'io.gitlab.arturbosch.detekt'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -37,13 +38,17 @@ android {
             includeAndroidResources = true
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
     implementation 'io.coil-kt:coil:0.9.5'
 
     // Firebase
-    implementation 'com.google.firebase:firebase-analytics:17.4.0'
+    implementation 'com.google.firebase:firebase-analytics:17.4.2'
     implementation 'com.google.firebase:firebase-crashlytics:17.0.0'
     implementation 'com.google.firebase:firebase-perf:19.0.7'
     implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'

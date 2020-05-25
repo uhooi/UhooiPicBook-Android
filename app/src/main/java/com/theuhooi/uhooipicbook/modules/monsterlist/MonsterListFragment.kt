@@ -6,16 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.navGraphViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.theuhooi.uhooipicbook.R
+import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreClient
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel
 
 class MonsterListFragment : Fragment() {
 
     // region Stored Instance Properties
 
     private var listener: OnListFragmentInteractionListener? = null
+
+    private val viewModel: MonsterListViewModel by navGraphViewModels(R.id.nav_graph)
 
     // endregion
 
@@ -26,21 +30,17 @@ class MonsterListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_monster_list, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val monstersRepository: MonstersRepository = MonstersFirestoreClient() // TODO: DIする
-        monstersRepository.loadMonsters(
-            onSuccess = { monsters ->
-                val recyclerView = view as RecyclerView
-                recyclerView.adapter = MonsterListRecyclerViewAdapter(monsters, this.listener)
-            }, onFailure = {
-                // TODO: エラーハンドリング
-            }
-        )
+        val binding = FragmentMonsterListBinding.inflate(inflater, container, false)
+        binding.monsterListRecyclerview.adapter =
+            MonsterListRecyclerViewAdapter(
+                this.listener,
+                this.viewModel.monsters,
+                this.viewLifecycleOwner
+            )
+        binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
+        binding.viewModel = this.viewModel
+        binding.lifecycleOwner = this.viewLifecycleOwner
+        return binding.root
     }
 
     override fun onAttach(context: Context) {
