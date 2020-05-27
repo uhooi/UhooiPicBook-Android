@@ -56,7 +56,7 @@ class MonsterListViewModel : ViewModel() {
 
     // region Other Public Methods
 
-    fun setSelectedItemPosition(position: Int) {
+    fun selectMonsterAt(position: Int) {
         _selectedMonsterItemPosition.value = position
     }
 

@@ -81,7 +81,7 @@ class MonsterListFragment : Fragment() {
                 monsterItem = monster
                 cardView.tag = monster
                 cardView.setOnClickListener { v ->
-                    viewModel.setSelectedItemPosition(position)
+                    viewModel.selectMonsterAt(position)
                     val item = v.tag as MonsterItem
                     listener?.onListFragmentInteraction(item)
                     findNavController().navigate(MonsterListFragmentDirections.actionListToDetail())
