@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+    paths-ignore:
+      - docs/**
+      - README.md
+      - LICENSE
+  pull_request:
+    branches:
+      - develop
+    paths-ignore:
+      - docs/**
+      - README.md
+      - LICENSE
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # JDKのセットアップ
+    - name: set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+
+    # Gradleのキャッシュ復元
+    - uses: actions/cache@v1
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    # 依存関係の出力
+    - name: Displays the Android dependencies of the project
+      run: ./gradlew androidDependencies
+
+    # コンパイル
+    - name: Run Compile
+      run: ./gradlew assembleDebug
+
+    # テスト
+    - name: Test with Gradle
+      run: ./gradlew test --stacktrace
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # 静的解析
+    - name: Run Inspection
+      run: ./gradlew lint
+
+  detekt:
+    runs-on: ubuntu-latest
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # 静的解析
+    - name: Lint with detekt
+      run: ./gradlew detekt

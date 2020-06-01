@@ -1,0 +1,26 @@
+build:
+  maxIssues: 3
+  weights:
+    ForbiddenComment: 0
+    MagicNumber: 0
+    MatchingDeclarationName: 1
+    TooGenericExceptionThrown: 1
+
+console-reports:
+  active: true
+  exclude:
+  #  - 'ProjectStatisticsReport'
+  #  - 'ComplexityReport'
+  #  - 'NotificationReport'
+  #  - 'FindingsReport'
+  #  - 'FileBasedFindingsReport'
+  #  - 'BuildFailureReport'
+
+processors:
+  active: true
+  exclude:
+  # - 'FunctionCountProcessor'
+  # - 'PropertyCountProcessor'
+  # - 'ClassCountProcessor'
+  # - 'PackageCountProcessor'
+  # - 'KtFileCountProcessor'
