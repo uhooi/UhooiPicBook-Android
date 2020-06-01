@@ -42,9 +42,9 @@ jobs:
     - name: Displays the Android dependencies of the project
       run: ./gradlew androidDependencies
 
-    # ビルド
-    - name: Build with Gradle
-      run: ./gradlew build
+    # コンパイル
+    - name: Run Compile
+      run: ./gradlew assembleDebug
 
     # テスト
     - name: Test with Gradle
