@@ -24,7 +24,7 @@ You can develop UhooiPicBook-Android.
 
 ### Environment
 
-- Android Studio: 3.6.1
+- Android Studio: 4.0.0
 
 ### Configuration
 
