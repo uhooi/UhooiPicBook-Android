@@ -19,10 +19,6 @@
         android:id="@+id/monster_detail_fragment"
         android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragment"
         android:label=""
-        tools:layout="@layout/fragment_monster_detail">
-        <argument
-            android:name="monster"
-            app:argType=".modules.monsterlist.entities.MonsterItem" />
-    </fragment>
+        tools:layout="@layout/fragment_monster_detail"/>
 
 </navigation>

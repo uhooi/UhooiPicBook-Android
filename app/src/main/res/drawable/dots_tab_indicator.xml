@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape android:shape="ring"
+            android:innerRadius="0dp"
+            android:thickness="4dp"
+            android:useLevel="false">
+            <!-- お好きな色をどうぞ -->
+            <solid android:color="#00e676"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="ring"
+            android:thickness="4dp"
+            android:innerRadius="0dp"
+            android:useLevel="false">
+            <solid android:color="#bdbdbd"/>
+        </shape>
+    </item>
+
+</selector>

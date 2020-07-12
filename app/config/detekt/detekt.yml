@@ -1,5 +1,5 @@
 build:
-  maxIssues: 3
+  maxIssues: 5
   weights:
     ForbiddenComment: 0
     MagicNumber: 0

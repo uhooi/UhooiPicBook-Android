@@ -6,12 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
+import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel
+import com.theuhooi.uhooipicbook.util.OnListFragmentInteractionListener
 
 class MonsterListFragment : Fragment() {
 
@@ -29,14 +33,10 @@ class MonsterListFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         val binding = FragmentMonsterListBinding.inflate(inflater, container, false)
-        binding.monsterListRecyclerview.adapter =
-            MonsterListRecyclerViewAdapter(
-                this.listener,
-                this.viewModel.monsters,
-                this.viewLifecycleOwner
-            )
+        binding.monsterListRecyclerview.adapter = MonsterListRecyclerAdapter()
         binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
         binding.viewModel = this.viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
@@ -61,12 +61,44 @@ class MonsterListFragment : Fragment() {
 
     // endregion
 
-    // region Interfaces
+    // region View Life-Cycle Methods
 
-    interface OnListFragmentInteractionListener {
-        fun onListFragmentInteraction(item: MonsterItem)
+    private inner class MonsterListRecyclerAdapter: RecyclerView.Adapter<MonsterListRecyclerViewHolder>() {
+
+        override fun onCreateViewHolder(
+            parent: ViewGroup,
+            viewType: Int
+        ): MonsterListRecyclerViewHolder = ItemMonsterListBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        ).let {
+            MonsterListRecyclerViewHolder(it)
+        }
+
+        override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
+            holder.binding.apply {
+                lifecycleOwner = viewLifecycleOwner
+                val monster = viewModel.monsters.value?.get(position)
+                monsterItem = monster
+                cardView.tag = monster
+                cardView.setOnClickListener { v ->
+                    viewModel.selectMonsterAt(position)
+                    val item = v.tag as MonsterItem
+                    listener?.onListFragmentInteraction(item)
+                    findNavController().navigate(R.id.action_list_to_detail)
+
+                }
+            }
+        }
+
+        override fun getItemCount(): Int = viewModel.monsters.value?.size ?: 0
+
     }
 
     // endregion
 
+    // region ViewHolder
+
+    class MonsterListRecyclerViewHolder(val binding: ItemMonsterListBinding) : RecyclerView.ViewHolder(binding.root)
+
+    // endregion
 }

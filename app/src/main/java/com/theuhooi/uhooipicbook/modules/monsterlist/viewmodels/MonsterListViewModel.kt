@@ -21,9 +21,15 @@ class MonsterListViewModel : ViewModel() {
     val isLoading: LiveData<Boolean>
         get() = _isLoading
 
+    private val _selectedMonsterItemPosition = MutableLiveData<Int>()
+    val selectedMonsterItemPosition: LiveData<Int>
+        get() = _selectedMonsterItemPosition
+
     // endregion
 
     // region Initializers
+
+
 
     init {
         loadMonsters()
@@ -48,4 +54,11 @@ class MonsterListViewModel : ViewModel() {
 
     // endregion
 
+    // region Other Public Methods
+
+    fun selectMonsterAt(position: Int) {
+        _selectedMonsterItemPosition.value = position
+    }
+
+    // endregion
 }
