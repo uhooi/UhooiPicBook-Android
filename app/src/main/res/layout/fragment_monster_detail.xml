@@ -22,7 +22,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/name_dummy"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="36sp"
         android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
         android:layout_marginTop="64dp"
         android:text="@string/description_dummy"
         android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="?android:attr/textColorSecondary"
         android:textSize="16sp" />
 
 </LinearLayout>

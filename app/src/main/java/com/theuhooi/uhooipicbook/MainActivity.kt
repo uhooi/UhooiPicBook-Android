@@ -4,10 +4,10 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.google.android.material.color.MaterialColors
 import com.theuhooi.uhooipicbook.extensions.IntColorInterface
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
@@ -37,10 +37,20 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         val navController = findNavController(R.id.nav_host_fragment)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.monster_list_fragment) {
-                this.supportActionBar?.setBackgroundDrawable(
-                    ColorDrawable(ContextCompat.getColor(this, R.color.colorPrimary))
+                supportActionBar?.setBackgroundDrawable(
+                    ColorDrawable(
+                        MaterialColors.getColor(
+                            this,
+                            R.attr.colorPrimary,
+                            "colorPrimary is not set in the current theme"
+                        )
+                    )
                 )
-                this.window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimaryDark)
+                window.statusBarColor = MaterialColors.getColor(
+                    this,
+                    R.attr.colorPrimaryVariant,
+                    "colorPrimaryVariant is not set in the current theme"
+                )
             }
         }
         val appBarConfiguration = AppBarConfiguration(navController.graph)
