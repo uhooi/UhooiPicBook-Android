@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         val navController = findNavController(R.id.nav_host_fragment)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.monster_list_fragment) {
-                supportActionBar?.setBackgroundDrawable(
+                this.supportActionBar?.setBackgroundDrawable(
                     ColorDrawable(
                         MaterialColors.getColor(
                             this,
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
                         )
                     )
                 )
-                window.statusBarColor = MaterialColors.getColor(
+                this.window.statusBarColor = MaterialColors.getColor(
                     this,
                     R.attr.colorPrimaryVariant,
                     "colorPrimaryVariant is not set in the current theme"
