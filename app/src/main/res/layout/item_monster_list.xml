@@ -9,12 +9,11 @@
             type="com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem" />
     </data>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/card_margin"
-        android:foreground="?android:attr/selectableItemBackground"
         app:cardElevation="@dimen/card_elevation">
 
         <LinearLayout
@@ -28,7 +27,7 @@
                 android:layout_width="68dp"
                 android:layout_height="68dp"
                 android:layout_margin="16dp"
-                android:contentDescription="@string/icon_content_description"
+                android:contentDescription="@string/icon_description"
                 app:imageUrl="@{monsterItem.iconUrlString}"/>
 
             <TextView
@@ -39,9 +38,9 @@
                 android:layout_margin="@dimen/text_margin"
                 android:text="@{monsterItem.name, default=@string/name_dummy}"
                 android:textAppearance="?attr/textAppearanceListItem"
-                android:textColor="@android:color/black"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
