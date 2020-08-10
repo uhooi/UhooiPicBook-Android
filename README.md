@@ -8,6 +8,8 @@
 
 UhooiPicBook-Android is Uhooi's character book for Android.
 
+[<img src="./docs/google-play-badge.png" width="161.5">](https://play.google.com/store/apps/details?id=com.theuhooi.uhooipicbook)
+
 ## Screenshots
 
 |MonsterList|MonsterDetail|
