@@ -12,13 +12,17 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 
 ## Screenshots
 
+### Light
+
 |MonsterList|MonsterDetail|
 |:--|:--|
-|<img src="./docs/screenshots/monsterList.png" width="270">|<img src="./docs/screenshots/monsterDetail.png" width="270">|
+|<img src="./docs/screenshots/monsterList-light.png" width="270">|<img src="./docs/screenshots/monsterDetail-light.png" width="270">|
 
-## Demo
+### Dark
 
-<img src="./docs/demo/demo.gif" width="270">
+|MonsterList|MonsterDetail|
+|:--|:--|
+|<img src="./docs/screenshots/monsterList-dark.png" width="270">|<img src="./docs/screenshots/monsterDetail-dark.png" width="270">|
 
 ## Development
 
