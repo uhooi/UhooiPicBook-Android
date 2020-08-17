@@ -8,15 +8,21 @@
 
 UhooiPicBook-Android is Uhooi's character book for Android.
 
+[<img src="./docs/google-play-badge.png" width="161.5">](https://play.google.com/store/apps/details?id=com.theuhooi.uhooipicbook)
+
 ## Screenshots
+
+### Light
 
 |MonsterList|MonsterDetail|
 |:--|:--|
-|<img src="./docs/screenshots/monsterList.png" width="270">|<img src="./docs/screenshots/monsterDetail.png" width="270">|
+|<img src="./docs/screenshots/monsterList-light.png" width="270">|<img src="./docs/screenshots/monsterDetail-light.png" width="270">|
 
-## Demo
+### Dark
 
-<img src="./docs/demo/demo.gif" width="270">
+|MonsterList|MonsterDetail|
+|:--|:--|
+|<img src="./docs/screenshots/monsterList-dark.png" width="270">|<img src="./docs/screenshots/monsterDetail-dark.png" width="270">|
 
 ## Development
 
@@ -24,7 +30,7 @@ You can develop UhooiPicBook-Android.
 
 ### Environment
 
-- Android Studio: 3.6.1
+- Android Studio: 4.0.0
 
 ### Configuration
 
