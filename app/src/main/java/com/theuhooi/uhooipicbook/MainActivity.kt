@@ -1,5 +1,8 @@
 package com.theuhooi.uhooipicbook
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -23,6 +26,7 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
 
         setContentView(R.layout.activity_main)
         configureToolBar()
+        createNotificationChannel()
     }
 
     override fun onSupportNavigateUp() = findNavController(R.id.nav_host_fragment).navigateUp()
@@ -55,6 +59,22 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         }
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    private fun createNotificationChannel() {
+        createInfoNotificationChannel()
+    }
+
+    private fun createInfoNotificationChannel() {
+        val id = getString(R.string.info_channel_id)
+        val name = getString(R.string.info_channel_name)
+        val importance = NotificationManager.IMPORTANCE_DEFAULT
+        val channel = NotificationChannel(id, name, importance).apply {
+            description = getString(R.string.info_channel_description)
+        }
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
     }
 
     // endregion

@@ -2,6 +2,12 @@
     <string name="app_name">UhooiPicBook</string>
     <string name="icon_description">Icon</string>
 
+    <string name="info_channel_id">info</string>
+    <string name="info_channel_name">お知らせ</string>
+    <string name="info_channel_description">お知らせ</string>
+
+    <string name="notification_title">UhooiPicBook</string>
+
     <string name="name_dummy">uhooi</string>
     <string name="description_dummy">ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。</string>
 </resources>
