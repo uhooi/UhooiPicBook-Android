@@ -33,7 +33,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     // region Other Private Methods
 
     private fun sendInfoNotification(message: String) {
-        sendNotification(message, getString(R.string.info_channel_id), this.infoNotificationId)
+        sendNotification(message, getString(R.string.info_notification_channel_id), this.infoNotificationId)
     }
 
     private fun sendNotification(message: String, channelId: String, notificationId: Int) {

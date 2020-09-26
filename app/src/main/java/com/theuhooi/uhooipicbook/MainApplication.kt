@@ -23,11 +23,11 @@ class MainApplication : Application() {
     }
 
     private fun createInfoNotificationChannel() {
-        val id = getString(R.string.info_channel_id)
-        val name = getString(R.string.info_channel_name)
+        val id = getString(R.string.info_notification_channel_id)
+        val name = getString(R.string.info_notification_channel_name)
         val importance = NotificationManager.IMPORTANCE_DEFAULT
         val channel = NotificationChannel(id, name, importance).apply {
-            description = getString(R.string.info_channel_description)
+            description = getString(R.string.info_notification_channel_description)
         }
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
