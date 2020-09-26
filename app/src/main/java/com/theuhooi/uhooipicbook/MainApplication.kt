@@ -11,27 +11,29 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        createNotificationChannel()
+        createNotificationChannels()
     }
 
     // endregion
 
     // region Other Private Methods
 
-    private fun createNotificationChannel() {
-        createInfoNotificationChannel()
+    private fun createNotificationChannels() {
+        val channels = listOf(
+            createInfoNotificationChannel()
+        )
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        channels.forEach { notificationManager.createNotificationChannel(it) }
     }
 
-    private fun createInfoNotificationChannel() {
+    private fun createInfoNotificationChannel(): NotificationChannel {
         val id = getString(R.string.info_notification_channel_id)
         val name = getString(R.string.info_notification_channel_name)
         val importance = NotificationManager.IMPORTANCE_HIGH
-        val channel = NotificationChannel(id, name, importance).apply {
+        return NotificationChannel(id, name, importance).apply {
             description = getString(R.string.info_notification_channel_description)
         }
-        val notificationManager =
-            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(channel)
     }
 
     // endregion
