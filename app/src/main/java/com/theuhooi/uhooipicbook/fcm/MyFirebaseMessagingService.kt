@@ -21,22 +21,23 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     // region FirebaseMessagingService
 
-    override fun onMessageReceived(p0: RemoteMessage) {
-        super.onMessageReceived(p0)
+    override fun onMessageReceived(message: RemoteMessage) {
+        super.onMessageReceived(message)
 
-        val message = p0.data["data"].toString()
-        sendInfoNotification(message)
+        message.notification?.let {
+            sendInfoNotification(it.title ?: getString(R.string.app_name), it.body ?: "")
+        }
     }
 
     // endregion
 
     // region Other Private Methods
 
-    private fun sendInfoNotification(message: String) {
-        sendNotification(message, getString(R.string.info_notification_channel_id), this.infoNotificationId)
+    private fun sendInfoNotification(title: String, text: String) {
+        sendNotification(title, text, getString(R.string.info_notification_channel_id), this.infoNotificationId)
     }
 
-    private fun sendNotification(message: String, channelId: String, notificationId: Int) {
+    private fun sendNotification(title: String, text: String, channelId: String, notificationId: Int) {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
@@ -44,9 +45,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
         val notification = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.mipmap.ic_notification)
-            .setContentTitle(getString(R.string.notification_title))
-            .setContentText(message)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(message))
+            .setContentTitle(title)
+            .setContentText(text)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(text))
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
