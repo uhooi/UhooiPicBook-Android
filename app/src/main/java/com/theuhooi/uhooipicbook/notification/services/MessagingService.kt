@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.fcm
+package com.theuhooi.uhooipicbook.notification.services
 
 import android.app.Notification
 import android.app.NotificationManager
@@ -12,7 +12,7 @@ import com.google.firebase.messaging.RemoteMessage
 import com.theuhooi.uhooipicbook.MainActivity
 import com.theuhooi.uhooipicbook.R
 
-class MyFirebaseMessagingService : FirebaseMessagingService() {
+class MessagingService : FirebaseMessagingService() {
 
     // region Stored Instance Properties
 
