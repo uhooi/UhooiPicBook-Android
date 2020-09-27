@@ -1,5 +1,6 @@
 package com.theuhooi.uhooipicbook.fcm
 
+import android.app.Notification
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
@@ -42,7 +43,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
-        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
         val notification = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.mipmap.ic_notification)
             .setContentTitle(title)
@@ -51,7 +51,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
-            .setSound(defaultSoundUri)
+            .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE))
+            .setDefaults(Notification.DEFAULT_SOUND or Notification.DEFAULT_VIBRATE)
             .build()
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
