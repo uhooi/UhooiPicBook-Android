@@ -43,6 +43,8 @@ class UhooiPicBookApp : Application() {
     ): NotificationChannel {
         return NotificationChannel(id, name, importance).apply {
             description = descriptionText
+            enableVibration(true)
+            vibrationPattern = longArrayOf(0, 1000, 500, 1000)
         }
     }
 
