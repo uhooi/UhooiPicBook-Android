@@ -5,7 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 
-class MainApplication : Application() {
+class UhooiPicBookApp : Application() {
 
     // region View Life-Cycle Methods
 
