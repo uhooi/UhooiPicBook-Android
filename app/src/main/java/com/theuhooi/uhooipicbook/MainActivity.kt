@@ -3,6 +3,7 @@ package com.theuhooi.uhooipicbook
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -26,6 +27,13 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
     }
 
     override fun onSupportNavigateUp() = findNavController(R.id.nav_host_fragment).navigateUp()
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = this.menuInflater
+        inflater.inflate(R.menu.menu_share, menu)
+
+        return true
+    }
 
     // endregion
 
