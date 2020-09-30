@@ -4,7 +4,9 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ShareCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -29,10 +31,27 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
     override fun onSupportNavigateUp() = findNavController(R.id.nav_host_fragment).navigateUp()
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = this.menuInflater
-        inflater.inflate(R.menu.menu_share, menu)
+        if (menu == null) {
+            return true
+        }
+        this.menuInflater.inflate(R.menu.menu_share, menu)
 
-        return true
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.share_menu_item -> {
+                ShareCompat.IntentBuilder
+                    .from(this)
+                    .setText("aiueo") // FIXME: 仮の文言
+                    .setType("text/plain")
+                    .setChooserTitle(R.string.share_menu_item)
+                    .startChooser()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     // endregion
