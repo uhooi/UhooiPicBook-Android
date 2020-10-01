@@ -68,4 +68,6 @@ class MonsterDetailFragment : Fragment() {
             .startChooser()
     }
 
+    // endregion
+
 }
