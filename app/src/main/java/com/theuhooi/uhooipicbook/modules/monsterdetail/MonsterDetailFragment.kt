@@ -47,16 +47,25 @@ class MonsterDetailFragment : Fragment() {
         inflater.inflate(R.menu.menu_share, menu)
         val shareMenuItem = menu.findItem(R.id.share_menu_item)
         shareMenuItem.setOnMenuItemClickListener {
-            ShareCompat.IntentBuilder
-                .from(requireActivity())
-                .setText("aiueo") // FIXME: 仮の文言
-                .setType("text/plain")
-                .setChooserTitle(R.string.share_menu_item)
-                .startChooser()
+            shareMonster()
             true
         }
     }
 
     // endregion
+
+    // region Other Private Methods
+
+    private fun shareMonster() {
+        val monster = this.args.monster
+        val text =
+            monster.name + "\n" + monster.description.replace("\\n", "\n") + "\n#UhooiPicBook"
+        ShareCompat.IntentBuilder
+            .from(requireActivity())
+            .setText(text)
+            .setType("text/plain")
+            .setChooserTitle(R.string.share_menu_item)
+            .startChooser()
+    }
 
 }
