@@ -64,7 +64,7 @@ class MonsterDetailFragment : Fragment() {
             .from(requireActivity())
             .setText(text)
             .setType("text/plain")
-            .setChooserTitle(R.string.share_menu_item)
+            .setChooserTitle(R.string.share_menu_item_title)
             .startChooser()
     }
 
