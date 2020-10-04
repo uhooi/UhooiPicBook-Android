@@ -55,7 +55,9 @@ android {
 }
 
 dependencies {
-    implementation 'io.coil-kt:coil:0.9.5'
+    def coil_version = '0.13.0'
+    implementation "io.coil-kt:coil:$coil_version"
+    implementation "io.coil-kt:coil-base:$coil_version"
 
     // Firebase
     implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
