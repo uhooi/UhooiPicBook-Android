@@ -94,11 +94,11 @@ class MonsterDetailFragment : Fragment() {
 
     private fun createTempPngFileUri(context: Context, drawable: Drawable): Uri? {
         val cacheFile = File(context.externalCacheDir, "share_temp.png")
-        createTempPngFile(drawable, cacheFile)
+        createPngFile(drawable, cacheFile)
         return FileProvider.getUriForFile(context, context.packageName + ".fileprovider", cacheFile)
     }
 
-    private fun createTempPngFile(drawable: Drawable, file: File) {
+    private fun createPngFile(drawable: Drawable, file: File) {
         FileOutputStream(file).use { outputStream ->
             val bitmap = (drawable as BitmapDrawable).bitmap
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
