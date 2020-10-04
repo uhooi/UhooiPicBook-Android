@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
 import coil.api.load
+import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
 import kotlinx.android.synthetic.main.fragment_monster_detail.view.*
@@ -28,6 +29,8 @@ class MonsterDetailFragment : Fragment() {
     // region Stored Instance Properties
 
     private val args: MonsterDetailFragmentArgs by navArgs()
+
+    private var disposable: Disposable? = null
 
     // endregion
 
@@ -61,6 +64,12 @@ class MonsterDetailFragment : Fragment() {
         }
     }
 
+    override fun onDestroyOptionsMenu() {
+        super.onDestroyOptionsMenu()
+
+        this.disposable?.dispose()
+    }
+
     // endregion
 
     // region Other Private Methods
@@ -80,7 +89,7 @@ class MonsterDetailFragment : Fragment() {
                     .startChooser()
             }
             .build()
-        ImageLoader(context).enqueue(request)
+        this.disposable = ImageLoader(context).enqueue(request)
     }
 
     private fun createTempPngFileUri(context: Context, drawable: Drawable): Uri? {
