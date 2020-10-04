@@ -1,7 +1,9 @@
 package com.theuhooi.uhooipicbook.modules.monsterdetail
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -45,8 +47,7 @@ class MonsterDetailFragment : Fragment() {
 
         view.icon_imageview.load(this.args.monster.iconUrlString)
         view.name_textview.text = this.args.monster.name
-        // TODO: 文字列の加工を終わらせた状態で渡す
-        view.description_textview.text = this.args.monster.description.replace("\\n", "\n")
+        view.description_textview.text = unescapeNewline(this.args.monster.description)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -70,35 +71,34 @@ class MonsterDetailFragment : Fragment() {
         val request = ImageRequest.Builder(context)
             .data(monster.iconUrlString)
             .target { drawable ->
-                val file = File(context.externalCacheDir, "share_temp.jpeg")
-                FileOutputStream(file).use { outputStream ->
-                    val bitmap = (drawable as BitmapDrawable).bitmap
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
-                    outputStream.flush()
-                }
-                val fileUri: Uri? = try {
-                    FileProvider.getUriForFile(context, context.packageName + ".fileprovider", file)
-                } catch (e: IllegalArgumentException) {
-                    null
-                }
-                fileUri ?: run {
-                    // TODO: エラーハンドリング
-                }
-                val text =
-                    monster.name + "\n" + monster.description.replace(
-                        "\\n",
-                        "\n"
-                    ) + "\n#UhooiPicBook"
                 ShareCompat.IntentBuilder
                     .from(requireActivity())
-                    .setText(text)
-                    .setStream(fileUri)
+                    .setText(monster.name + "\n" + unescapeNewline(monster.description) + "\n#UhooiPicBook")
+                    .setStream(createTempPngFileUri(context, drawable))
                     .setType("image/png")
                     .setChooserTitle(R.string.share_menu_item_title)
                     .startChooser()
             }
             .build()
-        val disposable = ImageLoader(requireContext()).enqueue(request)
+        ImageLoader(context).enqueue(request)
+    }
+
+    private fun createTempPngFileUri(context: Context, drawable: Drawable): Uri? {
+        val cacheFile = File(context.externalCacheDir, "share_temp.png")
+        createTempPngFile(drawable, cacheFile)
+        return FileProvider.getUriForFile(context, context.packageName + ".fileprovider", cacheFile)
+    }
+
+    private fun createTempPngFile(drawable: Drawable, file: File) {
+        FileOutputStream(file).use { outputStream ->
+            val bitmap = (drawable as BitmapDrawable).bitmap
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+            outputStream.flush()
+        }
+    }
+
+    private fun unescapeNewline(text: String): String {
+        return text.replace("\\n", "\n")
     }
 
     // endregion
