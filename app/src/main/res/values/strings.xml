@@ -2,6 +2,8 @@
     <string name="app_name">UhooiPicBook</string>
     <string name="icon_description">Icon</string>
 
+    <string name="share_menu_item_title">共有</string>
+
     <string name="info_notification_channel_id">info</string>
     <string name="info_notification_channel_name">お知らせ</string>
     <string name="info_notification_channel_description">お知らせ</string>
