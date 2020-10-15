@@ -16,7 +16,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
-import coil.api.load
+import coil.load
 import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
