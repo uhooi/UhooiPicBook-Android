@@ -15,13 +15,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UhooiPicBook">
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:name=".LauncherActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+
+        </activity>
+
         <service
             android:name=".notification.services.MessagingService"
             android:exported="false">
@@ -29,9 +37,11 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_notification" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -42,4 +52,5 @@
                 android:resource="@xml/file_paths" />
         </provider>
     </application>
+
 </manifest>
