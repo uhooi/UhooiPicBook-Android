@@ -14,7 +14,7 @@ class LauncherActivity : AppCompatActivity() {
         setContentView(R.layout.activity_launcher)
 
         Handler().postDelayed({
-            val intent = Intent(this@LauncherActivity, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }, TIME_OUT)

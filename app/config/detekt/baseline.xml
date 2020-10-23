@@ -1,6 +1,20 @@
+<?xml version="1.0" ?>
 <SmellBaseline>
-  <Blacklist>
-  </Blacklist>
+  <Blacklist></Blacklist>
   <Whitelist>
+    <ID>ForbiddenComment:MonsterListViewModel.kt$MonsterListViewModel$// TODO: DIする</ID>
+    <ID>ForbiddenComment:MonsterListViewModel.kt$MonsterListViewModel$// TODO: エラーハンドリング</ID>
+    <ID>MagicNumber:IntExtension.kt$IntColorInterface$0.09F</ID>
+    <ID>MagicNumber:IntExtension.kt$IntColorInterface$3</ID>
+    <ID>MagicNumber:IntExtension.kt$IntColorInterface$6</ID>
+    <ID>MagicNumber:LauncherActivity.kt$LauncherActivity$2000L</ID>
+    <ID>MagicNumber:MessagingService.kt$MessagingService$1000</ID>
+    <ID>MagicNumber:MessagingService.kt$MessagingService$500</ID>
+    <ID>MagicNumber:MonsterDetailFragment.kt$MonsterDetailFragment$100</ID>
+    <ID>MagicNumber:UhooiPicBookApp.kt$UhooiPicBookApp$1000</ID>
+    <ID>MagicNumber:UhooiPicBookApp.kt$UhooiPicBookApp$500</ID>
+    <ID>MatchingDeclarationName:IntExtension.kt$IntColorInterface</ID>
+    <ID>TooGenericExceptionThrown:MonsterListFragment.kt$MonsterListFragment$throw RuntimeException("$context must implement OnListFragmentInteractionListener")</ID>
+    <ID>VariableNaming:LauncherActivity.kt$LauncherActivity$private val TIME_OUT = 2000L</ID>
   </Whitelist>
 </SmellBaseline>
