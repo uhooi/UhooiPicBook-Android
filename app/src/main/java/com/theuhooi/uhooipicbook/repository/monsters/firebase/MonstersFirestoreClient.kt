@@ -5,8 +5,9 @@ import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonstersRepository
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import javax.inject.Inject
 
-class MonstersFirestoreClient : MonstersRepository {
+class MonstersFirestoreClient @Inject constructor() : MonstersRepository {
 
     // region Stored Instance Properties
 

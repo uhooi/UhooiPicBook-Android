@@ -20,10 +20,12 @@ import coil.load
 import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_monster_detail.view.*
 import java.io.File
 import java.io.FileOutputStream
 
+@AndroidEntryPoint
 class MonsterDetailFragment : Fragment() {
 
     // region Stored Instance Properties
