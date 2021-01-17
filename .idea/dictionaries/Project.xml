@@ -1,8 +1,9 @@
 <component name="ProjectDictionaryState">
-  <dictionary name="kawaguchi_m">
+  <dictionary name="Project">
     <words>
       <w>cardview</w>
       <w>crashlytics</w>
+      <w>fileprovider</w>
       <w>firestore</w>
       <w>imageview</w>
       <w>initializers</w>
