@@ -1,14 +1,15 @@
 package com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonstersRepository
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreClient
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MonsterListViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MonsterListViewModel @Inject constructor(
     private val repository: MonstersRepository
 ) : ViewModel() {
 
