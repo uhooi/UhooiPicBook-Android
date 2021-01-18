@@ -9,7 +9,6 @@ apply plugin: 'io.gitlab.arturbosch.detekt'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
