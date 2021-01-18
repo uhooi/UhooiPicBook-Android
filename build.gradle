@@ -5,6 +5,10 @@ buildscript {
         kotlin_version = '1.4.10'
         nav_version = '2.3.0'
         detekt_version = '1.7.4'
+        lifecycle_version = '2.2.0'
+        hilt_version = '2.31-alpha'
+        hilt_viewmodel_version = '1.0.0-alpha02'
+        coil_version = '0.13.0'
     }
     repositories {
         google()

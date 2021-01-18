@@ -62,9 +62,8 @@ android {
 }
 
 dependencies {
-    def coil_version = '0.13.0'
-    implementation "io.coil-kt:coil:$coil_version"
-    implementation "io.coil-kt:coil-base:$coil_version"
+    implementation "io.coil-kt:coil:$rootProject.coil_version"
+    implementation "io.coil-kt:coil-base:$rootProject.coil_version"
 
     // Firebase
     implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
@@ -78,9 +77,8 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    def lifecycle_version = '2.2.0'
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycle_version"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -93,13 +91,10 @@ dependencies {
 
     testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation 'androidx.test:runner:1.3.0'
-
-    def hilt_version = '2.31-alpha'
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    def hilt_viewmodel_version = '1.0.0-alpha02'
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodel_version"
-    kapt "androidx.hilt:hilt-compiler:$hilt_viewmodel_version"
+    implementation "com.google.dagger:hilt-android:$rootProject.hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hilt_version"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hilt_viewmodel_version"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.hilt_viewmodel_version"
 }
 
 kapt {
