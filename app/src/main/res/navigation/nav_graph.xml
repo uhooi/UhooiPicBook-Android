@@ -25,4 +25,8 @@
             app:argType=".modules.monsterlist.entities.MonsterItem" />
     </fragment>
 
+    <activity
+        android:id="@+id/licenses_activity"
+        android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity" />
+
 </navigation>
