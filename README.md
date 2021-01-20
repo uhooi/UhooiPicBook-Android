@@ -14,15 +14,23 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 
 ### Light
 
-|MonsterList|MonsterDetail|
-|:--|:--|
-|<img src="./docs/screenshots/monsterList-light.png" width="270">|<img src="./docs/screenshots/monsterDetail-light.png" width="270">|
+|MonsterList|Menu opened in MonsterList|MonsterDetail|
+|:--|:--|:--|
+|<img src="./docs/screenshots/pixel3a/light/monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/light/menu_opened_in_monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/light/monster_detail.png" width="270">|
+
+|Licenses|
+|:--|
+|<img src="./docs/screenshots/pixel3a/light/oss_licenses_menu.png" width="270">|
 
 ### Dark
 
-|MonsterList|MonsterDetail|
-|:--|:--|
-|<img src="./docs/screenshots/monsterList-dark.png" width="270">|<img src="./docs/screenshots/monsterDetail-dark.png" width="270">|
+|MonsterList|Menu opened in MonsterList|MonsterDetail|
+|:--|:--|:--|
+|<img src="./docs/screenshots/pixel3a/dark/monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/dark/menu_opened_in_monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/dark/monster_detail.png" width="270">|
+
+|Licenses|
+|:--|
+|<img src="./docs/screenshots/pixel3a/dark/oss_licenses_menu.png" width="270">|
 
 ## Development
 
