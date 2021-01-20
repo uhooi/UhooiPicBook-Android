@@ -28,6 +28,7 @@ class MonsterListFragment : Fragment() {
     // endregion
 
     // region View Life-Cycle Methods
+    
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -74,7 +75,7 @@ class MonsterListFragment : Fragment() {
                 findNavController().navigate(MonsterListFragmentDirections.actionListToLicenses())
                 true
             }
-            else -> false
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
