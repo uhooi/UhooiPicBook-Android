@@ -24,3 +24,19 @@ processors:
   # - 'ClassCountProcessor'
   # - 'PackageCountProcessor'
   # - 'KtFileCountProcessor'
+
+style:
+  MagicNumber:
+    active: true
+    excludes: []
+    ignoreNumbers: []
+    ignoreHashCodeFunction: true
+    ignorePropertyDeclaration: true
+    ignoreLocalVariableDeclaration: true
+    ignoreConstantDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+    ignoreAnnotation: true
+    ignoreNamedArgument: true
+    ignoreEnums: true
+    ignoreRanges: true
+
