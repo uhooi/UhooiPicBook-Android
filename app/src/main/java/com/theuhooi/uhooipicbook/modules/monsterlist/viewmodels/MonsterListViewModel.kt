@@ -5,13 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonstersRepository
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreClient
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MonsterListViewModel : ViewModel() {
+@HiltViewModel
+class MonsterListViewModel @Inject constructor(
+    private val repository: MonstersRepository
+) : ViewModel() {
 
     // region Stored Instance Properties
-
-    private val repository: MonstersRepository = MonstersFirestoreClient() // TODO: DIする
 
     private val _monsters = MutableLiveData<List<MonsterItem>>()
     val monsters: LiveData<List<MonsterItem>>

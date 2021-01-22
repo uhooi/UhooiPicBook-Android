@@ -9,26 +9,28 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MonsterListFragment : Fragment() {
 
     // region Stored Instance Properties
 
     private var listener: OnListFragmentInteractionListener? = null
 
-    private val viewModel: MonsterListViewModel by navGraphViewModels(R.id.nav_graph)
+    private val viewModel: MonsterListViewModel by viewModels()
 
     // endregion
 
     // region View Life-Cycle Methods
-    
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
