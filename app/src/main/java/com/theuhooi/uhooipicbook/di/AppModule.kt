@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook
+package com.theuhooi.uhooipicbook.di
 
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonstersRepository
 import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreClient
@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class MonstersModule {
+abstract class AppModule {
     @Singleton
     @Binds
     abstract fun bindMonstersRepository(monstersFirestoreClient: MonstersFirestoreClient): MonstersRepository

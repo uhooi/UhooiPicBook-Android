@@ -73,7 +73,7 @@ class MonsterListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_nav_licenses -> {
+            R.id.licenses_menu_item -> {
                 findNavController().navigate(MonsterListFragmentDirections.actionListToLicenses())
                 true
             }
