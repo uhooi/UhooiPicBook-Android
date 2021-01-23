@@ -40,7 +40,7 @@ class MonsterDetailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_monster_detail, container, false)
     }
