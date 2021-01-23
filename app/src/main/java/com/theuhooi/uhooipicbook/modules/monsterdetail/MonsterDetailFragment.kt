@@ -56,7 +56,7 @@ class MonsterDetailFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 
-        inflater.inflate(R.menu.menu_share, menu)
+        inflater.inflate(R.menu.menu_monster_detail, menu)
         val shareMenuItem = menu.findItem(R.id.share_menu_item)
         shareMenuItem.setOnMenuItemClickListener {
             shareMonster()
