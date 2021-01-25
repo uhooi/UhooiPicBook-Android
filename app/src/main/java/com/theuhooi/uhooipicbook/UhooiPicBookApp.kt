@@ -4,7 +4,14 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.os.Build
+import coil.Coil
+import coil.ImageLoader
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
+import coil.util.CoilUtils
 import dagger.hilt.android.HiltAndroidApp
+import okhttp3.OkHttpClient
 
 @HiltAndroidApp
 class UhooiPicBookApp : Application() {
@@ -14,6 +21,7 @@ class UhooiPicBookApp : Application() {
     override fun onCreate() {
         super.onCreate()
         createNotificationChannels()
+        initializeCoilImageLoader()
     }
 
     // endregion
@@ -48,6 +56,25 @@ class UhooiPicBookApp : Application() {
             enableVibration(true)
             vibrationPattern = longArrayOf(0, 1000, 500, 1000)
         }
+    }
+
+    private fun initializeCoilImageLoader() {
+        Coil.setImageLoader(
+            ImageLoader.Builder(this)
+                .okHttpClient {
+                    OkHttpClient.Builder()
+                        .cache(CoilUtils.createDefaultCache(this))
+                        .build()
+                }
+                .componentRegistry {
+                    if (Build.VERSION.SDK_INT >= 28) {
+                        add(ImageDecoderDecoder())
+                    } else {
+                        add(GifDecoder())
+                    }
+                }
+                .build()
+        )
     }
 
     // endregion
