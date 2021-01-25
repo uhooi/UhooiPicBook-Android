@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
 import coil.load
@@ -50,6 +51,11 @@ class MonsterDetailFragment : Fragment() {
 
         view.icon_imageview.load(this.args.monster.iconUrlString)
         view.icon_dancing_imageview.load(args.monster.dancingUrlString)
+        view.icon_dancing_imageview.setOnClickListener {
+            val action =
+                MonsterDetailFragmentDirections.actionDetailToDancing(args.monster.dancingUrlString)
+            findNavController().navigate(action)
+        }
         view.name_textview.text = this.args.monster.name
         view.description_textview.text = unescapeNewline(this.args.monster.description)
     }
