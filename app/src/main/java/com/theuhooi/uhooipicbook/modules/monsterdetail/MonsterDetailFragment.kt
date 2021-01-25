@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -16,6 +17,8 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
+import coil.decode.GifDecoder
+import coil.decode.ImageDecoderDecoder
 import coil.load
 import coil.request.Disposable
 import coil.request.ImageRequest
@@ -49,6 +52,10 @@ class MonsterDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.icon_imageview.load(this.args.monster.iconUrlString)
+        view.icon_dancing_imageview.load(
+            args.monster.dancingUrlString,
+            getGifLoader(requireContext()),
+        )
         view.name_textview.text = this.args.monster.name
         view.description_textview.text = unescapeNewline(this.args.monster.description)
     }
@@ -108,6 +115,18 @@ class MonsterDetailFragment : Fragment() {
 
     private fun unescapeNewline(text: String): String {
         return text.replace("\\n", "\n")
+    }
+
+    private fun getGifLoader(context: Context): ImageLoader {
+        return ImageLoader.Builder(context)
+            .componentRegistry {
+                if (SDK_INT >= 28) {
+                    add(ImageDecoderDecoder())
+                } else {
+                    add(GifDecoder())
+                }
+            }
+            .build()
     }
 
     // endregion

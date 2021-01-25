@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">UhooiPicBook</string>
     <string name="icon_description">Icon</string>
+    <string name="dancing_icon_description">Dancing Icon</string>
 
     <string name="licenses_menu_item_title">ライセンス</string>
     <string name="share_menu_item_title">共有</string>

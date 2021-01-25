@@ -13,12 +13,24 @@
         android:layout_height="240dp"
         android:layout_marginTop="56dp"
         android:contentDescription="@string/icon_description"
-        app:layout_constraintBottom_toTopOf="@id/name_textview"
+        app:layout_constraintBottom_toTopOf="@id/icon_dancing_imageview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/icon_dancing_imageview"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/dancing_icon_description"
+        app:layout_constraintBottom_toTopOf="@id/name_textview"
+        app:layout_constraintEnd_toEndOf="@id/icon_imageview"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/icon_imageview"
+        app:layout_constraintTop_toBottomOf="@id/icon_imageview" />
 
     <TextView
         android:id="@+id/name_textview"
@@ -33,7 +45,7 @@
         app:layout_constraintBottom_toTopOf="@id/description_textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icon_imageview" />
+        app:layout_constraintTop_toBottomOf="@id/icon_dancing_imageview" />
 
     <TextView
         android:id="@+id/description_textview"
