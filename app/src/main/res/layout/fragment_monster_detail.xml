@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,21 +11,29 @@
         android:id="@+id/icon_imageview"
         android:layout_width="240dp"
         android:layout_height="240dp"
-        android:layout_gravity="center_horizontal"
         android:layout_marginTop="56dp"
-        android:contentDescription="@string/icon_description" />
+        android:contentDescription="@string/icon_description"
+        app:layout_constraintBottom_toTopOf="@id/name_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_marginTop="32dp"
         android:text="@string/name_dummy"
         android:textAlignment="center"
         android:textColor="?android:attr/textColorPrimary"
         android:textSize="36sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/description_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/icon_imageview" />
 
     <TextView
         android:id="@+id/description_textview"
@@ -35,6 +44,10 @@
         android:text="@string/description_dummy"
         android:textAlignment="center"
         android:textColor="?android:attr/textColorSecondary"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_textview" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
