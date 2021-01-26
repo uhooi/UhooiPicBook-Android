@@ -27,7 +27,7 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return inflater.inflate(R.layout.fragment_dancing_monster, container, false)
     }
 
