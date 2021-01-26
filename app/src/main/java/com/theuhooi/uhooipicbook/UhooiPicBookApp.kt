@@ -66,7 +66,7 @@ class UhooiPicBookApp : Application() {
                     .build()
             }
             .componentRegistry {
-                if (Build.VERSION.SDK_INT >= 28) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                     add(ImageDecoderDecoder())
                 } else {
                     add(GifDecoder())

@@ -50,10 +50,10 @@ class MonsterDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.icon_imageview.load(this.args.monster.iconUrlString)
-        view.icon_dancing_imageview.load(args.monster.dancingUrlString)
+        view.icon_dancing_imageview.load(this.args.monster.dancingUrlString)
         view.icon_dancing_imageview.setOnClickListener {
             val action =
-                MonsterDetailFragmentDirections.actionDetailToDancing(args.monster.dancingUrlString)
+                MonsterDetailFragmentDirections.actionDetailToDancing(this.args.monster.dancingUrlString)
             findNavController().navigate(action)
         }
         view.name_textview.text = this.args.monster.name

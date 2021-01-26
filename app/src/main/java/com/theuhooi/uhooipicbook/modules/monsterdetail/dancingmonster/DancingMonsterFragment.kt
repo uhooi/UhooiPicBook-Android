@@ -27,14 +27,14 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         return inflater.inflate(R.layout.fragment_dancing_monster, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.icon_imageview.load(args.dancingUrlString)
+        view.icon_imageview.load(this.args.dancingUrlString)
         view.close_button.setOnClickListener { dismiss() }
     }
 
