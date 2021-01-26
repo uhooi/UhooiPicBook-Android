@@ -26,7 +26,21 @@
         <argument
             android:name="monster"
             app:argType=".modules.monsterlist.entities.MonsterItem" />
+
+        <action
+            android:id="@+id/action_detail_to_dancing"
+            app:destination="@id/dancing_monster_fragment" />
     </fragment>
+
+    <dialog
+        android:id="@+id/dancing_monster_fragment"
+        android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.DancingMonsterFragment"
+        android:label=""
+        tools:layout="@layout/fragment_dancing_monster">
+        <argument
+            android:name="dancingUrlString"
+            app:argType="string" />
+    </dialog>
 
     <activity
         android:id="@+id/licenses_activity"
