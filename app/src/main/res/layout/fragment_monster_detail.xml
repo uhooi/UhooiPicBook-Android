@@ -13,7 +13,7 @@
         android:layout_height="240dp"
         android:layout_marginTop="56dp"
         android:contentDescription="@string/icon_description"
-        app:layout_constraintBottom_toTopOf="@id/icon_dancing_imageview"
+        app:layout_constraintBottom_toTopOf="@id/dancing_imageview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,7 +26,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="@string/dancing_icon_description"
+        android:contentDescription="@string/dancing_description"
         app:layout_constraintBottom_toTopOf="@id/name_textview"
         app:layout_constraintEnd_toEndOf="@id/icon_imageview"
         app:layout_constraintHorizontal_bias="1.0"
@@ -46,7 +46,7 @@
         app:layout_constraintBottom_toTopOf="@id/description_textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/icon_dancing_imageview"
+        app:layout_constraintTop_toBottomOf="@id/dancing_imageview"
         tools:text="@string/name_dummy" />
 
     <TextView
