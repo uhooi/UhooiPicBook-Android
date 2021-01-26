@@ -22,7 +22,7 @@
         tools:src="@tools:sample/avatars" />
 
     <ImageView
-        android:id="@+id/icon_dancing_imageview"
+        android:id="@+id/dancing_imageview"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
