@@ -59,22 +59,21 @@ class UhooiPicBookApp : Application() {
     }
 
     private fun initializeCoilImageLoader() {
-        Coil.setImageLoader(
-            ImageLoader.Builder(this)
-                .okHttpClient {
-                    OkHttpClient.Builder()
-                        .cache(CoilUtils.createDefaultCache(this))
-                        .build()
+        val imageLoader = ImageLoader.Builder(this)
+            .okHttpClient {
+                OkHttpClient.Builder()
+                    .cache(CoilUtils.createDefaultCache(this))
+                    .build()
+            }
+            .componentRegistry {
+                if (Build.VERSION.SDK_INT >= 28) {
+                    add(ImageDecoderDecoder())
+                } else {
+                    add(GifDecoder())
                 }
-                .componentRegistry {
-                    if (Build.VERSION.SDK_INT >= 28) {
-                        add(ImageDecoderDecoder())
-                    } else {
-                        add(GifDecoder())
-                    }
-                }
-                .build()
-        )
+            }
+            .build()
+        Coil.setImageLoader(imageLoader)
     }
 
     // endregion
