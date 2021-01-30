@@ -34,7 +34,7 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.icon_imageview.load(this.args.dancingUrlString)
+        view.dancing_imageview.load(this.args.dancingUrlString)
         view.close_button.setOnClickListener { dismiss() }
     }
 
