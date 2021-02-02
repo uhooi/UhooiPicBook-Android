@@ -24,6 +24,10 @@ android {
         versionName "1.4.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // For LeakCanary in instrumentation tests
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArgument "listener", "leakcanary.FailTestOnLeakRunListener"
     }
 
     signingConfigs {
@@ -102,6 +106,11 @@ dependencies {
 
     testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation 'androidx.test:runner:1.3.0'
+
+    // LeakCanary
+    def leak_canary_version = '2.6'
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
+    androidTestImplementation "com.squareup.leakcanary:leakcanary-android-instrumentation:$leak_canary_version"
 }
 
 kapt {
