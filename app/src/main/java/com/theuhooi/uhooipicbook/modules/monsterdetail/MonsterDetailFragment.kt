@@ -14,9 +14,10 @@ import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
-import coil.api.load
+import coil.load
 import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
@@ -40,7 +41,7 @@ class MonsterDetailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_monster_detail, container, false)
     }
@@ -49,6 +50,12 @@ class MonsterDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.icon_imageview.load(this.args.monster.iconUrlString)
+        view.dancing_imageview.load(this.args.monster.dancingUrlString)
+        view.dancing_imageview.setOnClickListener {
+            val action =
+                MonsterDetailFragmentDirections.actionDetailToDancing(this.args.monster.dancingUrlString)
+            findNavController().navigate(action)
+        }
         view.name_textview.text = this.args.monster.name
         view.description_textview.text = unescapeNewline(this.args.monster.description)
     }
@@ -56,7 +63,7 @@ class MonsterDetailFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 
-        inflater.inflate(R.menu.menu_share, menu)
+        inflater.inflate(R.menu.menu_monster_detail, menu)
         val shareMenuItem = menu.findItem(R.id.share_menu_item)
         shareMenuItem.setOnMenuItemClickListener {
             shareMonster()

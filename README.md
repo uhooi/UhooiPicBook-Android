@@ -14,15 +14,23 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 
 ### Light
 
-|MonsterList|MonsterDetail|
+|MonsterList|MonsterDetail|DancingMonster|
+|:--|:--|:--|
+|<img src="./docs/screenshots/pixel3a/light/monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/light/monster_detail.png" width="270">|<img src="./docs/screenshots/pixel3a/light/dancing_monster.png" width="270">|
+
+|Menu opened in MonsterList|Licenses|
 |:--|:--|
-|<img src="./docs/screenshots/monsterList-light.png" width="270">|<img src="./docs/screenshots/monsterDetail-light.png" width="270">|
+|<img src="./docs/screenshots/pixel3a/light/menu_opened_in_monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/light/oss_licenses_menu.png" width="270">|
 
 ### Dark
 
-|MonsterList|MonsterDetail|
+|MonsterList|MonsterDetail|DancingMonster|
+|:--|:--|:--|
+|<img src="./docs/screenshots/pixel3a/dark/monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/dark/monster_detail.png" width="270">|<img src="./docs/screenshots/pixel3a/dark/dancing_monster.png" width="270">|
+
+|Menu opened in MonsterList|Licenses|
 |:--|:--|
-|<img src="./docs/screenshots/monsterList-dark.png" width="270">|<img src="./docs/screenshots/monsterDetail-dark.png" width="270">|
+|<img src="./docs/screenshots/pixel3a/dark/menu_opened_in_monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/dark/oss_licenses_menu.png" width="270">|
 
 ## Development
 
@@ -30,7 +38,7 @@ You can develop UhooiPicBook-Android.
 
 ### Environment
 
-- Android Studio: 4.0.0
+- Android Studio: 4.1.2
 
 ### Configuration
 

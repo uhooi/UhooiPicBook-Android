@@ -1,12 +1,16 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'androidx.navigation.safeargs.kotlin'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.google.firebase.crashlytics'
-apply plugin: 'com.google.firebase.firebase-perf'
-apply plugin: 'io.gitlab.arturbosch.detekt'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'com.google.firebase.firebase-perf'
+    id 'io.gitlab.arturbosch.detekt'
+    id 'kotlin-kapt'
+    id 'com.google.android.gms.oss-licenses-plugin'
+    id 'dagger.hilt.android.plugin'
+}
 
 android {
     compileSdkVersion 29
@@ -16,8 +20,8 @@ android {
         applicationId "com.theuhooi.uhooipicbook"
         minSdkVersion 26
         targetSdkVersion 29
-        versionCode 4
-        versionName "1.3.0"
+        versionCode 5
+        versionName "1.4.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -52,19 +56,26 @@ android {
     buildFeatures {
         dataBinding = true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
-    def coil_version = '0.13.0'
+    def coil_version = '1.1.1'
     implementation "io.coil-kt:coil:$coil_version"
     implementation "io.coil-kt:coil-base:$coil_version"
+    implementation "io.coil-kt:coil-gif:$coil_version"
 
     // Firebase
-    implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.2.2'
-    implementation 'com.google.firebase:firebase-firestore-ktx:21.7.0'
-    implementation 'com.google.firebase:firebase-messaging:20.3.0'
-    implementation 'com.google.firebase:firebase-perf:19.0.9'
+    implementation 'com.google.firebase:firebase-analytics-ktx:18.0.2'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:22.0.2'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    implementation 'com.google.firebase:firebase-perf:19.1.0'
 
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
@@ -80,12 +91,21 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.material:material:1.3.0'
+
+    implementation "com.google.dagger:hilt-android:$rootProject.hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hilt_version"
+
+    implementation "com.google.android.gms:play-services-oss-licenses:17.0.0"
 
     testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation 'androidx.test:runner:1.3.0'
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 detekt {

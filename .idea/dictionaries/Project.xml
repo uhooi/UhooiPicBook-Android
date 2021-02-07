@@ -1,8 +1,10 @@
 <component name="ProjectDictionaryState">
-  <dictionary name="kawaguchi_m">
+  <dictionary name="Project">
     <words>
       <w>cardview</w>
       <w>crashlytics</w>
+      <w>dancingmonster</w>
+      <w>fileprovider</w>
       <w>firestore</w>
       <w>imageview</w>
       <w>initializers</w>
@@ -14,6 +16,7 @@
       <w>theuhooi</w>
       <w>uhooi</w>
       <w>uhooipicbook</w>
+      <w>viewmodel</w>
       <w>viewmodels</w>
     </words>
   </dictionary>

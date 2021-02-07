@@ -12,7 +12,9 @@ import com.theuhooi.uhooipicbook.extensions.IntColorInterface
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
 import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener,
     IntColorInterface {
 
