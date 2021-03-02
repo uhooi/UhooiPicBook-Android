@@ -127,15 +127,15 @@ detekt {
     reports {
         xml {
             enabled = true
-            destination = file("build/reports/detekt/detekt.xml")
+            destination = file("$buildDir/reports/detekt/detekt.xml")
         }
         html {
             enabled = true
-            destination = file("build/reports/detekt/detekt.html")
+            destination = file("$buildDir/reports/detekt/detekt.html")
         }
         txt {
             enabled = true
-            destination = file("build/reports/detekt/detekt.txt")
+            destination = file("$buildDir/reports/detekt/detekt.txt")
         }
     }
 }
