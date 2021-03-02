@@ -50,6 +50,16 @@ jobs:
     - name: Test with Gradle
       run: ./gradlew test --stacktrace
 
+    # コードカバレッジをJaCoCo形式で取得
+    - name: Get code coverage for JaCoCo
+      run: ./gradlew jacocoDebugTestReport
+
+    # コードカバレッジをCodecovへアップロード
+    - name: Upload code coverage to Codecov
+      run: bash <(curl -s https://codecov.io/bash)
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
   lint:
     runs-on: ubuntu-latest
     steps:
