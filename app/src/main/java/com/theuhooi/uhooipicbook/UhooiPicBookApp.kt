@@ -22,10 +22,7 @@ class UhooiPicBookApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-        }
-
+        configureTimber()
         createNotificationChannels()
         initializeCoilImageLoader()
     }
@@ -33,6 +30,12 @@ class UhooiPicBookApp : Application() {
     // endregion
 
     // region Other Private Methods
+
+    private fun configureTimber() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+    }
 
     private fun createNotificationChannels() {
         val channels = listOf(
