@@ -60,6 +60,19 @@ jobs:
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
+    # テスト結果とコードカバレッジのアップロード
+    - name: Upload test results and code coverage Artifact
+      uses: actions/upload-artifact@v2
+      if: success() || failure()
+      with:
+        name: results
+        path: |
+          build/reports/tests/**/*
+          build/reports/test-results/**/*
+          build/reports/jacoco/**/*
+        if-no-files-found: warn
+        retention-days: 14
+
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -70,6 +83,18 @@ jobs:
     - name: Run Inspection
       run: ./gradlew lint
 
+    # アーティファクトへアップロード
+    - name: Upload results Artifact
+      uses: actions/upload-artifact@v2
+      if: success() || failure()
+      with:
+        name: results
+        path: |
+          build/reports/lint-results.html
+          build/reports/lint-results.xml
+        if-no-files-found: error
+        retention-days: 14
+
   detekt:
     runs-on: ubuntu-latest
     steps:
@@ -79,3 +104,15 @@ jobs:
     # 静的解析
     - name: Lint with detekt
       run: ./gradlew detekt
+
+    # アーティファクトへアップロード
+    - name: Upload results Artifact
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: results
+        path: |
+          build/reports/detekt/**/*
+        if-no-files-found: error
+        retention-days: 14
+
