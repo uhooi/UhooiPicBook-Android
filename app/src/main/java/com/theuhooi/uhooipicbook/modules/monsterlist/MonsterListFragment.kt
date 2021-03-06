@@ -81,7 +81,7 @@ class MonsterListFragment : Fragment() {
                 true
             }
             R.id.about_this_app_menu_item -> {
-                MaterialAlertDialogBuilder(requireActivity())
+                MaterialAlertDialogBuilder(requireContext())
                     .setTitle(R.string.app_name)
                     .setMessage(
                         """
@@ -92,9 +92,7 @@ class MonsterListFragment : Fragment() {
                         ${getString(R.string.copyright)}
                         """.trimIndent()
                     )
-                    .setPositiveButton(R.string.ok) { _, _ ->
-                        // Do nothing.
-                    }
+                    .setPositiveButton(R.string.ok, null)
                     .show()
                 true
             }
