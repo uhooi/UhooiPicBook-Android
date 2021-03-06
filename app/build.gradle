@@ -10,6 +10,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.android.gms.oss-licenses-plugin'
     id 'dagger.hilt.android.plugin'
+    id 'jacoco'
 }
 
 android {
@@ -127,15 +128,46 @@ detekt {
     reports {
         xml {
             enabled = true
-            destination = file("build/reports/detekt/detekt.xml")
+            destination = file("$buildDir/reports/detekt/detekt.xml")
         }
         html {
             enabled = true
-            destination = file("build/reports/detekt/detekt.html")
+            destination = file("$buildDir/reports/detekt/detekt.html")
         }
         txt {
             enabled = true
-            destination = file("build/reports/detekt/detekt.txt")
+            destination = file("$buildDir/reports/detekt/detekt.txt")
+        }
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.6"
+}
+
+task jacocoDebugTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest', group: 'verification') {
+    def excludedClasses = []
+    sourceDirectories.from("$projectDir/src/main/java")
+    classDirectories.from(fileTree(
+            dir: "$buildDir/tmp/kotlin-classes/debug",
+            excludes: excludedClasses
+    ))
+    executionData.from("$buildDir/jacoco/testDebugUnitTest.exec")
+}
+
+jacocoDebugTestReport {
+    reports {
+        xml {
+            enabled = true
+            destination = file("$buildDir/reports/jacoco/jacoco.xml")
+        }
+        csv {
+            enabled = true
+            destination = file("$buildDir/reports/jacoco/jacoco.csv")
+        }
+        html {
+            enabled = true
+            destination = file("$buildDir/reports/jacoco/html")
         }
     }
 }
