@@ -1,16 +1,31 @@
 <resources>
-    <string name="app_name">UhooiPicBook</string>
+    <string name="app_name">ウホーイ図鑑</string>
     <string name="icon_description">Icon</string>
     <string name="dancing_description">Dancing</string>
     <string name="close_button_description">Close button</string>
 
+    <!-- MonsterList menu -->
     <string name="licenses_menu_item_title">ライセンス</string>
+    <string name="about_this_app_menu_item_title">このアプリについて</string>
+
+    <!-- About this app -->
+    <string name="this_app_is_open_source_software">このアプリはオープンソースソフトウェアです。</string>
+    <string name="uhooipicbook_github_url">https://github.com/uhooi/UhooiPicBook-Android</string>
+    <string name="version">バージョン</string>
+    <string name="copyright">© 2021 THE Uhooi</string>
+
+    <!-- MonsterDetail menu -->
     <string name="share_menu_item_title">共有</string>
 
+    <!-- Notification -->
     <string name="info_notification_channel_id">info</string>
     <string name="info_notification_channel_name">お知らせ</string>
     <string name="info_notification_channel_description">お知らせ</string>
 
+    <!-- Alert -->
+    <string name="ok">OK</string>
+
+    <!-- Dummy -->
     <string name="name_dummy">uhooi</string>
     <string name="description_dummy">ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。</string>
 </resources>
