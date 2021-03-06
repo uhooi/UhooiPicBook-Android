@@ -5,4 +5,8 @@
         android:id="@+id/licenses_menu_item"
         android:title="@string/licenses_menu_item_title"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/about_this_app_menu_item"
+        android:title="@string/about_this_app_menu_item_title"
+        app:showAsAction="never" />
 </menu>

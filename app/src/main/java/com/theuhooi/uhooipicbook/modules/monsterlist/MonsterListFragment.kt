@@ -1,6 +1,7 @@
 package com.theuhooi.uhooipicbook.modules.monsterlist
 
 import android.content.Context
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -12,6 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.theuhooi.uhooipicbook.BuildConfig
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
@@ -75,6 +78,24 @@ class MonsterListFragment : Fragment() {
         return when (item.itemId) {
             R.id.licenses_menu_item -> {
                 findNavController().navigate(MonsterListFragmentDirections.actionListToLicenses())
+                true
+            }
+            R.id.about_this_app_menu_item -> {
+                MaterialAlertDialogBuilder(requireActivity())
+                    .setTitle(R.string.app_name)
+                    .setMessage(
+                        """
+                        ${getString(R.string.this_app_is_open_source_software)}
+                        ${getString(R.string.uhooipicbook_github_url)}
+                        
+                        ${getString(R.string.version)} ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})
+                        ${getString(R.string.copyright)}
+                        """.trimIndent()
+                    )
+                    .setPositiveButton(R.string.ok) { _, _ ->
+                        // Do nothing.
+                    }
+                    .show()
                 true
             }
             else -> super.onOptionsItemSelected(item)
