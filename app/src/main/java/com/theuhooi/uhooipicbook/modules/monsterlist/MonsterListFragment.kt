@@ -2,6 +2,8 @@ package com.theuhooi.uhooipicbook.modules.monsterlist
 
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -76,6 +78,11 @@ class MonsterListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.privacy_policy_menu_item -> {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_url)))
+                startActivity(intent)
+                true
+            }
             R.id.licenses_menu_item -> {
                 findNavController().navigate(MonsterListFragmentDirections.actionListToLicenses())
                 true
