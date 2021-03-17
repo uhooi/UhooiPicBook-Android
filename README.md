@@ -34,7 +34,7 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 
 ## Development
 
-You can develop UhooiPicBook-Android.
+You can develop this project.
 
 ### Environment
 
