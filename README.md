@@ -49,7 +49,7 @@ You can develop UhooiPicBook-Android.
 
 1. Clone the project.
 
-```
+```shell
 $ git clone https://github.com/uhooi/UhooiPicBook-Android.git
 $ cd UhooiPicBook-Android
 ```
