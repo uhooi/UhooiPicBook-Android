@@ -67,6 +67,17 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    flavorDimensions 'environment'
+    productFlavors {
+        production {
+            dimension 'environment'
+        }
+        develop {
+            dimension 'environment'
+            applicationIdSuffix '.develop'
+            versionNameSuffix '-develop'
+        }
+    }
 }
 
 dependencies {
@@ -76,11 +87,12 @@ dependencies {
     implementation "io.coil-kt:coil-gif:$coil_version"
 
     // Firebase
-    implementation 'com.google.firebase:firebase-analytics-ktx:18.0.2'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.1'
-    implementation 'com.google.firebase:firebase-firestore-ktx:22.0.2'
-    implementation 'com.google.firebase:firebase-messaging:21.0.1'
-    implementation 'com.google.firebase:firebase-perf:19.1.0'
+    implementation platform('com.google.firebase:firebase-bom:27.0.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-perf'
 
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
@@ -145,24 +157,24 @@ jacoco {
     toolVersion = "0.8.6"
 }
 
-task jacocoDebugTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest', group: 'verification') {
+task jacocoDevelopDebugTestReport(type: JacocoReport, dependsOn: 'testDevelopDebugUnitTest', group: 'verification') {
     def excludedClasses = []
     sourceDirectories.from("$projectDir/src/main/java")
     classDirectories.from(fileTree(
-            dir: "$buildDir/tmp/kotlin-classes/debug",
+            dir: "$buildDir/tmp/kotlin-classes/developDebug",
             excludes: excludedClasses
     ))
-    executionData.from("$buildDir/jacoco/testDebugUnitTest.exec")
+    executionData.from("$buildDir/jacoco/testDevelopDebugUnitTest.exec")
 }
 
-jacocoDebugTestReport {
+jacocoDevelopDebugTestReport {
     reports {
         xml {
             enabled = true
             destination = file("$buildDir/reports/jacoco/jacoco.xml")
         }
         csv {
-            enabled = true
+            enabled = false
             destination = file("$buildDir/reports/jacoco/jacoco.csv")
         }
         html {
