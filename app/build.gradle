@@ -67,6 +67,17 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    flavorDimensions 'environment'
+    productFlavors {
+        production {
+            dimension 'environment'
+        }
+        develop {
+            dimension 'environment'
+            applicationIdSuffix '.develop'
+            versionNameSuffix '-develop'
+        }
+    }
 }
 
 dependencies {
