@@ -1,7 +1,6 @@
 package com.theuhooi.uhooipicbook.modules.monsterlist
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -19,7 +18,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.theuhooi.uhooipicbook.BuildConfig
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
-import com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragmentDirections
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel
 import dagger.hilt.android.AndroidEntryPoint
