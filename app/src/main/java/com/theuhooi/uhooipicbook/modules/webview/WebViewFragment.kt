@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.theuhooi.uhooipicbook.R
@@ -34,7 +35,7 @@ class WebViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // this.webView?.webViewClient = WebViewClient() // FIXME: 付けないと外部ブラウザでリンクが開くが、付けるとエラーになる
+        this.webView?.webViewClient = WebViewClient()
         this.webView?.loadUrl(this.args.urlString)
     }
 
