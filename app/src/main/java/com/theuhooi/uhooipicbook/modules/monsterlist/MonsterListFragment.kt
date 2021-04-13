@@ -19,6 +19,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.theuhooi.uhooipicbook.BuildConfig
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
+import com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragmentDirections
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -78,6 +79,11 @@ class MonsterListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.contact_us_menu_item -> {
+                val action = MonsterListFragmentDirections.actionListToWebView(getString(R.string.contact_us_url))
+                findNavController().navigate(action)
+                true
+            }
             R.id.privacy_policy_menu_item -> {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_url)))
                 startActivity(intent)

@@ -5,9 +5,13 @@
     <string name="close_button_description">Close button</string>
 
     <!-- MonsterList menu -->
+    <string name="contact_us_menu_item_title">お問い合わせ</string>
     <string name="privacy_policy_menu_item_title">プライバシーポリシー</string>
     <string name="licenses_menu_item_title">ライセンス</string>
     <string name="about_this_app_menu_item_title">このアプリについて</string>
+
+    <!-- Contact us -->
+    <string name="contact_us_url">https://forms.gle/KNUqS6QSAxLfcGck6</string>
 
     <!-- Privacy policy -->
     <string name="privacy_policy_url">https://theuhooi.com/privacy-policy/</string>
@@ -32,4 +36,6 @@
     <!-- Dummy -->
     <string name="name_dummy">uhooi</string>
     <string name="description_dummy">ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -14,6 +14,9 @@
             android:id="@+id/action_list_to_detail"
             app:destination="@id/monster_detail_fragment" />
         <action
+            android:id="@+id/action_list_to_web_view"
+            app:destination="@id/web_view_fragment" />
+        <action
             android:id="@+id/action_list_to_licenses"
             app:destination="@id/licenses_activity" />
     </fragment>
@@ -41,6 +44,16 @@
             android:name="dancingUrlString"
             app:argType="string" />
     </dialog>
+
+    <fragment
+        android:id="@+id/web_view_fragment"
+        android:name="com.theuhooi.uhooipicbook.modules.webview.WebViewFragment"
+        android:label=""
+        tools:layout="@layout/fragment_web_view">
+        <argument
+            android:name="urlString"
+            app:argType="string" />
+    </fragment>
 
     <activity
         android:id="@+id/licenses_activity"
