@@ -1,7 +1,6 @@
 package com.theuhooi.uhooipicbook.modules.monsterlist
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -78,6 +77,11 @@ class MonsterListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.contact_us_menu_item -> {
+                val action = MonsterListFragmentDirections.actionListToWebView(getString(R.string.contact_us_url))
+                findNavController().navigate(action)
+                true
+            }
             R.id.privacy_policy_menu_item -> {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_url)))
                 startActivity(intent)

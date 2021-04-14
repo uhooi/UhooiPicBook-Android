@@ -2,12 +2,14 @@
   <dictionary name="Project">
     <words>
       <w>cardview</w>
+      <w>codecov</w>
       <w>crashlytics</w>
       <w>dancingmonster</w>
       <w>fileprovider</w>
       <w>firestore</w>
       <w>imageview</w>
       <w>initializers</w>
+      <w>leakcanary</w>
       <w>monsterdetail</w>
       <w>monsterlist</w>
       <w>mvvm</w>
@@ -18,6 +20,7 @@
       <w>uhooipicbook</w>
       <w>viewmodel</w>
       <w>viewmodels</w>
+      <w>webview</w>
     </words>
   </dictionary>
 </component>
