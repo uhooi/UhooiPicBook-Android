@@ -3,6 +3,7 @@ build:
   weights:
     ForbiddenComment: 0
     MatchingDeclarationName: 1
+    ReturnCount: 0
     TooGenericExceptionThrown: 1
 
 style:
