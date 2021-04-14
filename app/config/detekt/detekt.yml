@@ -4,6 +4,7 @@ build:
     ForbiddenComment: 0
     MatchingDeclarationName: 1
     ReturnCount: 0
+    TooGenericExceptionCaught: 0
     TooGenericExceptionThrown: 1
 
 style:
