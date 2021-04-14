@@ -60,10 +60,10 @@ class WebViewFragment : Fragment() {
                             }
 
                             if (intent.scheme == "http" || intent.scheme == "https") {
-                                val fallbackUrl = intent.getStringExtra(
+                                val fallbackUrlString = intent.getStringExtra(
                                     BROWSER_FALLBACK_URL_EXTRA_NAME
                                 )
-                                webView?.loadUrl(fallbackUrl)
+                                webView?.loadUrl(fallbackUrlString)
                                 return true
                             }
 
@@ -74,11 +74,11 @@ class WebViewFragment : Fragment() {
                             if (info != null) {
                                 context.startActivity(intent)
                             } else {
-                                val fallbackUrl = intent.getStringExtra(
+                                val fallbackUrlString = intent.getStringExtra(
                                     BROWSER_FALLBACK_URL_EXTRA_NAME
                                 )
                                 val browserIntent =
-                                    Intent(Intent.ACTION_VIEW, Uri.parse(fallbackUrl))
+                                    Intent(Intent.ACTION_VIEW, Uri.parse(fallbackUrlString))
                                 context.startActivity(browserIntent)
                             }
                             true
