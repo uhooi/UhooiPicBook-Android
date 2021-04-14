@@ -2,9 +2,12 @@ build:
   maxIssues: 3
   weights:
     ForbiddenComment: 0
-    MagicNumber: 0
     MatchingDeclarationName: 1
     TooGenericExceptionThrown: 1
+
+style:
+  MagicNumber:
+    active: false
 
 console-reports:
   active: true
