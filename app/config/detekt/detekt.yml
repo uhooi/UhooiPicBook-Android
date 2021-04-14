@@ -13,7 +13,7 @@ style:
 
 console-reports:
   active: true
-  exclude:
+  # exclude:
   #  - 'ProjectStatisticsReport'
   #  - 'ComplexityReport'
   #  - 'NotificationReport'
@@ -23,7 +23,7 @@ console-reports:
 
 processors:
   active: true
-  exclude:
+  # exclude:
   # - 'FunctionCountProcessor'
   # - 'PropertyCountProcessor'
   # - 'ClassCountProcessor'
