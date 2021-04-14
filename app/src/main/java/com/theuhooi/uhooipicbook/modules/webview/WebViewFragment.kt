@@ -35,6 +35,7 @@ class WebViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.webView?.settings?.javaScriptEnabled = true
         this.webView?.webViewClient = WebViewClient()
         this.webView?.loadUrl(this.args.urlString)
     }
