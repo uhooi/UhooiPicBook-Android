@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">UhooiPicBook</string>
+
+    <!-- MonsterList menu -->
+    <string name="contact_us_menu_item_title">Contact us</string>
+    <string name="privacy_policy_menu_item_title">Privacy policy</string>
+    <string name="licenses_menu_item_title">Licenses</string>
+    <string name="about_this_app_menu_item_title">About this app</string>
+
+    <!-- Contact us -->
+    <string name="contact_us_url">https://forms.gle/zU64KeFKFkh99khZ6</string>
+
+    <!-- About this app -->
+    <string name="this_app_is_open_source_software">This app is open source software.</string>
+    <string name="version">Version</string>
+
+    <!-- MonsterDetail menu -->
+    <string name="share_menu_item_title">Share</string>
+
+    <!-- Notification -->
+    <string name="info_notification_channel_name">Info</string>
+    <string name="info_notification_channel_description">Info</string>
+</resources>
