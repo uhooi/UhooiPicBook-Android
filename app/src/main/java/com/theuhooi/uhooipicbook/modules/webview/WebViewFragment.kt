@@ -53,9 +53,8 @@ class WebViewFragment : Fragment() {
                     urlString.startsWith("http://") || urlString.startsWith("https://") -> false
                     urlString.startsWith("intent://") -> {
                         try {
-                            val context = webView?.context
                             val intent = Intent.parseUri(urlString, Intent.URI_INTENT_SCHEME)
-                            if (context == null || intent == null) {
+                            if (intent == null) {
                                 return false
                             }
 
@@ -67,19 +66,20 @@ class WebViewFragment : Fragment() {
                                 return true
                             }
 
-                            val info = context.packageManager.resolveActivity(
+                            val context = webView?.context
+                            val info = context?.packageManager?.resolveActivity(
                                 intent,
                                 PackageManager.MATCH_DEFAULT_ONLY
                             )
                             if (info != null) {
-                                context.startActivity(intent)
+                                context?.startActivity(intent)
                             } else {
                                 val fallbackUrlString = intent.getStringExtra(
                                     BROWSER_FALLBACK_URL_EXTRA_NAME
                                 )
                                 val browserIntent =
                                     Intent(Intent.ACTION_VIEW, Uri.parse(fallbackUrlString))
-                                context.startActivity(browserIntent)
+                                context?.startActivity(browserIntent)
                             }
                             true
                         } catch (e: Exception) {
