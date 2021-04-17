@@ -64,9 +64,9 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
     }
 
     private fun openNotificationUrlIfNeeded() {
-        val url = this.intent.getStringExtra(getString(R.string.notification_url_extra_name))
-        if (url != null) {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        val urlString = this.intent.getStringExtra(getString(R.string.notification_url_extra_name))
+        if (urlString != null) {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlString))
             startActivity(intent)
         }
     }
