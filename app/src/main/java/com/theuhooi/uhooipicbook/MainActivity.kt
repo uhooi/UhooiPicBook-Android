@@ -1,7 +1,9 @@
 package com.theuhooi.uhooipicbook
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -25,6 +27,8 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
 
         setContentView(R.layout.activity_main)
         configureToolBar()
+
+        openNotificationUrlIfNeeded()
     }
 
     override fun onSupportNavigateUp() = findNavController(R.id.nav_host_fragment).navigateUp()
@@ -57,6 +61,14 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         }
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    private fun openNotificationUrlIfNeeded() {
+        val url = this.intent.getStringExtra(getString(R.string.notification_url_extra_name))
+        if (url != null) {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
+        }
     }
 
     // endregion
