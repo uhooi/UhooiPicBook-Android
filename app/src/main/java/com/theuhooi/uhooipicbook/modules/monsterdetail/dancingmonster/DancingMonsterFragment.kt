@@ -22,8 +22,8 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
 
     private val viewModel: DancingMonsterViewModel by viewModels() // TODO: Use
 
-    private val binding get() = _binding!!
     private var _binding: FragmentDancingMonsterBinding? = null
+    private val binding get() = _binding!!
 
     // endregion
 

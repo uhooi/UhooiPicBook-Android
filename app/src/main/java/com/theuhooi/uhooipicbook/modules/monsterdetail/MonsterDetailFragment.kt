@@ -35,8 +35,8 @@ class MonsterDetailFragment : Fragment() {
 
     private val viewModel: MonsterDetailViewModel by viewModels() // TODO: Use
 
-    private val binding get() = _binding!!
     private var _binding: FragmentMonsterDetailBinding? = null
+    private val binding get() = _binding!!
 
     private var disposable: Disposable? = null
 
