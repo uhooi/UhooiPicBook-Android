@@ -11,7 +11,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".modules.monsterlist.MonsterListFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/monster_list_recyclerview"
@@ -23,7 +24,6 @@
             android:paddingEnd="@dimen/end_padding"
             app:layoutManager="GridLayoutManager"
             app:observedList="@{viewModel.monsters}"
-            tools:context=".modules.monsterlist.MonsterListFragment"
             tools:listitem="@layout/item_monster_list" />
 
         <ProgressBar

@@ -41,6 +41,7 @@ class MonsterListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         setHasOptionsMenu(true)
+
         val binding = FragmentMonsterListBinding.inflate(inflater, container, false)
         binding.monsterListRecyclerview.adapter =
             MonsterListRecyclerViewAdapter(
@@ -51,7 +52,9 @@ class MonsterListFragment : Fragment() {
         binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
         binding.viewModel = this.viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
-        return binding.root
+
+        val view = binding.root
+        return view
     }
 
     override fun onAttach(context: Context) {

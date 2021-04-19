@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
+    id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
@@ -59,7 +59,7 @@ android {
     }
 
     buildFeatures {
-        dataBinding = true
+        dataBinding true
     }
 
     compileOptions {
