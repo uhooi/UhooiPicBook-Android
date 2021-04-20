@@ -99,7 +99,7 @@ class WebViewFragment : Fragment() {
     // region Companion Object
 
     companion object {
-        const val BROWSER_FALLBACK_URL_EXTRA_NAME = "browser_fallback_url"
+        private const val BROWSER_FALLBACK_URL_EXTRA_NAME = "browser_fallback_url"
     }
 
     // endregion
