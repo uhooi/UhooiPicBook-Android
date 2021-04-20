@@ -11,8 +11,10 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import com.theuhooi.uhooipicbook.R
+import com.theuhooi.uhooipicbook.databinding.FragmentWebViewBinding
+import com.theuhooi.uhooipicbook.modules.webview.viewmodels.WebViewViewModel
 
 class WebViewFragment : Fragment() {
 
@@ -20,7 +22,10 @@ class WebViewFragment : Fragment() {
 
     private val args: WebViewFragmentArgs by navArgs()
 
-    private var webView: WebView? = null
+    private val viewModel: WebViewViewModel by viewModels() // TODO: Use
+
+    private var _binding: FragmentWebViewBinding? = null
+    private val binding get() = _binding!!
 
     // endregion
 
@@ -31,15 +36,14 @@ class WebViewFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.fragment_web_view, container, false)
-        this.webView = view.findViewById(R.id.webview)
-        return view
+        _binding = FragmentWebViewBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.webView?.webViewClient = object : WebViewClient() {
+        this.binding.webview.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(
                 view: WebView?,
                 request: WebResourceRequest?
@@ -57,11 +61,11 @@ class WebViewFragment : Fragment() {
                                 val fallbackUrlString = intent.getStringExtra(
                                     BROWSER_FALLBACK_URL_EXTRA_NAME
                                 )
-                                webView?.loadUrl(fallbackUrlString)
+                                binding.webview.loadUrl(fallbackUrlString)
                                 return true
                             }
 
-                            val context = webView?.context
+                            val context = binding.webview.context
                             val info = context?.packageManager?.resolveActivity(
                                 intent,
                                 PackageManager.MATCH_DEFAULT_ONLY
@@ -83,15 +87,20 @@ class WebViewFragment : Fragment() {
                     }
                     else -> {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlString))
-                        webView?.context?.startActivity(intent)
+                        binding.webview.context?.startActivity(intent)
                         true
                     }
                 }
             }
         }
 
-        this.webView?.settings?.javaScriptEnabled = true
-        this.webView?.loadUrl(this.args.urlString)
+        this.binding.webview.settings?.javaScriptEnabled = true
+        this.binding.webview.loadUrl(this.args.urlString)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     // endregion
@@ -99,7 +108,7 @@ class WebViewFragment : Fragment() {
     // region Companion Object
 
     companion object {
-        const val BROWSER_FALLBACK_URL_EXTRA_NAME = "browser_fallback_url"
+        private const val BROWSER_FALLBACK_URL_EXTRA_NAME = "browser_fallback_url"
     }
 
     // endregion

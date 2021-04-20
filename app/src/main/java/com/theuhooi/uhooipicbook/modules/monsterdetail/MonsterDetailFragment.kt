@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
@@ -21,7 +22,8 @@ import coil.load
 import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
-import kotlinx.android.synthetic.main.fragment_monster_detail.view.*
+import com.theuhooi.uhooipicbook.databinding.FragmentMonsterDetailBinding
+import com.theuhooi.uhooipicbook.modules.monsterdetail.viewmodels.MonsterDetailViewModel
 import java.io.File
 import java.io.FileOutputStream
 
@@ -30,6 +32,11 @@ class MonsterDetailFragment : Fragment() {
     // region Stored Instance Properties
 
     private val args: MonsterDetailFragmentArgs by navArgs()
+
+    private val viewModel: MonsterDetailViewModel by viewModels() // TODO: Use
+
+    private var _binding: FragmentMonsterDetailBinding? = null
+    private val binding get() = _binding!!
 
     private var disposable: Disposable? = null
 
@@ -43,21 +50,30 @@ class MonsterDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_monster_detail, container, false)
+
+        _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.icon_imageview.load(this.args.monster.iconUrlString)
-        view.dancing_imageview.load(this.args.monster.dancingUrlString)
-        view.dancing_imageview.setOnClickListener {
-            val action =
-                MonsterDetailFragmentDirections.actionDetailToDancing(this.args.monster.dancingUrlString)
-            findNavController().navigate(action)
+        this.binding.apply {
+            iconImageview.load(args.monster.iconUrlString)
+            dancingImageview.load(args.monster.dancingUrlString)
+            dancingImageview.setOnClickListener {
+                val action =
+                    MonsterDetailFragmentDirections.actionDetailToDancing(args.monster.dancingUrlString)
+                findNavController().navigate(action)
+            }
+            nameTextview.text = args.monster.name
+            descriptionTextview.text = unescapeNewline(args.monster.description)
         }
-        view.name_textview.text = this.args.monster.name
-        view.description_textview.text = unescapeNewline(this.args.monster.description)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

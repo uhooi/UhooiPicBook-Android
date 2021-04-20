@@ -2,7 +2,7 @@ package com.theuhooi.uhooipicbook.modules.monsterlist.entities
 
 import android.os.Parcelable
 import com.google.firebase.firestore.PropertyName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MonsterItem(

@@ -8,16 +8,22 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDialogFragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import coil.load
-import com.theuhooi.uhooipicbook.R
-import kotlinx.android.synthetic.main.fragment_dancing_monster.view.*
+import com.theuhooi.uhooipicbook.databinding.FragmentDancingMonsterBinding
+import com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.viewmodels.DancingMonsterViewModel
 
 class DancingMonsterFragment : AppCompatDialogFragment() {
 
     // region Stored Instance Properties
 
     private val args: DancingMonsterFragmentArgs by navArgs()
+
+    private val viewModel: DancingMonsterViewModel by viewModels() // TODO: Use
+
+    private var _binding: FragmentDancingMonsterBinding? = null
+    private val binding get() = _binding!!
 
     // endregion
 
@@ -28,19 +34,28 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_dancing_monster, container, false)
+        _binding = FragmentDancingMonsterBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.dancing_imageview.load(this.args.dancingUrlString)
-        view.close_button.setOnClickListener { dismiss() }
+        this.binding.apply {
+            dancingImageview.load(args.dancingUrlString)
+            closeButton.setOnClickListener { dismiss() }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.apply {
+
+        this.dialog?.window?.apply {
             setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
