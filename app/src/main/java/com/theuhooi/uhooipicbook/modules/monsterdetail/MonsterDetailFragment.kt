@@ -70,6 +70,11 @@ class MonsterDetailFragment : Fragment() {
         this.binding.descriptionTextview.text = unescapeNewline(this.args.monster.description)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 

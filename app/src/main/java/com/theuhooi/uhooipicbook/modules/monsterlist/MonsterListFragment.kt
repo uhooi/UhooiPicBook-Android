@@ -31,6 +31,9 @@ class MonsterListFragment : Fragment() {
 
     private val viewModel: MonsterListViewModel by viewModels()
 
+    private var _binding: FragmentMonsterListBinding? = null
+    private val binding get() = _binding!!
+
     // endregion
 
     // region View Life-Cycle Methods
@@ -42,19 +45,24 @@ class MonsterListFragment : Fragment() {
     ): View {
         setHasOptionsMenu(true)
 
-        val binding = FragmentMonsterListBinding.inflate(inflater, container, false)
-        binding.monsterListRecyclerview.adapter =
+        _binding = FragmentMonsterListBinding.inflate(inflater, container, false)
+        this.binding.monsterListRecyclerview.adapter =
             MonsterListRecyclerViewAdapter(
                 this.listener,
                 this.viewModel.monsters,
                 this.viewLifecycleOwner
             )
-        binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
-        binding.viewModel = this.viewModel
-        binding.lifecycleOwner = this.viewLifecycleOwner
+        this.binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
+        this.binding.viewModel = this.viewModel
+        this.binding.lifecycleOwner = this.viewLifecycleOwner
 
-        val view = binding.root
+        val view = this.binding.root
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onAttach(context: Context) {
@@ -81,12 +89,14 @@ class MonsterListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.contact_us_menu_item -> {
-                val action = MonsterListFragmentDirections.actionListToWebView(getString(R.string.contact_us_url))
+                val action =
+                    MonsterListFragmentDirections.actionListToWebView(getString(R.string.contact_us_url))
                 findNavController().navigate(action)
                 true
             }
             R.id.privacy_policy_menu_item -> {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_url)))
+                val intent =
+                    Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.privacy_policy_url)))
                 startActivity(intent)
                 true
             }

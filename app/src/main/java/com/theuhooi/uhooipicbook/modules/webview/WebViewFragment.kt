@@ -99,6 +99,11 @@ class WebViewFragment : Fragment() {
         this.binding.webview.loadUrl(this.args.urlString)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     // endregion
 
     // region Companion Object

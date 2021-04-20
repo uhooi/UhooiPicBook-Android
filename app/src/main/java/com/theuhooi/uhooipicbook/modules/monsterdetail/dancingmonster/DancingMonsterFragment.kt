@@ -46,6 +46,11 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         this.binding.closeButton.setOnClickListener { dismiss() }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     override fun onStart() {
         super.onStart()
 
