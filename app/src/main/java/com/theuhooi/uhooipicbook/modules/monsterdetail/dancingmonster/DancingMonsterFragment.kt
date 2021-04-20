@@ -34,7 +34,7 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        this._binding = FragmentDancingMonsterBinding.inflate(inflater, container, false)
+        _binding = FragmentDancingMonsterBinding.inflate(inflater, container, false)
         val view = this.binding.root
         return view
     }
@@ -48,7 +48,8 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.apply {
+
+        this.dialog?.window?.apply {
             setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN

@@ -51,7 +51,7 @@ class MonsterDetailFragment : Fragment() {
     ): View {
         setHasOptionsMenu(true)
 
-        this._binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
         val view = this.binding.root
         return view
     }
