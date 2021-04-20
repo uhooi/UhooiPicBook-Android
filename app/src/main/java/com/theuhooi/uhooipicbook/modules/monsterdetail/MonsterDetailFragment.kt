@@ -59,11 +59,15 @@ class MonsterDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.binding.iconImageview.load(this.args.monster.iconUrlString)
+        this.binding.dancingImageview.load(this.args.monster.dancingUrlString)
         this.binding.dancingImageview.setOnClickListener {
             val action =
                 MonsterDetailFragmentDirections.actionDetailToDancing(this.args.monster.dancingUrlString)
             findNavController().navigate(action)
         }
+        this.binding.nameTextview.text = this.args.monster.name
+        this.binding.descriptionTextview.text = unescapeNewline(this.args.monster.description)
     }
 
     override fun onDestroyView() {

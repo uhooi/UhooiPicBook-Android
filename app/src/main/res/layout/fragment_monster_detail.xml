@@ -4,11 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <variable
-            name="args"
-            type="com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragmentArgs" />
-
         <variable
             name="viewModel"
             type="com.theuhooi.uhooipicbook.modules.monsterdetail.viewmodels.MonsterDetailViewModel" />
@@ -26,7 +21,6 @@
             android:layout_height="240dp"
             android:layout_marginTop="56dp"
             android:contentDescription="@string/icon_description"
-            app:imageUrl="@{args.monster.iconUrlString}"
             app:layout_constraintBottom_toTopOf="@id/dancing_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +35,6 @@
             android:layout_height="48dp"
             android:layout_marginTop="16dp"
             android:contentDescription="@string/dancing_description"
-            app:imageUrl="@{args.monster.dancingUrlString}"
             app:layout_constraintBottom_toTopOf="@id/name_textview"
             app:layout_constraintEnd_toEndOf="@id/icon_imageview"
             app:layout_constraintHorizontal_bias="1.0"
@@ -54,7 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@{args.monster.name}"
             android:textAlignment="center"
             android:textColor="?android:attr/textColorPrimary"
             android:textSize="36sp"
@@ -71,7 +63,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="64dp"
-            android:text='@{args.monster.description.replace("\\n", "\n")}'
             android:textAlignment="center"
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="16sp"
