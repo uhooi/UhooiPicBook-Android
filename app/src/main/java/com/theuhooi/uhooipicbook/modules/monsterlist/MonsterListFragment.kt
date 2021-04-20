@@ -56,8 +56,7 @@ class MonsterListFragment : Fragment() {
         this.binding.viewModel = this.viewModel
         this.binding.lifecycleOwner = this.viewLifecycleOwner
 
-        val view = this.binding.root
-        return view
+        return binding.root
     }
 
     override fun onDestroyView() {

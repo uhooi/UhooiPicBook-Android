@@ -2,5 +2,4 @@ package com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.viewmodel
 
 import androidx.lifecycle.ViewModel
 
-class DancingMonsterViewModel : ViewModel() {
-}
+class DancingMonsterViewModel : ViewModel()

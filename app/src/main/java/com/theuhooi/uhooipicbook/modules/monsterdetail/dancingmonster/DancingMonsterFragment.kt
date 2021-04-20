@@ -35,8 +35,7 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDancingMonsterBinding.inflate(inflater, container, false)
-        val view = this.binding.root
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
