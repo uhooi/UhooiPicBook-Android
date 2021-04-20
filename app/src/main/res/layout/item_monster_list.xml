@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="monsterItem"
             type="com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem" />
@@ -28,7 +29,8 @@
                 android:layout_height="68dp"
                 android:layout_margin="16dp"
                 android:contentDescription="@string/icon_description"
-                app:imageUrl="@{monsterItem.iconUrlString}"/>
+                app:imageUrl="@{monsterItem.iconUrlString}"
+                tools:src="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/name_textview"
@@ -36,11 +38,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="@dimen/text_margin"
-                android:text="@{monsterItem.name, default=@string/name_dummy}"
+                android:text="@{monsterItem.name}"
                 android:textAppearance="?attr/textAppearanceListItem"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="@string/name_dummy" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>
