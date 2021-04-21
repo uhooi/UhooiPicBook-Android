@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="args"
+            type="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.DancingMonsterFragmentArgs" />
+
+        <variable
             name="viewModel"
             type="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.viewmodels.DancingMonsterViewModel" />
     </data>
@@ -22,6 +26,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:contentDescription="@string/icon_description"
+            app:imageUrl="@{args.dancingUrlString}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline_end"
             app:layout_constraintStart_toStartOf="@id/guideline_start"
