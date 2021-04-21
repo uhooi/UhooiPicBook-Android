@@ -51,6 +51,7 @@ class MonsterDetailFragment : Fragment() {
         setHasOptionsMenu(true)
 
         _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
+        this.binding.args = this.args
         this.binding.lifecycleOwner = this.viewLifecycleOwner
         return binding.root
     }
