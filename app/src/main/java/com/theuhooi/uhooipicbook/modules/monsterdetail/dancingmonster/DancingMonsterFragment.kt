@@ -10,7 +10,6 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import coil.load
 import com.theuhooi.uhooipicbook.databinding.FragmentDancingMonsterBinding
 import com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.viewmodels.DancingMonsterViewModel
 
@@ -35,16 +34,14 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDancingMonsterBinding.inflate(inflater, container, false)
+        this.binding.args = this.args
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.binding.apply {
-            dancingImageview.load(args.dancingUrlString)
-            closeButton.setOnClickListener { dismiss() }
-        }
+        this.binding.closeButton.setOnClickListener { dismiss() }
     }
 
     override fun onDestroyView() {

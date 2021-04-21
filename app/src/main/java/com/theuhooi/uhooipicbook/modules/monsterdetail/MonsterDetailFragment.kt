@@ -18,7 +18,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
-import coil.load
 import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
@@ -52,22 +51,17 @@ class MonsterDetailFragment : Fragment() {
         setHasOptionsMenu(true)
 
         _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
+        this.binding.args = this.args
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.binding.apply {
-            iconImageview.load(args.monster.iconUrlString)
-            dancingImageview.load(args.monster.dancingUrlString)
-            dancingImageview.setOnClickListener {
-                val action =
-                    MonsterDetailFragmentDirections.actionDetailToDancing(args.monster.dancingUrlString)
-                findNavController().navigate(action)
-            }
-            nameTextview.text = args.monster.name
-            descriptionTextview.text = unescapeNewline(args.monster.description)
+        this.binding.dancingImageview.setOnClickListener {
+            val action =
+                MonsterDetailFragmentDirections.actionDetailToDancing(args.monster.dancingUrlString)
+            findNavController().navigate(action)
         }
     }
 
