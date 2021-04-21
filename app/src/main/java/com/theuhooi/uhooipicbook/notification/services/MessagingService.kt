@@ -14,19 +14,17 @@ import com.theuhooi.uhooipicbook.R
 
 class MessagingService : FirebaseMessagingService() {
 
-    // region Stored Instance Properties
-
-    private val infoNotificationId = 0
-
-    // endregion
-
     // region FirebaseMessagingService
 
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
 
         message.notification?.let {
-            sendInfoNotification(it.title ?: getString(R.string.app_name), it.body ?: "")
+            sendInfoNotification(
+                it.title ?: getString(R.string.app_name),
+                it.body ?: "",
+                message.data["url"]
+            )
         }
     }
 
@@ -34,15 +32,31 @@ class MessagingService : FirebaseMessagingService() {
 
     // region Other Private Methods
 
-    private fun sendInfoNotification(title: String, text: String) {
-        sendNotification(title, text, getString(R.string.info_notification_channel_id), this.infoNotificationId)
+    private fun sendInfoNotification(title: String, text: String, urlString: String? = null) {
+        sendNotification(
+            title,
+            text,
+            getString(R.string.info_notification_channel_id),
+            INFO_NOTIFICATION_ID,
+            urlString
+        )
     }
 
-    private fun sendNotification(title: String, text: String, channelId: String, notificationId: Int) {
+    private fun sendNotification(
+        title: String,
+        text: String,
+        channelId: String,
+        notificationId: Int,
+        urlString: String?
+    ) {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            if (urlString != null) {
+                putExtra(getString(R.string.notification_url_extra_name), urlString)
+            }
         }
         val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
         val notification = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.mipmap.ic_notification)
             .setContentTitle(title)
@@ -53,10 +67,22 @@ class MessagingService : FirebaseMessagingService() {
             .setAutoCancel(true)
             .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
             .setVibrate(longArrayOf(0, 1000, 500, 1000))
-            .setDefaults(Notification.DEFAULT_SOUND or Notification.DEFAULT_VIBRATE)
+            .setDefaults(Notification.DEFAULT_SOUND or Notification.DEFAULT_VIBRATE or Notification.DEFAULT_LIGHTS)
             .build()
+
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(notificationId, notification)
     }
+
+    // endregion
+
+    // region Companion Object
+
+    companion object {
+        const val INFO_NOTIFICATION_ID = 0
+    }
+
+    // endregion
+
 }

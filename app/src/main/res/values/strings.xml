@@ -1,16 +1,40 @@
 <resources>
-    <string name="app_name">UhooiPicBook</string>
-    <string name="icon_description">Icon</string>
-    <string name="dancing_description">Dancing</string>
-    <string name="close_button_description">Close button</string>
+    <string name="app_name">ウホーイ図鑑</string>
+    <string name="icon_description" translatable="false">Icon</string>
+    <string name="dancing_description" translatable="false">Dancing</string>
+    <string name="close_button_description" translatable="false">Close button</string>
 
+    <!-- MonsterList menu -->
+    <string name="contact_us_menu_item_title">お問い合わせ</string>
+    <string name="privacy_policy_menu_item_title">プライバシーポリシー</string>
     <string name="licenses_menu_item_title">ライセンス</string>
+    <string name="about_this_app_menu_item_title">このアプリについて</string>
+
+    <!-- Contact us -->
+    <string name="contact_us_url">https://forms.gle/KNUqS6QSAxLfcGck6</string>
+
+    <!-- Privacy policy -->
+    <string name="privacy_policy_url" translatable="false">https://theuhooi.com/privacy-policy/</string>
+
+    <!-- About this app -->
+    <string name="this_app_is_open_source_software">このアプリはオープンソースソフトウェアです。</string>
+    <string name="uhooipicbook_github_url" translatable="false">https://github.com/uhooi/UhooiPicBook-Android</string>
+    <string name="version">バージョン</string>
+    <string name="copyright" translatable="false">© 2021 THE Uhooi</string>
+
+    <!-- MonsterDetail menu -->
     <string name="share_menu_item_title">共有</string>
 
-    <string name="info_notification_channel_id">info</string>
+    <!-- Notification -->
+    <string name="notification_url_extra_name" translatable="false">url</string>
+    <string name="info_notification_channel_id" translatable="false">info</string>
     <string name="info_notification_channel_name">お知らせ</string>
     <string name="info_notification_channel_description">お知らせ</string>
 
-    <string name="name_dummy">uhooi</string>
-    <string name="description_dummy">ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。</string>
+    <!-- Alert -->
+    <string name="ok" translatable="false">OK</string>
+
+    <!-- Dummy -->
+    <string name="name_dummy" translatable="false">uhooi</string>
+    <string name="description_dummy" translatable="false">ゆかいな　みどりの　せいぶつ。\nわるそうに　みえるが　むがい。</string>
 </resources>

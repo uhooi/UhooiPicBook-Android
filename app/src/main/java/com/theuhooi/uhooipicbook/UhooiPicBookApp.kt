@@ -12,6 +12,7 @@ import coil.decode.ImageDecoderDecoder
 import coil.util.CoilUtils
 import dagger.hilt.android.HiltAndroidApp
 import okhttp3.OkHttpClient
+import timber.log.Timber
 
 @HiltAndroidApp
 class UhooiPicBookApp : Application() {
@@ -20,6 +21,8 @@ class UhooiPicBookApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        configureTimber()
         createNotificationChannels()
         initializeCoilImageLoader()
     }
@@ -27,6 +30,12 @@ class UhooiPicBookApp : Application() {
     // endregion
 
     // region Other Private Methods
+
+    private fun configureTimber() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+    }
 
     private fun createNotificationChannels() {
         val channels = listOf(

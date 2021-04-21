@@ -27,3 +27,6 @@
 
 *.keystore
 
+# jEnv
+.java-version
+
