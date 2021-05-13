@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
 
     // region MonsterListFragment.OnListFragmentInteractionListener
 
+    // TODO: `MainActivity` からモンスターの依存をなくす
     override fun onListFragmentInteraction(item: MonsterItem) {
         val action = MonsterListFragmentDirections.actionListToDetail(item)
         findNavController(R.id.nav_host_fragment).navigate(action)

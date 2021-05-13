@@ -5,45 +5,43 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/monster_list_fragment">
 
-    <fragment
-        android:id="@+id/monster_list_fragment"
-        android:name="com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment"
-        android:label=""
-        tools:layout="@layout/fragment_monster_list">
-        <action
-            android:id="@+id/action_list_to_detail"
-            app:destination="@id/monster_detail_fragment" />
-        <action
-            android:id="@+id/action_list_to_web_view"
-            app:destination="@id/web_view_fragment" />
-        <action
-            android:id="@+id/action_list_to_licenses"
-            app:destination="@id/licenses_activity" />
-    </fragment>
+    <navigation
+        android:id="@+id/monster_nav_graph"
+        app:startDestination="@id/monster_list_fragment">
 
-    <fragment
-        android:id="@+id/monster_detail_fragment"
-        android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragment"
-        android:label=""
-        tools:layout="@layout/fragment_monster_detail">
-        <argument
-            android:name="monster"
-            app:argType="com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem" />
+        <fragment
+            android:id="@+id/monster_list_fragment"
+            android:name="com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment"
+            android:label=""
+            tools:layout="@layout/fragment_monster_list">
+            <action
+                android:id="@+id/action_list_to_detail"
+                app:destination="@id/monster_detail_fragment" />
+            <action
+                android:id="@+id/action_list_to_web_view"
+                app:destination="@id/web_view_fragment" />
+            <action
+                android:id="@+id/action_list_to_licenses"
+                app:destination="@id/licenses_activity" />
+        </fragment>
 
-        <action
-            android:id="@+id/action_detail_to_dancing"
-            app:destination="@id/dancing_monster_fragment" />
-    </fragment>
+        <fragment
+            android:id="@+id/monster_detail_fragment"
+            android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragment"
+            android:label=""
+            tools:layout="@layout/fragment_monster_detail">
+            <action
+                android:id="@+id/action_detail_to_dancing"
+                app:destination="@id/dancing_monster_fragment" />
+        </fragment>
 
-    <dialog
-        android:id="@+id/dancing_monster_fragment"
-        android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.DancingMonsterFragment"
-        android:label=""
-        tools:layout="@layout/fragment_dancing_monster">
-        <argument
-            android:name="dancingUrlString"
-            app:argType="string" />
-    </dialog>
+        <dialog
+            android:id="@+id/dancing_monster_fragment"
+            android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.DancingMonsterFragment"
+            android:label=""
+            tools:layout="@layout/fragment_dancing_monster">
+        </dialog>
+    </navigation>
 
     <fragment
         android:id="@+id/web_view_fragment"

@@ -14,15 +14,14 @@ import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
+import androidx.navigation.navGraphViewModels
 import coil.ImageLoader
 import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterDetailBinding
-import com.theuhooi.uhooipicbook.modules.monsterdetail.viewmodels.MonsterDetailViewModel
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
 import java.io.File
 import java.io.FileOutputStream
 
@@ -30,9 +29,7 @@ class MonsterDetailFragment : Fragment() {
 
     // region Stored Instance Properties
 
-    private val args: MonsterDetailFragmentArgs by navArgs()
-
-    private val viewModel: MonsterDetailViewModel by viewModels() // TODO: Use
+    private val viewModel: MonsterViewModel by navGraphViewModels(R.id.monster_nav_graph)
 
     private var _binding: FragmentMonsterDetailBinding? = null
     private val binding get() = _binding!!
@@ -51,7 +48,7 @@ class MonsterDetailFragment : Fragment() {
         setHasOptionsMenu(true)
 
         _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
-        this.binding.args = this.args
+        this.binding.viewModel = this.viewModel
         return binding.root
     }
 
@@ -60,7 +57,7 @@ class MonsterDetailFragment : Fragment() {
 
         this.binding.dancingImageview.setOnClickListener {
             val action =
-                MonsterDetailFragmentDirections.actionDetailToDancing(args.monster.dancingUrlString)
+                MonsterDetailFragmentDirections.actionDetailToDancing()
             findNavController().navigate(action)
         }
     }
@@ -92,7 +89,7 @@ class MonsterDetailFragment : Fragment() {
     // region Other Private Methods
 
     private fun shareMonster() {
-        val monster = this.args.monster
+        val monster = this.viewModel.selectedMonster.value!!
         val context = requireContext()
         val request = ImageRequest.Builder(context)
             .data(monster.iconUrlString)

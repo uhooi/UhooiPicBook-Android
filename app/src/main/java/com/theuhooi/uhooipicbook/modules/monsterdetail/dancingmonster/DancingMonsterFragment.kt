@@ -8,18 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDialogFragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.navGraphViewModels
+import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentDancingMonsterBinding
-import com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.viewmodels.DancingMonsterViewModel
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
 
 class DancingMonsterFragment : AppCompatDialogFragment() {
 
     // region Stored Instance Properties
 
-    private val args: DancingMonsterFragmentArgs by navArgs()
-
-    private val viewModel: DancingMonsterViewModel by viewModels() // TODO: Use
+    private val viewModel: MonsterViewModel by navGraphViewModels(R.id.monster_nav_graph)
 
     private var _binding: FragmentDancingMonsterBinding? = null
     private val binding get() = _binding!!
@@ -34,7 +33,7 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDancingMonsterBinding.inflate(inflater, container, false)
-        this.binding.args = this.args
+        this.binding.viewModel = this.viewModel
         return binding.root
     }
 

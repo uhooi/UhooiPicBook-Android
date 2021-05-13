@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterListViewModel" />
+            type="com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

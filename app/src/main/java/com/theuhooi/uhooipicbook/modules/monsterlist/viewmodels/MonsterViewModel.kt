@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MonsterListViewModel @Inject constructor(
+class MonsterViewModel @Inject constructor(
     private val repository: MonstersRepository
 ) : ViewModel() {
 
@@ -18,6 +18,10 @@ class MonsterListViewModel @Inject constructor(
     private val _monsters = MutableLiveData<List<MonsterItem>>()
     val monsters: LiveData<List<MonsterItem>>
         get() = _monsters
+
+    private val _selectedMonster = MutableLiveData<MonsterItem>()
+    val selectedMonster: LiveData<MonsterItem>
+        get() = _selectedMonster
 
     private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean>
