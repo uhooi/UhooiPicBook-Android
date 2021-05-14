@@ -51,11 +51,6 @@ class MonsterListFragment : Fragment() {
         this.binding.viewModel = this.viewModel
         this.binding.lifecycleOwner = this.viewLifecycleOwner
 
-        this.viewModel.selectedMonster.observe(viewLifecycleOwner) {
-            val action = MonsterListFragmentDirections.actionListToDetail()
-            findNavController().navigate(action)
-        }
-
         return binding.root
     }
 

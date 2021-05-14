@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
@@ -16,9 +17,11 @@ class MonsterListRecyclerViewAdapter(
 
     // region Stored Instance Properties
 
-    private val onClickListener = View.OnClickListener { v ->
-        val item = v.tag as MonsterItem
+    private val onClickListener = View.OnClickListener { view ->
+        val item = view.tag as MonsterItem
         viewModel.selectMonster(item)
+        val action = MonsterListFragmentDirections.actionListToDetail()
+        view.findNavController().navigate(action)
     }
 
     // endregion

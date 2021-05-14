@@ -60,8 +60,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
         super.onViewCreated(view, savedInstanceState)
 
         this.binding.dancingImageview.setOnClickListener {
-            val action =
-                MonsterDetailFragmentDirections.actionDetailToDancing()
+            val action = MonsterDetailFragmentDirections.actionDetailToDancing()
             findNavController().navigate(action)
         }
 
