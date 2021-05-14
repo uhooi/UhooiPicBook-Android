@@ -1,7 +1,6 @@
 package com.theuhooi.uhooipicbook
 
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
@@ -10,15 +9,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.color.MaterialColors
-import com.theuhooi.uhooipicbook.extensions.IntColorInterface
-import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment
-import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragmentDirections
-import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInteractionListener,
-    IntColorInterface {
+class MainActivity : AppCompatActivity() {
 
     // region View Life-Cycle Methods
 
@@ -68,22 +62,6 @@ class MainActivity : AppCompatActivity(), MonsterListFragment.OnListFragmentInte
         if (urlString != null) {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlString))
             startActivity(intent)
-        }
-    }
-
-    // endregion
-
-    // region MonsterListFragment.OnListFragmentInteractionListener
-
-    // TODO: `MainActivity` からモンスターの依存をなくす
-    override fun onListFragmentInteraction(item: MonsterItem) {
-        val action = MonsterListFragmentDirections.actionListToDetail(item)
-        findNavController(R.id.nav_host_fragment).navigate(action)
-
-        if (item.baseColorCode.isNotEmpty()) {
-            val actionBarColor = Color.parseColor(item.baseColorCode)
-            this.supportActionBar?.setBackgroundDrawable(ColorDrawable(actionBarColor))
-            this.window.statusBarColor = actionBarColor.actionBarColorToStatusBarColor
         }
     }
 

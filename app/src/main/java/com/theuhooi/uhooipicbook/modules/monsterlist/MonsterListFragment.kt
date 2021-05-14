@@ -1,7 +1,8 @@
 package com.theuhooi.uhooipicbook.modules.monsterlist
 
-import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,26 +11,25 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.theuhooi.uhooipicbook.BuildConfig
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
-import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.extensions.IntColorInterface
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MonsterListFragment : Fragment() {
+class MonsterListFragment : Fragment(), IntColorInterface {
 
     // region Stored Instance Properties
 
-    private var listener: OnListFragmentInteractionListener? = null
-
-    private val viewModel: MonsterViewModel by navGraphViewModels(R.id.monster_nav_graph)
+    private val viewModel: MonsterViewModel by hiltNavGraphViewModels(R.id.monster_nav_graph)
 
     private var _binding: FragmentMonsterListBinding? = null
     private val binding get() = _binding!!
@@ -48,13 +48,26 @@ class MonsterListFragment : Fragment() {
         _binding = FragmentMonsterListBinding.inflate(inflater, container, false)
         this.binding.monsterListRecyclerview.adapter =
             MonsterListRecyclerViewAdapter(
-                this.listener,
-                this.viewModel.monsters,
+                this.viewModel,
                 this.viewLifecycleOwner
             )
         this.binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
         this.binding.viewModel = this.viewModel
         this.binding.lifecycleOwner = this.viewLifecycleOwner
+
+        this.viewModel.selectedMonster.observe(viewLifecycleOwner) {
+            val action = MonsterListFragmentDirections.actionListToDetail()
+            findNavController().navigate(action)
+
+            if (it.baseColorCode.isNotEmpty()) {
+                val activity = requireActivity()
+                val actionBarColor = Color.parseColor(it.baseColorCode)
+                (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
+                    ColorDrawable(actionBarColor)
+                )
+                activity.window.statusBarColor = actionBarColor.actionBarColorToStatusBarColor
+            }
+        }
 
         return binding.root
     }
@@ -62,22 +75,6 @@ class MonsterListFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        if (context is OnListFragmentInteractionListener) {
-            this.listener = context
-        } else {
-            throw RuntimeException("$context must implement OnListFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-
-        this.listener = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -121,14 +118,6 @@ class MonsterListFragment : Fragment() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    // endregion
-
-    // region Interfaces
-
-    interface OnListFragmentInteractionListener {
-        fun onListFragmentInteraction(item: MonsterItem)
     }
 
     // endregion

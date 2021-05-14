@@ -14,8 +14,8 @@ import android.view.ViewGroup
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navGraphViewModels
 import coil.ImageLoader
 import coil.request.Disposable
 import coil.request.ImageRequest
@@ -29,7 +29,7 @@ class MonsterDetailFragment : Fragment() {
 
     // region Stored Instance Properties
 
-    private val viewModel: MonsterViewModel by navGraphViewModels(R.id.monster_nav_graph)
+    private val viewModel: MonsterViewModel by hiltNavGraphViewModels(R.id.monster_nav_graph)
 
     private var _binding: FragmentMonsterDetailBinding? = null
     private val binding get() = _binding!!

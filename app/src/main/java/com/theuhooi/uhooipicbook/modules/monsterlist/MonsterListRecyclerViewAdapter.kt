@@ -4,15 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
-import com.theuhooi.uhooipicbook.modules.monsterlist.MonsterListFragment.OnListFragmentInteractionListener
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
 
 class MonsterListRecyclerViewAdapter(
-    private val listener: OnListFragmentInteractionListener?,
-    private val monsters: LiveData<List<MonsterItem>>,
+    private val viewModel: MonsterViewModel,
     private val viewLifecycleOwner: LifecycleOwner
 ) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.MonsterListRecyclerViewHolder>() {
 
@@ -20,7 +18,7 @@ class MonsterListRecyclerViewAdapter(
 
     private val onClickListener = View.OnClickListener { v ->
         val item = v.tag as MonsterItem
-        this.listener?.onListFragmentInteraction(item)
+        viewModel.selectMonster(item)
     }
 
     // endregion
@@ -39,19 +37,20 @@ class MonsterListRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
         holder.binding.lifecycleOwner = this.viewLifecycleOwner
-        val monster = this.monsters.value?.get(position)
+        val monster = this.viewModel.monsters.value?.get(position)
         holder.binding.monsterItem = monster
         holder.binding.cardView.tag = monster
         holder.binding.cardView.setOnClickListener(this.onClickListener)
     }
 
-    override fun getItemCount(): Int = this.monsters.value?.size ?: 0
+    override fun getItemCount(): Int = this.viewModel.monsters.value?.size ?: 0
 
     // endregion
 
     // region ViewHolder
 
-    class MonsterListRecyclerViewHolder(val binding: ItemMonsterListBinding) : RecyclerView.ViewHolder(binding.root)
+    class MonsterListRecyclerViewHolder(val binding: ItemMonsterListBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     // endregion
 

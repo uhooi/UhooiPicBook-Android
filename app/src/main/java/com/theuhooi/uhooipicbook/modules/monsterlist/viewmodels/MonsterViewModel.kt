@@ -37,6 +37,13 @@ class MonsterViewModel @Inject constructor(
 
     // endregion
 
+
+    // region Other Internal Methods
+
+    fun selectMonster(monster: MonsterItem) {
+        _selectedMonster.value = monster
+    }
+
     // region Other Private Methods
 
     private fun loadMonsters() {
