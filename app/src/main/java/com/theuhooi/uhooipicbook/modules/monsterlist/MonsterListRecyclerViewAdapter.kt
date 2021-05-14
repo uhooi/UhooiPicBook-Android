@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
 
 class MonsterListRecyclerViewAdapter(
-    private val viewModel: MonsterViewModel,
+    private val monsters: LiveData<List<MonsterItem>>,
     private val viewLifecycleOwner: LifecycleOwner
 ) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.MonsterListRecyclerViewHolder>() {
 
@@ -19,8 +19,7 @@ class MonsterListRecyclerViewAdapter(
 
     private val onClickListener = View.OnClickListener { view ->
         val item = view.tag as MonsterItem
-        viewModel.selectMonster(item)
-        val action = MonsterListFragmentDirections.actionListToDetail()
+        val action = MonsterListFragmentDirections.actionListToDetail(item.order)
         view.findNavController().navigate(action)
     }
 
@@ -40,13 +39,13 @@ class MonsterListRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
         holder.binding.lifecycleOwner = this.viewLifecycleOwner
-        val monster = this.viewModel.monsters.value?.get(position)
+        val monster = this.monsters.value?.get(position)
         holder.binding.monsterItem = monster
         holder.binding.cardView.tag = monster
         holder.binding.cardView.setOnClickListener(this.onClickListener)
     }
 
-    override fun getItemCount(): Int = this.viewModel.monsters.value?.size ?: 0
+    override fun getItemCount(): Int = this.monsters.value?.size ?: 0
 
     // endregion
 

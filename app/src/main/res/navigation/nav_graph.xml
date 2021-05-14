@@ -30,18 +30,25 @@
             android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.MonsterDetailFragment"
             android:label=""
             tools:layout="@layout/fragment_monster_detail">
+            <argument
+                android:name="monsterOrder"
+                app:argType="integer" />
             <action
                 android:id="@+id/action_detail_to_dancing"
                 app:destination="@id/dancing_monster_fragment" />
         </fragment>
 
-        <dialog
-            android:id="@+id/dancing_monster_fragment"
-            android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.DancingMonsterFragment"
-            android:label=""
-            tools:layout="@layout/fragment_dancing_monster">
-        </dialog>
     </navigation>
+
+    <dialog
+        android:id="@+id/dancing_monster_fragment"
+        android:name="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.DancingMonsterFragment"
+        android:label=""
+        tools:layout="@layout/fragment_dancing_monster">
+        <argument
+            android:name="dancingUrlString"
+            app:argType="string" />
+    </dialog>
 
     <fragment
         android:id="@+id/web_view_fragment"

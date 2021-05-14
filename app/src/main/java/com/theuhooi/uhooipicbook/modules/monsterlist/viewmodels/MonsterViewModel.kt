@@ -19,10 +19,6 @@ class MonsterViewModel @Inject constructor(
     val monsters: LiveData<List<MonsterItem>>
         get() = _monsters
 
-    private val _selectedMonster = MutableLiveData<MonsterItem>()
-    val selectedMonster: LiveData<MonsterItem>
-        get() = _selectedMonster
-
     private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean>
         get() = _isLoading
@@ -37,12 +33,11 @@ class MonsterViewModel @Inject constructor(
 
     // endregion
 
+    // region Other Public Methods
 
-    // region Other Internal Methods
+    fun findMonster(order: Int): MonsterItem? = this.monsters.value?.find { it.order == order }
 
-    fun selectMonster(monster: MonsterItem) {
-        _selectedMonster.value = monster
-    }
+    // endregion
 
     // region Other Private Methods
 

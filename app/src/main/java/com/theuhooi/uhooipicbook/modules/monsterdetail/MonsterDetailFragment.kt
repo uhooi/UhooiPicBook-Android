@@ -19,6 +19,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
 import coil.request.Disposable
 import coil.request.ImageRequest
@@ -32,6 +33,8 @@ import java.io.FileOutputStream
 class MonsterDetailFragment : Fragment(), IntColorInterface {
 
     // region Stored Instance Properties
+
+    private val args: MonsterDetailFragmentArgs by navArgs()
 
     private val viewModel: MonsterViewModel by hiltNavGraphViewModels(R.id.monster_nav_graph)
 
@@ -52,6 +55,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
         setHasOptionsMenu(true)
 
         _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
+        this.binding.args = this.args
         this.binding.viewModel = this.viewModel
         return binding.root
     }
@@ -60,11 +64,13 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
         super.onViewCreated(view, savedInstanceState)
 
         this.binding.dancingImageview.setOnClickListener {
-            val action = MonsterDetailFragmentDirections.actionDetailToDancing()
+            val action = MonsterDetailFragmentDirections.actionDetailToDancing(
+                this.viewModel.findMonster(this.args.monsterOrder)?.dancingUrlString!!
+            )
             findNavController().navigate(action)
         }
 
-        val baseColorCode = this.viewModel.selectedMonster.value?.baseColorCode
+        val baseColorCode = this.viewModel.findMonster(this.args.monsterOrder)?.baseColorCode
         if (baseColorCode?.isNotEmpty() == true) {
             val activity = requireActivity()
             val actionBarColor = Color.parseColor(baseColorCode)
@@ -102,7 +108,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
     // region Other Private Methods
 
     private fun shareMonster() {
-        val monster = this.viewModel.selectedMonster.value!!
+        val monster = this.viewModel.findMonster(this.args.monsterOrder)!!
         val context = requireContext()
         val request = ImageRequest.Builder(context)
             .data(monster.iconUrlString)

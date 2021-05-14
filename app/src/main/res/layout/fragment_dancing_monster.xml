@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel" />
+            name="args"
+            type="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.DancingMonsterFragmentArgs" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:contentDescription="@string/icon_description"
-            app:imageUrl="@{viewModel.selectedMonster.dancingUrlString}"
+            app:imageUrl="@{args.dancingUrlString}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline_end"
             app:layout_constraintStart_toStartOf="@id/guideline_start"
