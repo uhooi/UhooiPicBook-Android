@@ -1,8 +1,6 @@
 package com.theuhooi.uhooipicbook.modules.monsterlist
 
 import android.content.Intent
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +9,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
@@ -20,12 +17,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.theuhooi.uhooipicbook.BuildConfig
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
-import com.theuhooi.uhooipicbook.extensions.IntColorInterface
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MonsterListFragment : Fragment(), IntColorInterface {
+class MonsterListFragment : Fragment() {
 
     // region Stored Instance Properties
 
@@ -58,15 +54,6 @@ class MonsterListFragment : Fragment(), IntColorInterface {
         this.viewModel.selectedMonster.observe(viewLifecycleOwner) {
             val action = MonsterListFragmentDirections.actionListToDetail()
             findNavController().navigate(action)
-
-            if (it.baseColorCode.isNotEmpty()) {
-                val activity = requireActivity()
-                val actionBarColor = Color.parseColor(it.baseColorCode)
-                (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
-                    ColorDrawable(actionBarColor)
-                )
-                activity.window.statusBarColor = actionBarColor.actionBarColorToStatusBarColor
-            }
         }
 
         return binding.root
