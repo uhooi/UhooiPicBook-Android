@@ -26,6 +26,7 @@ import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterDetailBinding
 import com.theuhooi.uhooipicbook.extensions.IntColorInterface
+import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
 import java.io.File
 import java.io.FileOutputStream
@@ -42,6 +43,12 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
     private val binding get() = _binding!!
 
     private var disposable: Disposable? = null
+
+    // endregion
+
+    // region Computed Instance Properties
+
+    private val monster: MonsterItem? get() = this.viewModel.findMonster(this.args.monsterOrder)
 
     // endregion
 
@@ -65,12 +72,12 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
 
         this.binding.dancingImageview.setOnClickListener {
             val action = MonsterDetailFragmentDirections.actionDetailToDancing(
-                this.viewModel.findMonster(this.args.monsterOrder)?.dancingUrlString!!
+                this.monster?.dancingUrlString!!
             )
             findNavController().navigate(action)
         }
 
-        val baseColorCode = this.viewModel.findMonster(this.args.monsterOrder)?.baseColorCode
+        val baseColorCode = this.monster?.baseColorCode
         if (baseColorCode?.isNotEmpty() == true) {
             val activity = requireActivity()
             val actionBarColor = Color.parseColor(baseColorCode)
@@ -108,7 +115,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
     // region Other Private Methods
 
     private fun shareMonster() {
-        val monster = this.viewModel.findMonster(this.args.monsterOrder)!!
+        val monster = this.monster!!
         val context = requireContext()
         val request = ImageRequest.Builder(context)
             .data(monster.iconUrlString)
