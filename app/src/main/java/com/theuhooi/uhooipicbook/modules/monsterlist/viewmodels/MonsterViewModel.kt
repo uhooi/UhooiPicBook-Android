@@ -35,7 +35,7 @@ class MonsterViewModel @Inject constructor(
 
     // region Other Public Methods
 
-    fun findMonster(order: Int): MonsterItem? = this.monsters.value?.find { it.order == order }
+    fun findMonster(order: Int): MonsterItem = requireNotNull(this.monsters.value?.find { it.order == order })
 
     // endregion
 
