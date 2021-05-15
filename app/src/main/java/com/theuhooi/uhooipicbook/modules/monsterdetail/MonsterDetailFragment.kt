@@ -47,9 +47,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
     // endregion
 
     // region Computed Instance Properties
-
-    private val monster: MonsterItem get() = this.viewModel.findMonster(this.args.monsterOrder)!!
-
+    private val monster: MonsterItem by lazy { viewModel.findMonster(args.monsterOrder) }
     // endregion
 
     // region View Life-Cycle Methods
@@ -62,8 +60,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
         setHasOptionsMenu(true)
 
         _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
-        this.binding.args = this.args
-        this.binding.viewModel = this.viewModel
+        this.binding.monster = this.monster
         return binding.root
     }
 
