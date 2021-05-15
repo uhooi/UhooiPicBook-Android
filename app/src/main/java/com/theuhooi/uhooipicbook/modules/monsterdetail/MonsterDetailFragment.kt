@@ -48,7 +48,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
 
     // region Computed Instance Properties
 
-    private val monster: MonsterItem? get() = this.viewModel.findMonster(this.args.monsterOrder)
+    private val monster: MonsterItem get() = this.viewModel.findMonster(this.args.monsterOrder)!!
 
     // endregion
 
@@ -71,14 +71,13 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
         super.onViewCreated(view, savedInstanceState)
 
         this.binding.dancingImageview.setOnClickListener {
-            val action = MonsterDetailFragmentDirections.actionDetailToDancing(
-                this.monster?.dancingUrlString!!
-            )
+            val action =
+                MonsterDetailFragmentDirections.actionDetailToDancing(this.monster.dancingUrlString)
             findNavController().navigate(action)
         }
 
-        val baseColorCode = this.monster?.baseColorCode
-        if (baseColorCode?.isNotEmpty() == true) {
+        val baseColorCode = this.monster.baseColorCode
+        if (baseColorCode.isNotEmpty()) {
             val activity = requireActivity()
             val actionBarColor = Color.parseColor(baseColorCode)
             (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
@@ -115,7 +114,6 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
     // region Other Private Methods
 
     private fun shareMonster() {
-        val monster = this.monster!!
         val context = requireContext()
         val request = ImageRequest.Builder(context)
             .data(monster.iconUrlString)
