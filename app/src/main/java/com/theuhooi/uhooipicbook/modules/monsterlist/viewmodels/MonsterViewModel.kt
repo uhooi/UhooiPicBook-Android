@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MonsterListViewModel @Inject constructor(
+class MonsterViewModel @Inject constructor(
     private val repository: MonstersRepository
 ) : ViewModel() {
 
@@ -30,6 +30,12 @@ class MonsterListViewModel @Inject constructor(
     init {
         loadMonsters()
     }
+
+    // endregion
+
+    // region Other Public Methods
+
+    fun findMonster(order: Int): MonsterItem = requireNotNull(this.monsters.value?.find { it.order == order })
 
     // endregion
 

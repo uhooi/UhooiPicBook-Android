@@ -8,10 +8,6 @@
         <variable
             name="args"
             type="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.DancingMonsterFragmentArgs" />
-
-        <variable
-            name="viewModel"
-            type="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.viewmodels.DancingMonsterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

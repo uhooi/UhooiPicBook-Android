@@ -2,7 +2,9 @@ package com.theuhooi.uhooipicbook.modules.monsterdetail
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
@@ -11,10 +13,11 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
@@ -22,22 +25,30 @@ import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterDetailBinding
-import com.theuhooi.uhooipicbook.modules.monsterdetail.viewmodels.MonsterDetailViewModel
+import com.theuhooi.uhooipicbook.extensions.IntColorInterface
+import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
 import java.io.File
 import java.io.FileOutputStream
 
-class MonsterDetailFragment : Fragment() {
+class MonsterDetailFragment : Fragment(), IntColorInterface {
 
     // region Stored Instance Properties
 
     private val args: MonsterDetailFragmentArgs by navArgs()
 
-    private val viewModel: MonsterDetailViewModel by viewModels() // TODO: Use
+    private val viewModel: MonsterViewModel by hiltNavGraphViewModels(R.id.monster_nav_graph)
 
     private var _binding: FragmentMonsterDetailBinding? = null
     private val binding get() = _binding!!
 
     private var disposable: Disposable? = null
+
+    // endregion
+
+    // region Computed Instance Properties
+
+    private val monster: MonsterItem by lazy { viewModel.findMonster(args.monsterOrder) }
 
     // endregion
 
@@ -51,7 +62,7 @@ class MonsterDetailFragment : Fragment() {
         setHasOptionsMenu(true)
 
         _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
-        this.binding.args = this.args
+        this.binding.monster = this.monster
         return binding.root
     }
 
@@ -60,8 +71,18 @@ class MonsterDetailFragment : Fragment() {
 
         this.binding.dancingImageview.setOnClickListener {
             val action =
-                MonsterDetailFragmentDirections.actionDetailToDancing(args.monster.dancingUrlString)
+                MonsterDetailFragmentDirections.actionDetailToDancing(this.monster.dancingUrlString)
             findNavController().navigate(action)
+        }
+
+        val baseColorCode = this.monster.baseColorCode
+        if (baseColorCode.isNotEmpty()) {
+            val activity = requireActivity()
+            val actionBarColor = Color.parseColor(baseColorCode)
+            (activity as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
+                ColorDrawable(actionBarColor)
+            )
+            activity.window.statusBarColor = actionBarColor.actionBarColorToStatusBarColor
         }
     }
 
@@ -92,7 +113,6 @@ class MonsterDetailFragment : Fragment() {
     // region Other Private Methods
 
     private fun shareMonster() {
-        val monster = this.args.monster
         val context = requireContext()
         val request = ImageRequest.Builder(context)
             .data(monster.iconUrlString)
