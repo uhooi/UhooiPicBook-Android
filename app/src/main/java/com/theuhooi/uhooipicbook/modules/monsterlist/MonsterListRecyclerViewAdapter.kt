@@ -35,13 +35,13 @@ class MonsterListRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: MonsterListRecyclerViewHolder, position: Int) {
-        val monster = this.monsters[position]
+        val monster = monsters[position]
         holder.binding.monsterItem = monster
         holder.binding.cardView.tag = monster
-        holder.binding.cardView.setOnClickListener(this.onClickListener)
+        holder.binding.cardView.setOnClickListener(onClickListener)
     }
 
-    override fun getItemCount(): Int = this.monsters.size
+    override fun getItemCount(): Int = monsters.size
 
     // endregion
 

@@ -43,7 +43,7 @@ class WebViewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.binding.webview.webViewClient = object : WebViewClient() {
+        binding.webview.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(
                 view: WebView?,
                 request: WebResourceRequest?
@@ -94,12 +94,13 @@ class WebViewFragment : Fragment() {
             }
         }
 
-        this.binding.webview.settings?.javaScriptEnabled = true
-        this.binding.webview.loadUrl(this.args.urlString)
+        binding.webview.settings?.javaScriptEnabled = true
+        binding.webview.loadUrl(args.urlString)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+
         _binding = null
     }
 

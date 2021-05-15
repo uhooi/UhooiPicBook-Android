@@ -30,25 +30,27 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDancingMonsterBinding.inflate(inflater, container, false)
-        this.binding.args = this.args
+        binding.args = args
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.binding.closeButton.setOnClickListener { dismiss() }
+        binding.closeButton.setOnClickListener { dismiss() }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+
         _binding = null
     }
 
     override fun onStart() {
         super.onStart()
 
-        this.dialog?.window?.apply {
+        dialog?.window?.apply {
             setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN

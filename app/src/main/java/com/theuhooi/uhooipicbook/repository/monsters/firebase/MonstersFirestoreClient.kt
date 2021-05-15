@@ -21,7 +21,7 @@ class MonstersFirestoreClient @Inject constructor() : MonstersRepository {
         onSuccess: (monsters: List<MonsterItem>) -> Unit,
         onFailure: (error: Throwable) -> Unit
     ) {
-        this.firestore.collection("monsters")
+        firestore.collection("monsters")
             .orderBy(MonsterItem::order.name)
             .get()
             .addOnSuccessListener { result ->
