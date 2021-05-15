@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.monster_list_fragment) {
-                this.supportActionBar?.setBackgroundDrawable(
+                supportActionBar?.setBackgroundDrawable(
                     ColorDrawable(
                         MaterialColors.getColor(
                             this,
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                         )
                     )
                 )
-                this.window.statusBarColor = MaterialColors.getColor(
+                window.statusBarColor = MaterialColors.getColor(
                     this,
                     R.attr.colorPrimaryVariant,
                     "colorPrimaryVariant is not set in the current theme"
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openNotificationUrlIfNeeded() {
-        val urlString = this.intent.getStringExtra(getString(R.string.notification_url_extra_name))
+        val urlString = intent.getStringExtra(getString(R.string.notification_url_extra_name))
         if (urlString != null) {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlString))
             startActivity(intent)

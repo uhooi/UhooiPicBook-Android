@@ -43,17 +43,18 @@ class MonsterListFragment : Fragment() {
 
         _binding = FragmentMonsterListBinding.inflate(inflater, container, false)
         viewModel.monsters.observe(viewLifecycleOwner) {
-            this.binding.monsterListRecyclerview.adapter = MonsterListRecyclerViewAdapter(it)
+            binding.monsterListRecyclerview.adapter = MonsterListRecyclerViewAdapter(it)
         }
-        this.binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
-        this.binding.viewModel = this.viewModel
-        this.binding.lifecycleOwner = this.viewLifecycleOwner
+        binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(context)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+
         _binding = null
     }
 

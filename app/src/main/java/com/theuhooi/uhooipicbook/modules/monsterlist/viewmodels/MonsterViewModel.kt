@@ -35,7 +35,8 @@ class MonsterViewModel @Inject constructor(
 
     // region Other Public Methods
 
-    fun findMonster(order: Int): MonsterItem = requireNotNull(this.monsters.value?.find { it.order == order })
+    fun findMonster(order: Int): MonsterItem =
+        requireNotNull(monsters.value?.find { it.order == order })
 
     // endregion
 
@@ -43,12 +44,13 @@ class MonsterViewModel @Inject constructor(
 
     private fun loadMonsters() {
         _isLoading.value = true
-        this.repository.loadMonsters(
+        repository.loadMonsters(
             onSuccess = { monsters ->
                 _monsters.value = monsters
                 _isLoading.value = false
             },
             onFailure = {
+                _isLoading.value = false
                 // TODO: エラーハンドリング
             }
         )

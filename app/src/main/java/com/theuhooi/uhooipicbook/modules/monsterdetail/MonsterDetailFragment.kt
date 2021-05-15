@@ -62,20 +62,21 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
         setHasOptionsMenu(true)
 
         _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
-        this.binding.monster = this.monster
+        binding.monster = monster
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.binding.dancingImageview.setOnClickListener {
+        binding.dancingImageview.setOnClickListener {
             val action =
-                MonsterDetailFragmentDirections.actionDetailToDancing(this.monster.dancingUrlString)
+                MonsterDetailFragmentDirections.actionDetailToDancing(monster.dancingUrlString)
             findNavController().navigate(action)
         }
 
-        val baseColorCode = this.monster.baseColorCode
+        val baseColorCode = monster.baseColorCode
         if (baseColorCode.isNotEmpty()) {
             val activity = requireActivity()
             val actionBarColor = Color.parseColor(baseColorCode)
@@ -88,6 +89,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
 
     override fun onDestroyView() {
         super.onDestroyView()
+
         _binding = null
     }
 
@@ -105,7 +107,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
     override fun onDestroyOptionsMenu() {
         super.onDestroyOptionsMenu()
 
-        this.disposable?.dispose()
+        disposable?.dispose()
     }
 
     // endregion
@@ -126,7 +128,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
                     .startChooser()
             }
             .build()
-        this.disposable = ImageLoader(context).enqueue(request)
+        disposable = ImageLoader(context).enqueue(request)
     }
 
     private fun createTempPngFileUri(context: Context, drawable: Drawable): Uri? {
