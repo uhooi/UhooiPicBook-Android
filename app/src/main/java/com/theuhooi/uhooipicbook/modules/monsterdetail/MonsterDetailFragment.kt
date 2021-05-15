@@ -47,7 +47,9 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
     // endregion
 
     // region Computed Instance Properties
+
     private val monster: MonsterItem by lazy { viewModel.findMonster(args.monsterOrder) }
+
     // endregion
 
     // region View Life-Cycle Methods

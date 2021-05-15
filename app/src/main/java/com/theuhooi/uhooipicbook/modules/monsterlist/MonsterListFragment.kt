@@ -43,10 +43,7 @@ class MonsterListFragment : Fragment() {
 
         _binding = FragmentMonsterListBinding.inflate(inflater, container, false)
         viewModel.monsters.observe(viewLifecycleOwner) {
-            this.binding.monsterListRecyclerview.adapter =
-                MonsterListRecyclerViewAdapter(
-                    it,
-                )
+            this.binding.monsterListRecyclerview.adapter = MonsterListRecyclerViewAdapter(it)
         }
         this.binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
         this.binding.viewModel = this.viewModel

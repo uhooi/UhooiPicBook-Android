@@ -13,6 +13,7 @@ class MonsterListRecyclerViewAdapter(
 ) : RecyclerView.Adapter<MonsterListRecyclerViewAdapter.MonsterListRecyclerViewHolder>() {
 
     // region Stored Instance Properties
+
     private val onClickListener = View.OnClickListener { view ->
         val item = view.tag as MonsterItem
         val action = MonsterListFragmentDirections.actionListToDetail(item.order)
