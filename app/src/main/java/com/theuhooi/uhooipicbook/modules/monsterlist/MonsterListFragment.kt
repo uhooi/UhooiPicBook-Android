@@ -42,11 +42,12 @@ class MonsterListFragment : Fragment() {
         setHasOptionsMenu(true)
 
         _binding = FragmentMonsterListBinding.inflate(inflater, container, false)
-        this.binding.monsterListRecyclerview.adapter =
-            MonsterListRecyclerViewAdapter(
-                this.viewModel.monsters,
-                this.viewLifecycleOwner
-            )
+        viewModel.monsters.observe(viewLifecycleOwner) {
+            this.binding.monsterListRecyclerview.adapter =
+                MonsterListRecyclerViewAdapter(
+                    it,
+                )
+        }
         this.binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(this.context)
         this.binding.viewModel = this.viewModel
         this.binding.lifecycleOwner = this.viewLifecycleOwner
