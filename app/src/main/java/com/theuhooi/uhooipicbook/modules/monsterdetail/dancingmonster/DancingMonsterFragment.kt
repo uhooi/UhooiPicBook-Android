@@ -2,10 +2,12 @@ package com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.navigation.fragment.navArgs
@@ -51,10 +53,14 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         super.onStart()
 
         dialog?.window?.apply {
-            setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-            )
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                insetsController?.hide(WindowInsets.Type.statusBars())
+            } else {
+                setFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                )
+            }
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             val layoutParams = attributes.apply {
                 width = WindowManager.LayoutParams.MATCH_PARENT
