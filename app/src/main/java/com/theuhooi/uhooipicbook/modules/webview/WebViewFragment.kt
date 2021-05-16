@@ -94,7 +94,7 @@ class WebViewFragment : Fragment() {
             }
         }
 
-        binding.webview.settings?.javaScriptEnabled = true
+        binding.webview.settings.javaScriptEnabled = true
         binding.webview.loadUrl(args.urlString)
     }
 
