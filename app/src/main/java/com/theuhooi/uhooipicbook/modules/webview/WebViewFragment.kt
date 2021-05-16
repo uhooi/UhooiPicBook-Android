@@ -60,7 +60,7 @@ class WebViewFragment : Fragment() {
                             if (intent.scheme == "http" || intent.scheme == "https") {
                                 val fallbackUrlString = intent.getStringExtra(
                                     BROWSER_FALLBACK_URL_EXTRA_NAME
-                                )
+                                ) ?: return false
                                 binding.webview.loadUrl(fallbackUrlString)
                                 return true
                             }
