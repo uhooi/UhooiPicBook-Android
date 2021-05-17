@@ -22,6 +22,7 @@ class WebViewFragment : Fragment() {
 
     private val args: WebViewFragmentArgs by navArgs()
 
+    @Suppress("UnusedPrivateMember")
     private val viewModel: WebViewViewModel by viewModels() // TODO: Use
 
     private var _binding: FragmentWebViewBinding? = null

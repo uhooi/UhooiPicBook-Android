@@ -18,6 +18,7 @@ fun load(imageView: ImageView, imageUrl: String?) {
     imageView.load(imageUrl)
 }
 
+@Suppress("UnusedPrivateMember")
 @BindingAdapter("observedList")
 fun observeList(recyclerView: RecyclerView, observedList: List<Any>?) {
     recyclerView.adapter?.notifyDataSetChanged()
