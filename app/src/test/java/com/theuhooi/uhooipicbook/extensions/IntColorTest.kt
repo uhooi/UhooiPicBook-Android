@@ -14,18 +14,6 @@ import org.robolectric.annotation.Config
 @Config(sdk = [Build.VERSION_CODES.P])
 class IntColorTest : IntColorInterface {
 
-    // region TestCase Life-Cycle Methods
-
-    @Before
-    fun setUp() {
-    }
-
-    @After
-    fun tearDown() {
-    }
-
-    // endregion
-
     // region Test Methods
 
     // region actionBarColorToStatusBarColor()
