@@ -5,10 +5,10 @@ buildscript {
         kotlin_version = '1.5.0'
         nav_version = '2.3.5'
         hilt_version = '2.35'
-        detekt_version = '1.7.4'
     }
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
     dependencies {
@@ -25,20 +25,15 @@ buildscript {
 
         classpath 'com.google.android.gms:oss-licenses-plugin:0.10.3'
 
-        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detekt_version"
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
-plugins {
-    id "io.gitlab.arturbosch.detekt" version "$detekt_version"
-}
-
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
 }
@@ -46,5 +41,3 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-tasks.detekt.jvmTarget = "1.8"

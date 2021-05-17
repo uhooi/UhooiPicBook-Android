@@ -15,6 +15,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.theuhooi.uhooipicbook.databinding.FragmentWebViewBinding
 import com.theuhooi.uhooipicbook.modules.webview.viewmodels.WebViewViewModel
+import timber.log.Timber
 
 class WebViewFragment : Fragment() {
 
@@ -22,6 +23,7 @@ class WebViewFragment : Fragment() {
 
     private val args: WebViewFragmentArgs by navArgs()
 
+    @Suppress("UnusedPrivateMember")
     private val viewModel: WebViewViewModel by viewModels() // TODO: Use
 
     private var _binding: FragmentWebViewBinding? = null
@@ -82,6 +84,7 @@ class WebViewFragment : Fragment() {
                             }
                             true
                         } catch (e: Exception) {
+                            Timber.e(e)
                             false
                         }
                     }
