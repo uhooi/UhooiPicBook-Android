@@ -15,7 +15,7 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.theuhooi.uhooipicbook"
@@ -55,6 +55,25 @@ android {
     testOptions {
         unitTests {
             includeAndroidResources = true
+        }
+        devices {
+            pixel3aApi29(com.android.build.api.dsl.ManagedVirtualDevice) {
+                device = "Pixel 3a"
+                apiLevel = 29
+                systemImageSource = "google"
+                abi = "x86"
+            }
+            pixel3aApi30(com.android.build.api.dsl.ManagedVirtualDevice) {
+                device = "Pixel 3a"
+                apiLevel = 30
+                systemImageSource = "google"
+                abi = "x86"
+            }
+        }
+        deviceGroups {
+            pixel3a {
+                targetDevices.addAll(devices.pixel3aApi29, devices.pixel3aApi30)
+            }
         }
     }
 
