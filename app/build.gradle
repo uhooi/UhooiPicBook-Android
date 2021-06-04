@@ -56,6 +56,10 @@ android {
         unitTests {
             includeAndroidResources = true
         }
+        emulatorSnapshots {
+            enableForTestFailures true
+            maxSnapshotsForTestFailures 2
+        }
         devices {
             pixel3aApi29(com.android.build.api.dsl.ManagedVirtualDevice) {
                 device = "Pixel 3a"
