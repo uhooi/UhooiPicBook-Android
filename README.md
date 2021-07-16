@@ -44,7 +44,7 @@ You can develop this project.
 
 ### Environment
 
-- Android Studio: 4.2.1
+- Android Studio: 4.2.2
 
 ### Configuration
 
