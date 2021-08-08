@@ -119,8 +119,7 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
         val request = ImageRequest.Builder(context)
             .data(monster.iconUrlString)
             .target { drawable ->
-                ShareCompat.IntentBuilder
-                    .from(requireActivity())
+                ShareCompat.IntentBuilder(context)
                     .setText(monster.name + "\n" + unescapeNewline(monster.description) + "\n#UhooiPicBook")
                     .setStream(createTempPngFileUri(context, drawable))
                     .setType("image/png")

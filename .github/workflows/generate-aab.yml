@@ -21,7 +21,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         distribution: 'zulu'
-        java-version: '8'
+        java-version: '11'
 
     # 依存関係の出力
     - name: Displays the Android dependencies of the project
