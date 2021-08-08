@@ -18,14 +18,14 @@ on:
       - LICENSE
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
     # チェックアウト
     - uses: actions/checkout@v2
 
     # JDKのセットアップ
-    - name: Setup JDK 1.8
+    - name: Setup JDK 11
       uses: actions/setup-java@v2
       with:
         distribution: 'zulu'
@@ -46,6 +46,27 @@ jobs:
     # コンパイル
     - name: Run Compile
       run: ./gradlew assembleDebug
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # JDKのセットアップ
+    - name: Setup JDK 11
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: '11'
+
+    # Gradleのキャッシュ復元
+    - uses: actions/cache@v2
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
 
     # テスト
     - name: Test with Gradle
