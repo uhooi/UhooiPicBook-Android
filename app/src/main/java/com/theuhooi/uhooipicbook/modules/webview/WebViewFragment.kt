@@ -21,8 +21,6 @@ class WebViewFragment : Fragment() {
 
     // region Stored Instance Properties
 
-    private val args: WebViewFragmentArgs by navArgs()
-
     @Suppress("UnusedPrivateMember")
     private val viewModel: WebViewViewModel by viewModels() // TODO: Use
 
@@ -98,6 +96,8 @@ class WebViewFragment : Fragment() {
         }
 
         binding.webview.settings.javaScriptEnabled = true
+
+        val args: WebViewFragmentArgs by navArgs()
         binding.webview.loadUrl(args.urlString)
     }
 
