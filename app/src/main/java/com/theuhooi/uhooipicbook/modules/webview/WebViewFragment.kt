@@ -37,6 +37,8 @@ class WebViewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentWebViewBinding.inflate(inflater, container, false)
+        binding.webview.settings.javaScriptEnabled = true
+
         return binding.root
     }
 
@@ -94,8 +96,6 @@ class WebViewFragment : Fragment() {
                 }
             }
         }
-
-        binding.webview.settings.javaScriptEnabled = true
 
         val args: WebViewFragmentArgs by navArgs()
         binding.webview.loadUrl(args.urlString)
