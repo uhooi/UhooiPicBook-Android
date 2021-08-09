@@ -17,8 +17,6 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
 
     // region Stored Instance Properties
 
-    private val args: DancingMonsterFragmentArgs by navArgs()
-
     private var _binding: FragmentDancingMonsterBinding? = null
     private val binding get() = _binding!!
 
@@ -32,6 +30,8 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDancingMonsterBinding.inflate(inflater, container, false)
+
+        val args: DancingMonsterFragmentArgs by navArgs()
         binding.args = args
 
         return binding.root
