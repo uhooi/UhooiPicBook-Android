@@ -140,6 +140,10 @@ kapt {
     correctErrorTypes = true
 }
 
+hilt {
+    enableAggregatingTask = true
+}
+
 detekt {
     buildUponDefaultConfig = true
     allRules = false
