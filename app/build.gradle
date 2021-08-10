@@ -29,6 +29,12 @@ android {
         // For LeakCanary in instrumentation tests
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArgument "listener", "leakcanary.FailTestOnLeakRunListener"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["dagger.hilt.android.useFragmentGetContextFix": "true"]
+            }
+        }
     }
 
     signingConfigs {
