@@ -1,13 +1,13 @@
 # UhooiPicBook-Android
 
 [![Release](https://img.shields.io/github/v/release/uhooi/UhooiPicBook-Android)](https://github.com/uhooi/UhooiPicBook-Android/releases/latest)
-[![License](https://img.shields.io/github/license/uhooi/UhooiPicBook-Android)](https://github.com/uhooi/UhooiPicBook-Android/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/uhooi/UhooiPicBook-Android)](https://github.com/uhooi/UhooiPicBook-Android/blob/main/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android-lightgrey)](https://github.com/uhooi/UhooiPicBook-Android)
 [![Twitter](https://img.shields.io/twitter/follow/the_uhooi?style=social)](https://twitter.com/the_uhooi)
 
 |Branch|CI|Code coverage|
 |:--|:--|:--|
-|[master](https://github.com/uhooi/UhooiPicBook-Android/tree/master)|[![CI](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook-Android/branch/master/graph/badge.svg?token=NXWCPDDFIR)](https://codecov.io/gh/uhooi/UhooiPicBook-Android)|
+|[main](https://github.com/uhooi/UhooiPicBook-Android/tree/main)|[![CI](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook-Android/branch/main/graph/badge.svg?token=NXWCPDDFIR)](https://codecov.io/gh/uhooi/UhooiPicBook-Android)|
 |[develop](https://github.com/uhooi/UhooiPicBook-Android/tree/develop)|[![CI](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook-Android/branch/develop/graph/badge.svg?token=NXWCPDDFIR)](https://codecov.io/gh/uhooi/UhooiPicBook-Android)|
 
 ![Logo](./docs/logo.png)
