@@ -2,14 +2,14 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
     id 'com.google.firebase.firebase-perf'
-    id 'io.gitlab.arturbosch.detekt' version '1.17.0'
-    id 'kotlin-kapt'
     id 'com.google.android.gms.oss-licenses-plugin'
-    id 'dagger.hilt.android.plugin'
+    id 'io.gitlab.arturbosch.detekt' version '1.17.0'
     id 'jacoco'
 }
 
