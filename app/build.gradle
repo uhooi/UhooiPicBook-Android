@@ -2,25 +2,25 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
     id 'com.google.firebase.firebase-perf'
-    id 'io.gitlab.arturbosch.detekt' version '1.17.0'
-    id 'kotlin-kapt'
     id 'com.google.android.gms.oss-licenses-plugin'
-    id 'dagger.hilt.android.plugin'
+    id 'io.gitlab.arturbosch.detekt' version '1.17.0'
     id 'jacoco'
 }
 
 android {
-    compileSdkVersion 30
+    compileSdk 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.theuhooi.uhooipicbook"
-        minSdkVersion 26
-        targetSdkVersion 30
+        minSdk 26
+        targetSdk 30
         versionCode 6
         versionName "1.5.0"
 
@@ -54,6 +54,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -66,11 +71,6 @@ android {
 
     buildFeatures {
         dataBinding true
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     flavorDimensions 'environment'
@@ -87,10 +87,22 @@ android {
 }
 
 dependencies {
-    def coil_version = '1.1.1'
-    implementation "io.coil-kt:coil:$coil_version"
-    implementation "io.coil-kt:coil-base:$coil_version"
-    implementation "io.coil-kt:coil-gif:$coil_version"
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$rootProject.hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hilt_version"
+    implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
 
     // Firebase
     implementation platform('com.google.firebase:firebase-bom:28.3.0')
@@ -100,31 +112,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.firebase:firebase-perf'
 
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
-
-    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
-
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-
-    implementation 'com.google.android.material:material:1.4.0'
-
-    // Hilt
-    implementation "com.google.dagger:hilt-android:$rootProject.hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hilt_version"
-    implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
-
     implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    def coil_version = '1.1.1'
+    implementation "io.coil-kt:coil:$coil_version"
+    implementation "io.coil-kt:coil-base:$coil_version"
+    implementation "io.coil-kt:coil-gif:$coil_version"
 
     testImplementation 'org.robolectric:robolectric:4.6.1'
     testImplementation 'androidx.test:runner:1.4.0'
