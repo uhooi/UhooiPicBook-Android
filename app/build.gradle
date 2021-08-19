@@ -29,6 +29,12 @@ android {
         // For LeakCanary in instrumentation tests
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArgument "listener", "leakcanary.FailTestOnLeakRunListener"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["dagger.hilt.android.useFragmentGetContextFix": "true"]
+            }
+        }
     }
 
     signingConfigs {
@@ -134,6 +140,10 @@ kapt {
     correctErrorTypes = true
 }
 
+hilt {
+    enableAggregatingTask = true
+}
+
 detekt {
     buildUponDefaultConfig = true
     allRules = false
@@ -186,6 +196,18 @@ jacocoDevelopDebugTestReport {
         html {
             enabled = true
             destination = file("$buildDir/reports/jacoco/html")
+        }
+    }
+}
+
+// Workaround for using the enableAggregatingTask flag.
+// ref: https://github.com/google/dagger/issues/2744#issuecomment-901277926
+tasks.named("getDependencies").configure { task ->
+    def configured = false
+    project.android.applicationVariants.all {
+        if (!configured) {
+            task.inputs.files(project.files(project.configurations.getByName("productionDebugAndroidTestRuntimeClasspath")))
+            configured = true
         }
     }
 }
