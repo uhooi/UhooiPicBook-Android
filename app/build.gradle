@@ -75,9 +75,9 @@ android {
 
     flavorDimensions 'environment'
     productFlavors {
-//        production {
-//            dimension 'environment'
-//        }
+        production {
+            dimension 'environment'
+        }
         develop {
             dimension 'environment'
             applicationIdSuffix '.develop'
@@ -196,6 +196,18 @@ jacocoDevelopDebugTestReport {
         html {
             enabled = true
             destination = file("$buildDir/reports/jacoco/html")
+        }
+    }
+}
+
+// Workaround for using the enableAggregatingTask flag.
+// ref: https://github.com/google/dagger/issues/2744#issuecomment-901277926
+tasks.named("getDependencies").configure { task ->
+    def configured = false
+    project.android.applicationVariants.all {
+        if (!configured) {
+            task.inputs.files(project.files(project.configurations.getByName("productionDebugAndroidTestRuntimeClasspath")))
+            configured = true
         }
     }
 }
