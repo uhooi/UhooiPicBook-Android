@@ -96,8 +96,8 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     // Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.nav_version"
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$rootProject.hilt_version"
