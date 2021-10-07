@@ -143,3 +143,33 @@ jobs:
         if-no-files-found: error
         retention-days: 14
 
+  ktlint:
+    runs-on: ubuntu-latest
+    steps:
+    # チェックアウト
+    - uses: actions/checkout@v2
+
+    # インストール
+    - run: |
+        curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.42.1/ktlint && chmod a+x ktlint && sudo mv ktlint /usr/local/bin/
+    # 静的解析
+    - name: Lint with ktlint
+      run: |
+        ktlint --reporter=checkstyle,output=build/ktlint-report.xml
+      continue-on-error: true
+
+    # 結果の表示
+    - uses: yutailang0119/action-ktlint@v1
+      with:
+        xml_path: build/ktlint-report.xml
+
+    # アーティファクトへアップロード
+    - name: Upload results Artifact
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: results
+        path: |
+          **/build/ktlint-report.xml
+        if-no-files-found: error
+        retention-days: 14
