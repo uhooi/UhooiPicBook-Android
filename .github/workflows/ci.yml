@@ -157,8 +157,7 @@ jobs:
 
     # 静的解析
     - name: Lint with ktlint
-      run: |
-        ktlint --reporter=checkstyle,output=build/ktlint-report.xml
+      run: ktlint --reporter=checkstyle,output=build/ktlint-report.xml
       continue-on-error: true
 
     # 結果の表示
