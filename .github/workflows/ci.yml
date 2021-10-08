@@ -85,7 +85,7 @@ jobs:
     # テスト結果とコードカバレッジのアップロード
     - name: Upload test results and code coverage Artifact
       uses: actions/upload-artifact@v2
-      if: ${{ success() || failure() }}
+      if: success() || failure()
       with:
         name: results
         path: |
@@ -113,7 +113,7 @@ jobs:
     # アーティファクトへアップロード
     - name: Upload results Artifact
       uses: actions/upload-artifact@v2
-      if: ${{ success() || failure() }}
+      if: success() || failure()
       with:
         name: results
         path: |
