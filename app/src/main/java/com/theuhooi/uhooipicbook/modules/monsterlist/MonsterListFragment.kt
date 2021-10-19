@@ -13,11 +13,13 @@ import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.transition.TransitionManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.theuhooi.uhooipicbook.BuildConfig
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
 import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
+import com.theuhooi.uhooipicbook.motion.Stagger
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,6 +45,7 @@ class MonsterListFragment : Fragment() {
 
         _binding = FragmentMonsterListBinding.inflate(inflater, container, false)
         viewModel.monsters.observe(viewLifecycleOwner) {
+            TransitionManager.beginDelayedTransition(binding.monsterListRecyclerview, Stagger())
             binding.monsterListRecyclerview.adapter = MonsterListRecyclerViewAdapter(it)
         }
         binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(context)
