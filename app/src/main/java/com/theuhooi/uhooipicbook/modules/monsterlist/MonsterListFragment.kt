@@ -47,9 +47,9 @@ class MonsterListFragment : Fragment() {
         val list = binding.monsterListRecyclerview
         val adapter = MonsterListAdapter()
         list.adapter = adapter
-        viewModel.monsters.observe(viewLifecycleOwner) { monster ->
+        viewModel.monsters.observe(viewLifecycleOwner) { monsters ->
             TransitionManager.beginDelayedTransition(list, Stagger())
-            adapter.submitList(monster)
+            adapter.submitList(monsters)
         }
         list.layoutManager = LinearLayoutManager(context)
         binding.viewModel = viewModel
