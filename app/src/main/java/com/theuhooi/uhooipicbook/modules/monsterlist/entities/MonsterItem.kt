@@ -1,6 +1,7 @@
 package com.theuhooi.uhooipicbook.modules.monsterlist.entities
 
 import android.os.Parcelable
+import androidx.recyclerview.widget.DiffUtil
 import com.google.firebase.firestore.PropertyName
 import kotlinx.parcelize.Parcelize
 
@@ -18,4 +19,16 @@ data class MonsterItem(
     @set:PropertyName("dancing_url")
     var dancingUrlString: String = "",
     val order: Int = 0
-) : Parcelable
+) : Parcelable {
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MonsterItem>() {
+            override fun areItemsTheSame(oldItem: MonsterItem, newItem: MonsterItem): Boolean {
+                return oldItem.order == newItem.order
+            }
+
+            override fun areContentsTheSame(oldItem: MonsterItem, newItem: MonsterItem): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
+}

@@ -44,11 +44,14 @@ class MonsterListFragment : Fragment() {
         setHasOptionsMenu(true)
 
         _binding = FragmentMonsterListBinding.inflate(inflater, container, false)
-        viewModel.monsters.observe(viewLifecycleOwner) {
-            TransitionManager.beginDelayedTransition(binding.monsterListRecyclerview, Stagger())
-            binding.monsterListRecyclerview.adapter = MonsterListRecyclerViewAdapter(it)
+        val list = binding.monsterListRecyclerview
+        val adapter = MonsterListAdapter()
+        list.adapter = adapter
+        viewModel.monsters.observe(viewLifecycleOwner) { monster ->
+            TransitionManager.beginDelayedTransition(list, Stagger())
+            adapter.submitList(monster)
         }
-        binding.monsterListRecyclerview.layoutManager = LinearLayoutManager(context)
+        list.layoutManager = LinearLayoutManager(context)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
