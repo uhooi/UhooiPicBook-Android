@@ -8,11 +8,9 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
@@ -31,16 +29,13 @@ import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
 import java.io.File
 import java.io.FileOutputStream
 
-class MonsterDetailFragment : Fragment(), IntColorInterface {
+class MonsterDetailFragment : Fragment(R.layout.fragment_monster_detail), IntColorInterface {
 
     // region Stored Instance Properties
 
     private val args: MonsterDetailFragmentArgs by navArgs()
 
     private val viewModel: MonsterViewModel by hiltNavGraphViewModels(R.id.monster_nav_graph)
-
-    private var _binding: FragmentMonsterDetailBinding? = null
-    private val binding get() = _binding!!
 
     private var disposable: Disposable? = null
 
@@ -54,21 +49,13 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
 
     // region View Life-Cycle Methods
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        setHasOptionsMenu(true)
-
-        _binding = FragmentMonsterDetailBinding.inflate(inflater, container, false)
-        binding.monster = monster
-
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setHasOptionsMenu(true)
+
+        val binding = FragmentMonsterDetailBinding.bind(view)
+        binding.monster = monster
 
         binding.dancingImageview.setOnClickListener {
             val action =
@@ -85,12 +72,6 @@ class MonsterDetailFragment : Fragment(), IntColorInterface {
             )
             activity.window.statusBarColor = actionBarColor.actionBarColorToStatusBarColor
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        _binding = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

@@ -3,12 +3,10 @@ package com.theuhooi.uhooipicbook.modules.monsterlist
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.findNavController
@@ -23,27 +21,22 @@ import com.theuhooi.uhooipicbook.motion.Stagger
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MonsterListFragment : Fragment() {
+class MonsterListFragment : Fragment(R.layout.fragment_monster_list) {
 
     // region Stored Instance Properties
 
     private val viewModel: MonsterViewModel by hiltNavGraphViewModels(R.id.monster_nav_graph)
 
-    private var _binding: FragmentMonsterListBinding? = null
-    private val binding get() = _binding!!
-
     // endregion
 
     // region View Life-Cycle Methods
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         setHasOptionsMenu(true)
 
-        _binding = FragmentMonsterListBinding.inflate(inflater, container, false)
+        val binding = FragmentMonsterListBinding.bind(view)
         val list = binding.monsterListRecyclerview
         val adapter = MonsterListAdapter()
         list.adapter = adapter
@@ -54,14 +47,6 @@ class MonsterListFragment : Fragment() {
         list.layoutManager = LinearLayoutManager(context)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-
-        return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        _binding = null
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
