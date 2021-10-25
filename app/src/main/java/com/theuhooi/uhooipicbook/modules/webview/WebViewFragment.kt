@@ -4,47 +4,34 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentWebViewBinding
 import com.theuhooi.uhooipicbook.modules.webview.viewmodels.WebViewViewModel
 import timber.log.Timber
 
-class WebViewFragment : Fragment() {
+class WebViewFragment : Fragment(R.layout.fragment_web_view) {
 
     // region Stored Instance Properties
 
     @Suppress("UnusedPrivateMember")
     private val viewModel: WebViewViewModel by viewModels() // TODO: Use
 
-    private var _binding: FragmentWebViewBinding? = null
-    private val binding get() = _binding!!
-
     // endregion
 
     // region View Life-Cycle Methods
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentWebViewBinding.inflate(inflater, container, false)
-        binding.webview.settings.javaScriptEnabled = true
-
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val binding = FragmentWebViewBinding.bind(view)
+        binding.webview.settings.javaScriptEnabled = true
         binding.webview.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(
                 view: WebView?,
@@ -99,12 +86,6 @@ class WebViewFragment : Fragment() {
 
         val args: WebViewFragmentArgs by navArgs()
         binding.webview.loadUrl(args.urlString)
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        _binding = null
     }
 
     // endregion
