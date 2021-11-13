@@ -55,10 +55,10 @@ You can develop this project.
 
 1. Clone the project.
 
-```shell
-$ git clone https://github.com/uhooi/UhooiPicBook-Android.git
-$ cd UhooiPicBook-Android
-```
+    ```shell
+    $ git clone https://github.com/uhooi/UhooiPicBook-Android.git
+    $ cd UhooiPicBook-Android
+    ```
 
 2. Open the project in Android Studio.
 
