@@ -68,3 +68,7 @@ I would be happy if you contribute :)
 
 - [New issue](https://github.com/uhooi/UhooiPicBook-Android/issues/new)
 - [New pull request](https://github.com/uhooi/UhooiPicBook-Android/compare)
+
+## Stats
+
+![Stats](https://repobeats.axiom.co/api/embed/854645b4486364c77380b9cce747b91feb127715.svg "Repobeats analytics image")
