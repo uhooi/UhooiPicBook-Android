@@ -10,6 +10,12 @@ TBD
 
 TBD
 
+## Screenshots (Optional)
+
+|Before|After|
+|:--:|:--:|
+|TBD|TBD|
+
 ## Checklist
 
 - [ ] Format code (<kbd>⌥⌘L</kbd> in Android Studio)
