@@ -1,7 +1,7 @@
 package com.theuhooi.uhooipicbook.di
 
-import com.theuhooi.uhooipicbook.modules.monsterlist.MonstersRepository
-import com.theuhooi.uhooipicbook.repository.monsters.firebase.MonstersFirestoreClient
+import com.theuhooi.uhooipicbook.data.monsters.MonstersRepository
+import com.theuhooi.uhooipicbook.data.monsters.impl.MonstersFirestoreClient
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UhooiPicBook">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.UhooiPicBook.NoActionBar"
             tools:ignore="LockedOrientationActivity"

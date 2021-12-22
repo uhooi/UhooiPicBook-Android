@@ -1,10 +1,10 @@
-package com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels
+package com.theuhooi.uhooipicbook.ui.monsterlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.theuhooi.uhooipicbook.modules.monsterlist.MonstersRepository
-import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.data.monsters.MonstersRepository
+import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

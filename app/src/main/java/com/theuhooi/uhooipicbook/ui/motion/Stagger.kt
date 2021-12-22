@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.theuhooi.uhooipicbook.motion
+package com.theuhooi.uhooipicbook.ui.motion
 
 import android.animation.Animator
 import android.animation.AnimatorSet

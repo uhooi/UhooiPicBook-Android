@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.modules.monsterlist.entities
+package com.theuhooi.uhooipicbook.data.monsters.impl
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil

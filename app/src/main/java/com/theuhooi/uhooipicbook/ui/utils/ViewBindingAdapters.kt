@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.util
+package com.theuhooi.uhooipicbook.ui.utils
 
 import android.view.View
 import android.view.View.GONE

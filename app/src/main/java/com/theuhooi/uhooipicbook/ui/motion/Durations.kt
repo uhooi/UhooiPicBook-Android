@@ -14,17 +14,9 @@
  * limitations under the License.
  */
 
-package com.theuhooi.uhooipicbook.motion
+package com.theuhooi.uhooipicbook.ui.motion
 
-import android.animation.TimeInterpolator
-import androidx.core.view.animation.PathInterpolatorCompat
+// Animation durations.
+// See https://material.io/design/motion/speed.html#duration for the detail.
 
-/**
- * Decelerate easing.
- *
- * Incoming elements are animated using deceleration easing, which starts a transition at peak
- * velocity (the fastest point of an element’s movement) and ends at rest.
- */
-val LINEAR_OUT_SLOW_IN: TimeInterpolator by lazy(LazyThreadSafetyMode.NONE) {
-    PathInterpolatorCompat.create(0f, 0f, 0.2f, 1f)
-}
+const val LARGE_EXPAND_DURATION = 300L

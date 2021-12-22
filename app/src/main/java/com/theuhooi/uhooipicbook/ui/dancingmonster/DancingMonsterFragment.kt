@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster
+package com.theuhooi.uhooipicbook.ui.dancingmonster
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable

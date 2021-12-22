@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.modules.monsterdetail
+package com.theuhooi.uhooipicbook.ui.monsterdetail
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -24,8 +24,8 @@ import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterDetailBinding
 import com.theuhooi.uhooipicbook.extensions.IntColorInterface
-import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
-import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
+import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
+import com.theuhooi.uhooipicbook.ui.monsterlist.MonsterViewModel
 import java.io.File
 import java.io.FileOutputStream
 

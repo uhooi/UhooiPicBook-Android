@@ -1,10 +1,9 @@
-package com.theuhooi.uhooipicbook.repository.monsters.firebase
+package com.theuhooi.uhooipicbook.data.monsters.impl
 
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
-import com.theuhooi.uhooipicbook.modules.monsterlist.MonstersRepository
-import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.data.monsters.MonstersRepository
 import javax.inject.Inject
 
 class MonstersFirestoreClient @Inject constructor() : MonstersRepository {

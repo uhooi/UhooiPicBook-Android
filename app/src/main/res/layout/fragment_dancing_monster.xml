@@ -7,14 +7,14 @@
 
         <variable
             name="args"
-            type="com.theuhooi.uhooipicbook.modules.monsterdetail.dancingmonster.DancingMonsterFragmentArgs" />
+            type="com.theuhooi.uhooipicbook.ui.dancingmonster.DancingMonsterFragmentArgs" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
-        tools:context=".modules.monsterdetail.dancingmonster.DancingMonsterFragment">
+        tools:context=".ui.dancingmonster.DancingMonsterFragment">
 
         <ImageView
             android:id="@+id/dancing_imageview"

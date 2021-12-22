@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.modules.webview
+package com.theuhooi.uhooipicbook.ui.webview
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,7 +13,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentWebViewBinding
-import com.theuhooi.uhooipicbook.modules.webview.viewmodels.WebViewViewModel
 import timber.log.Timber
 
 class WebViewFragment : Fragment(R.layout.fragment_web_view) {
