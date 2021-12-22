@@ -7,7 +7,7 @@
 
         <variable
             name="monsterItem"
-            type="com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem" />
+            type="com.theuhooi.uhooipicbook.domain.models.MonsterItem" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

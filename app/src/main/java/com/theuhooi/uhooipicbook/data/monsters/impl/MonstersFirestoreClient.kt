@@ -17,11 +17,11 @@ class MonstersFirestoreClient @Inject constructor() : MonstersRepository {
     // region MonstersRepository
 
     override fun loadMonsters(
-        onSuccess: (monsters: List<MonsterItem>) -> Unit,
+        onSuccess: (monsters: List<MonsterDto>) -> Unit,
         onFailure: (error: Throwable) -> Unit
     ) {
         firestore.collection("monsters")
-            .orderBy(MonsterItem::order.name)
+            .orderBy(MonsterDto::order.name)
             .get()
             .addOnSuccessListener { result ->
                 onSuccess(result.toObjects())

@@ -23,8 +23,8 @@ import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.MonsterDetailFragmentBinding
+import com.theuhooi.uhooipicbook.domain.models.MonsterItem
 import com.theuhooi.uhooipicbook.extensions.IntColorInterface
-import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
 import com.theuhooi.uhooipicbook.ui.monsterlist.MonsterViewModel
 import java.io.File
 import java.io.FileOutputStream
