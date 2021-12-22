@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.databinding.MonsterListItemBinding
 import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
 
-class MonsterListAdapter(
-) : ListAdapter<MonsterItem, MonsterListAdapter.MonsterViewHolder>(MonsterItem.DIFF_CALLBACK) {
+class MonsterListAdapter :
+    ListAdapter<MonsterItem, MonsterListAdapter.MonsterViewHolder>(MonsterItem.DIFF_CALLBACK) {
 
     // region View Life-Cycle Methods
 
