@@ -15,12 +15,12 @@ import androidx.transition.TransitionManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.theuhooi.uhooipicbook.BuildConfig
 import com.theuhooi.uhooipicbook.R
-import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
+import com.theuhooi.uhooipicbook.databinding.MonsterListFragmentBinding
 import com.theuhooi.uhooipicbook.ui.motion.Stagger
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MonsterListFragment : Fragment(R.layout.fragment_monster_list) {
+class MonsterListFragment : Fragment(R.layout.monster_list_fragment) {
 
     // region Stored Instance Properties
 
@@ -35,7 +35,7 @@ class MonsterListFragment : Fragment(R.layout.fragment_monster_list) {
 
         setHasOptionsMenu(true)
 
-        val binding = FragmentMonsterListBinding.bind(view)
+        val binding = MonsterListFragmentBinding.bind(view)
         val list = binding.monsterListRecyclerview
         val adapter = MonsterListAdapter()
         list.adapter = adapter
@@ -50,7 +50,7 @@ class MonsterListFragment : Fragment(R.layout.fragment_monster_list) {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_monster_list, menu)
+        inflater.inflate(R.menu.monster_list_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

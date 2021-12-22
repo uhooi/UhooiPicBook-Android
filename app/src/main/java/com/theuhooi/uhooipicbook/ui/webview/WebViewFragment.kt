@@ -12,10 +12,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.theuhooi.uhooipicbook.R
-import com.theuhooi.uhooipicbook.databinding.FragmentWebViewBinding
+import com.theuhooi.uhooipicbook.databinding.WebViewFragmentBinding
 import timber.log.Timber
 
-class WebViewFragment : Fragment(R.layout.fragment_web_view) {
+class WebViewFragment : Fragment(R.layout.web_view_fragment) {
 
     // region Stored Instance Properties
 
@@ -29,7 +29,7 @@ class WebViewFragment : Fragment(R.layout.fragment_web_view) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val binding = FragmentWebViewBinding.bind(view)
+        val binding = WebViewFragmentBinding.bind(view)
         binding.webview.settings.javaScriptEnabled = true
         binding.webview.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(

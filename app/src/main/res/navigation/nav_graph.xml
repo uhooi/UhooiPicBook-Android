@@ -13,7 +13,7 @@
             android:id="@+id/monster_list_fragment"
             android:name="com.theuhooi.uhooipicbook.ui.monsterlist.MonsterListFragment"
             android:label=""
-            tools:layout="@layout/fragment_monster_list">
+            tools:layout="@layout/monster_list_fragment">
             <action
                 android:id="@+id/action_list_to_detail"
                 app:destination="@id/monster_detail_fragment" />
@@ -29,7 +29,7 @@
             android:id="@+id/monster_detail_fragment"
             android:name="com.theuhooi.uhooipicbook.ui.monsterdetail.MonsterDetailFragment"
             android:label=""
-            tools:layout="@layout/fragment_monster_detail">
+            tools:layout="@layout/monster_detail_fragment">
             <argument
                 android:name="monsterOrder"
                 app:argType="integer" />
@@ -44,7 +44,7 @@
         android:id="@+id/dancing_monster_fragment"
         android:name="com.theuhooi.uhooipicbook.ui.dancingmonster.DancingMonsterFragment"
         android:label=""
-        tools:layout="@layout/fragment_dancing_monster">
+        tools:layout="@layout/dancing_monster_fragment">
         <argument
             android:name="dancingUrlString"
             app:argType="string" />
@@ -54,7 +54,7 @@
         android:id="@+id/web_view_fragment"
         android:name="com.theuhooi.uhooipicbook.ui.webview.WebViewFragment"
         android:label=""
-        tools:layout="@layout/fragment_web_view">
+        tools:layout="@layout/web_view_fragment">
         <argument
             android:name="urlString"
             app:argType="string" />
