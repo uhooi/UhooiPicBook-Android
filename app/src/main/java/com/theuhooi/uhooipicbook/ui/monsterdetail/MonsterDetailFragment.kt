@@ -22,14 +22,14 @@ import coil.ImageLoader
 import coil.request.Disposable
 import coil.request.ImageRequest
 import com.theuhooi.uhooipicbook.R
-import com.theuhooi.uhooipicbook.databinding.FragmentMonsterDetailBinding
+import com.theuhooi.uhooipicbook.databinding.MonsterDetailFragmentBinding
 import com.theuhooi.uhooipicbook.extensions.IntColorInterface
 import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
 import com.theuhooi.uhooipicbook.ui.monsterlist.MonsterViewModel
 import java.io.File
 import java.io.FileOutputStream
 
-class MonsterDetailFragment : Fragment(R.layout.fragment_monster_detail), IntColorInterface {
+class MonsterDetailFragment : Fragment(R.layout.monster_detail_fragment), IntColorInterface {
 
     // region Stored Instance Properties
 
@@ -54,7 +54,7 @@ class MonsterDetailFragment : Fragment(R.layout.fragment_monster_detail), IntCol
 
         setHasOptionsMenu(true)
 
-        val binding = FragmentMonsterDetailBinding.bind(view)
+        val binding = MonsterDetailFragmentBinding.bind(view)
         binding.monster = monster
 
         binding.dancingImageview.setOnClickListener {
@@ -77,7 +77,7 @@ class MonsterDetailFragment : Fragment(R.layout.fragment_monster_detail), IntCol
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
 
-        inflater.inflate(R.menu.menu_monster_detail, menu)
+        inflater.inflate(R.menu.monster_detail_menu, menu)
         val shareMenuItem = menu.findItem(R.id.share_menu_item)
         shareMenuItem.setOnMenuItemClickListener {
             shareMonster()

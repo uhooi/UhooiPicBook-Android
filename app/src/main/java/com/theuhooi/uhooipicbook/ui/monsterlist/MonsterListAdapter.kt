@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
+import com.theuhooi.uhooipicbook.databinding.MonsterListItemBinding
 import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
 
 class MonsterListAdapter(
@@ -18,7 +18,7 @@ class MonsterListAdapter(
         parent: ViewGroup,
         viewType: Int
     ): MonsterViewHolder {
-        val binding = ItemMonsterListBinding.inflate(
+        val binding = MonsterListItemBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
         return MonsterViewHolder(binding)
@@ -32,7 +32,7 @@ class MonsterListAdapter(
 
     // region ViewHolder
 
-    class MonsterViewHolder(val binding: ItemMonsterListBinding) :
+    class MonsterViewHolder(val binding: MonsterListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         private val onClickListener = View.OnClickListener { view ->
             val item = view.tag as MonsterItem

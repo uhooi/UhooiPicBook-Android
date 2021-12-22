@@ -25,7 +25,7 @@
             android:paddingEnd="@dimen/end_padding"
             app:layoutManager="GridLayoutManager"
             app:observedList="@{viewModel.monsters}"
-            tools:listitem="@layout/item_monster_list" />
+            tools:listitem="@layout/monster_list_item" />
 
         <ProgressBar
             android:layout_width="wrap_content"

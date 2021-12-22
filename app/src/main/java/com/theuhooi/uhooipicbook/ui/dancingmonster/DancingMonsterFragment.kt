@@ -11,13 +11,13 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.navigation.fragment.navArgs
-import com.theuhooi.uhooipicbook.databinding.FragmentDancingMonsterBinding
+import com.theuhooi.uhooipicbook.databinding.DancingMonsterFragmentBinding
 
 class DancingMonsterFragment : AppCompatDialogFragment() {
 
     // region Stored Instance Properties
 
-    private var _binding: FragmentDancingMonsterBinding? = null
+    private var _binding: DancingMonsterFragmentBinding? = null
     private val binding get() = _binding!!
 
     // endregion
@@ -29,7 +29,7 @@ class DancingMonsterFragment : AppCompatDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDancingMonsterBinding.inflate(inflater, container, false)
+        _binding = DancingMonsterFragmentBinding.inflate(inflater, container, false)
 
         val args: DancingMonsterFragmentArgs by navArgs()
         binding.args = args
