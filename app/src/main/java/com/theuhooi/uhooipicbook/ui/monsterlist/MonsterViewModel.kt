@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.theuhooi.uhooipicbook.data.monsters.MonstersRepository
-import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
+import com.theuhooi.uhooipicbook.domain.models.MonsterItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -45,8 +45,8 @@ class MonsterViewModel @Inject constructor(
     private fun loadMonsters() {
         _isLoading.value = true
         repository.loadMonsters(
-            onSuccess = { monsters ->
-                _monsters.value = monsters
+            onSuccess = { monsterDtos ->
+                _monsters.value = monsterDtos.map { MonsterItem.create(it) }
                 _isLoading.value = false
             },
             onFailure = {

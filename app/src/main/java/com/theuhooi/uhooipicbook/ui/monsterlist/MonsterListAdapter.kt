@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.databinding.MonsterListItemBinding
-import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
+import com.theuhooi.uhooipicbook.domain.models.MonsterItem
 
 class MonsterListAdapter :
     ListAdapter<MonsterItem, MonsterListAdapter.MonsterViewHolder>(MonsterItem.DIFF_CALLBACK) {

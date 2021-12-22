@@ -1,24 +1,18 @@
-package com.theuhooi.uhooipicbook.data.monsters.impl
+package com.theuhooi.uhooipicbook.domain.models
 
 import android.os.Parcelable
 import androidx.recyclerview.widget.DiffUtil
-import com.google.firebase.firestore.PropertyName
+import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterDto
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MonsterItem(
-    val name: String = "",
-    val description: String = "",
-    @get:PropertyName("base_color")
-    @set:PropertyName("base_color")
-    var baseColorCode: String = "",
-    @get:PropertyName("icon_url")
-    @set:PropertyName("icon_url")
-    var iconUrlString: String = "",
-    @get:PropertyName("dancing_url")
-    @set:PropertyName("dancing_url")
-    var dancingUrlString: String = "",
-    val order: Int = 0
+    val name: String,
+    val description: String,
+    val baseColorCode: String,
+    val iconUrlString: String,
+    val dancingUrlString: String,
+    val order: Int
 ) : Parcelable {
     companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<MonsterItem>() {
@@ -29,6 +23,17 @@ data class MonsterItem(
             override fun areContentsTheSame(oldItem: MonsterItem, newItem: MonsterItem): Boolean {
                 return oldItem == newItem
             }
+        }
+
+        fun create(dto: MonsterDto): MonsterItem {
+            return MonsterItem(
+                dto.name,
+                dto.description,
+                dto.baseColorCode,
+                dto.iconUrlString,
+                dto.dancingUrlString,
+                dto.order
+            )
         }
     }
 }

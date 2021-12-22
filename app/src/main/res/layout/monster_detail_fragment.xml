@@ -7,7 +7,7 @@
 
         <variable
             name="monster"
-            type="com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem" />
+            type="com.theuhooi.uhooipicbook.domain.models.MonsterItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
