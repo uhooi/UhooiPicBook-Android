@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.modules.monsterlist
+package com.theuhooi.uhooipicbook.ui.monsterlist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.theuhooi.uhooipicbook.databinding.ItemMonsterListBinding
-import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
 
 class MonsterListAdapter(
 ) : ListAdapter<MonsterItem, MonsterListAdapter.MonsterViewHolder>(MonsterItem.DIFF_CALLBACK) {

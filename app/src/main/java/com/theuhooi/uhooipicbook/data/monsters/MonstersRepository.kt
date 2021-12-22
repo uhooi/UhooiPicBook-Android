@@ -1,6 +1,6 @@
-package com.theuhooi.uhooipicbook.modules.monsterlist
+package com.theuhooi.uhooipicbook.data.monsters
 
-import com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem
+import com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem
 
 interface MonstersRepository {
     fun loadMonsters(

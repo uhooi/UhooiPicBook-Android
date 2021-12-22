@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.modules.monsterlist
+package com.theuhooi.uhooipicbook.ui.monsterlist
 
 import android.content.Intent
 import android.net.Uri
@@ -16,8 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.theuhooi.uhooipicbook.BuildConfig
 import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.FragmentMonsterListBinding
-import com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel
-import com.theuhooi.uhooipicbook.motion.Stagger
+import com.theuhooi.uhooipicbook.ui.motion.Stagger
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

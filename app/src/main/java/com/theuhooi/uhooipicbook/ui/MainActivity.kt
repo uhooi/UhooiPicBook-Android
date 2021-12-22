@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook
+package com.theuhooi.uhooipicbook.ui
 
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.android.material.color.MaterialColors
+import com.theuhooi.uhooipicbook.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

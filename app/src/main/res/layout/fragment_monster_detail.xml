@@ -7,14 +7,14 @@
 
         <variable
             name="monster"
-            type="com.theuhooi.uhooipicbook.modules.monsterlist.entities.MonsterItem" />
+            type="com.theuhooi.uhooipicbook.data.monsters.impl.MonsterItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".modules.monsterdetail.MonsterDetailFragment">
+        tools:context=".ui.monsterdetail.MonsterDetailFragment">
 
         <ImageView
             android:id="@+id/icon_imageview"

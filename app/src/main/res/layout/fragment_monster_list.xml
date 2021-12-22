@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.theuhooi.uhooipicbook.modules.monsterlist.viewmodels.MonsterViewModel" />
+            type="com.theuhooi.uhooipicbook.ui.monsterlist.MonsterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".modules.monsterlist.MonsterListFragment">
+        tools:context=".ui.monsterlist.MonsterListFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/monster_list_recyclerview"

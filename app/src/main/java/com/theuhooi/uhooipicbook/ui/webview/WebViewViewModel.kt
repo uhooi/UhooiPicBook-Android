@@ -1,4 +1,4 @@
-package com.theuhooi.uhooipicbook.modules.webview.viewmodels
+package com.theuhooi.uhooipicbook.ui.webview
 
 import androidx.lifecycle.ViewModel
 
