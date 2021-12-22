@@ -25,7 +25,7 @@ data class MonsterItem(
             }
         }
 
-        fun create(dto: MonsterDto): MonsterItem {
+        internal fun create(dto: MonsterDto): MonsterItem {
             return MonsterItem(
                 dto.name,
                 dto.description,
