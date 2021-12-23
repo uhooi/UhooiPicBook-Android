@@ -9,6 +9,9 @@ import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.transition.TransitionManager
@@ -18,6 +21,7 @@ import com.theuhooi.uhooipicbook.R
 import com.theuhooi.uhooipicbook.databinding.MonsterListFragmentBinding
 import com.theuhooi.uhooipicbook.ui.motion.Stagger
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MonsterListFragment : Fragment(R.layout.monster_list_fragment) {
@@ -39,13 +43,18 @@ class MonsterListFragment : Fragment(R.layout.monster_list_fragment) {
         val list = binding.monsterListRecyclerview
         val adapter = MonsterListAdapter()
         list.adapter = adapter
-        viewModel.monsters.observe(viewLifecycleOwner) { monsters ->
-            TransitionManager.beginDelayedTransition(list, Stagger())
-            adapter.submitList(monsters)
-        }
         list.layoutManager = LinearLayoutManager(context)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect {
+                    TransitionManager.beginDelayedTransition(list, Stagger())
+                    adapter.submitList(it.monsterItems)
+                }
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

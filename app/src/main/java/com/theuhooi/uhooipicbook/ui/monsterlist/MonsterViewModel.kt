@@ -1,12 +1,22 @@
 package com.theuhooi.uhooipicbook.ui.monsterlist
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.theuhooi.uhooipicbook.data.Result
 import com.theuhooi.uhooipicbook.data.monsters.MonstersRepository
 import com.theuhooi.uhooipicbook.domain.models.MonsterItem
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+data class MonsterUiState(
+    val isLoading: Boolean = false,
+    val monsterItems: List<MonsterItem> = listOf()
+)
 
 @HiltViewModel
 class MonsterViewModel @Inject constructor(
@@ -15,20 +25,15 @@ class MonsterViewModel @Inject constructor(
 
     // region Stored Instance Properties
 
-    private val _monsters = MutableLiveData<List<MonsterItem>>()
-    val monsters: LiveData<List<MonsterItem>>
-        get() = _monsters
-
-    private val _isLoading = MutableLiveData(false)
-    val isLoading: LiveData<Boolean>
-        get() = _isLoading
+    private val _uiState = MutableStateFlow(MonsterUiState(isLoading = true))
+    val uiState: StateFlow<MonsterUiState> = _uiState.asStateFlow()
 
     // endregion
 
     // region Initializers
 
     init {
-        loadMonsters()
+        refreshMonsters()
     }
 
     // endregion
@@ -36,24 +41,26 @@ class MonsterViewModel @Inject constructor(
     // region Other Public Methods
 
     fun findMonster(order: Int): MonsterItem =
-        requireNotNull(monsters.value?.find { it.order == order })
+        requireNotNull(_uiState.value.monsterItems.find { it.order == order })
 
     // endregion
 
     // region Other Private Methods
 
-    private fun loadMonsters() {
-        _isLoading.value = true
-        repository.loadMonsters(
-            onSuccess = { monsterDtos ->
-                _monsters.value = monsterDtos.map { MonsterItem.create(it) }
-                _isLoading.value = false
-            },
-            onFailure = {
-                _isLoading.value = false
-                // TODO: エラーハンドリング
+    private fun refreshMonsters() {
+        _uiState.update { it.copy(isLoading = true) }
+        viewModelScope.launch {
+            val result = repository.fetchMonsters()
+            _uiState.update {
+                when (result) {
+                    is Result.Success -> it.copy(
+                        monsterItems = result.data.map { dto -> MonsterItem.create(dto) },
+                        isLoading = false
+                    )
+                    is Result.Error -> it.copy(isLoading = false) // TODO: エラーハンドリング
+                }
             }
-        )
+        }
     }
 
     // endregion

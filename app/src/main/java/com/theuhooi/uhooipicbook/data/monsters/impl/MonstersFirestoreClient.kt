@@ -1,9 +1,13 @@
 package com.theuhooi.uhooipicbook.data.monsters.impl
 
+import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObjects
 import com.google.firebase.ktx.Firebase
+import com.theuhooi.uhooipicbook.data.Result
 import com.theuhooi.uhooipicbook.data.monsters.MonstersRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MonstersFirestoreClient @Inject constructor() : MonstersRepository {
@@ -16,19 +20,18 @@ class MonstersFirestoreClient @Inject constructor() : MonstersRepository {
 
     // region MonstersRepository
 
-    override fun loadMonsters(
-        onSuccess: (monsters: List<MonsterDto>) -> Unit,
-        onFailure: (error: Throwable) -> Unit
-    ) {
-        firestore.collection("monsters")
-            .orderBy(MonsterDto::order.name)
-            .get()
-            .addOnSuccessListener { result ->
-                onSuccess(result.toObjects())
+    override suspend fun fetchMonsters(): Result<List<MonsterDto>> {
+        return withContext(Dispatchers.IO) {
+            val querySnapshot = try {
+                firestore.collection("monsters")
+                    .orderBy(MonsterDto::order.name)
+                    .get()
+                    .await()
+            } catch (e: FirebaseFirestoreException) {
+                return@withContext Result.Error(e)
             }
-            .addOnFailureListener { exception ->
-                onFailure(exception)
-            }
+            Result.Success(querySnapshot.toObjects(MonsterDto::class.java))
+        }
     }
 
     // endregion
