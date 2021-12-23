@@ -5,12 +5,15 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.theuhooi.uhooipicbook.data.Result
 import com.theuhooi.uhooipicbook.data.monsters.MonstersRepository
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class MonstersFirestoreClient @Inject constructor() : MonstersRepository {
+class MonstersFirestoreClient @Inject constructor(
+    private val ioDispatcher: CoroutineDispatcher
+) : MonstersRepository {
 
     // region Stored Instance Properties
 
@@ -18,10 +21,16 @@ class MonstersFirestoreClient @Inject constructor() : MonstersRepository {
 
     // endregion
 
+    // region Constructors
+
+    constructor() : this(Dispatchers.IO)
+
+    // endregion
+
     // region MonstersRepository
 
     override suspend fun fetchMonsters(): Result<List<MonsterDto>> {
-        return withContext(Dispatchers.IO) {
+        return withContext(ioDispatcher) {
             val querySnapshot = try {
                 firestore.collection("monsters")
                     .orderBy(MonsterDto::order.name)
