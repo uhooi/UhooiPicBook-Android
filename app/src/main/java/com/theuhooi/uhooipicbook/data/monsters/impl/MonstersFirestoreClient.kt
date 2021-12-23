@@ -5,25 +5,19 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.theuhooi.uhooipicbook.data.Result
 import com.theuhooi.uhooipicbook.data.monsters.MonstersRepository
+import com.theuhooi.uhooipicbook.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MonstersFirestoreClient @Inject constructor(
-    private val ioDispatcher: CoroutineDispatcher
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : MonstersRepository {
 
     // region Stored Instance Properties
 
     private val firestore = Firebase.firestore
-
-    // endregion
-
-    // region Constructors
-
-    constructor() : this(Dispatchers.IO)
 
     // endregion
 
