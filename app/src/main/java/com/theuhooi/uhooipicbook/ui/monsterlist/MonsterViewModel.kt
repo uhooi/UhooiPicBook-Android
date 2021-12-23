@@ -41,7 +41,7 @@ class MonsterViewModel @Inject constructor(
     // region Other Public Methods
 
     fun findMonster(order: Int): MonsterItem =
-        requireNotNull(_uiState.value.monsterItems.find { it.order == order })
+        requireNotNull(uiState.value.monsterItems.find { it.order == order })
 
     // endregion
 
