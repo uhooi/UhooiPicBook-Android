@@ -47,8 +47,8 @@ class MonsterListFragment : Fragment(R.layout.monster_list_fragment) {
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect {
                     TransitionManager.beginDelayedTransition(list, Stagger())
                     adapter.submitList(it.monsterItems)
