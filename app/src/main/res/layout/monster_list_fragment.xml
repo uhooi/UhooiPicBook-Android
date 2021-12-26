@@ -24,13 +24,13 @@
             android:paddingStart="@dimen/start_padding"
             android:paddingEnd="@dimen/end_padding"
             app:layoutManager="GridLayoutManager"
-            app:observedList="@{viewModel.monsters}"
+            app:observedList="@{viewModel.uiState.monsterItems}"
             tools:listitem="@layout/monster_list_item" />
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:goneUnless="@{viewModel.isLoading}"
+            app:goneUnless="@{viewModel.uiState.isLoading}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
