@@ -44,7 +44,7 @@ You can develop this project.
 
 ### Environment
 
-- Android Studio: 4.1.3
+- Android Studio: Arctic Fox | 2020.3.1 Patch 4
 
 ### Configuration
 
@@ -55,10 +55,10 @@ You can develop this project.
 
 1. Clone the project.
 
-```shell
-$ git clone https://github.com/uhooi/UhooiPicBook-Android.git
-$ cd UhooiPicBook-Android
-```
+    ```shell
+    $ git clone https://github.com/uhooi/UhooiPicBook-Android.git
+    $ cd UhooiPicBook-Android
+    ```
 
 2. Open the project in Android Studio.
 
@@ -68,3 +68,7 @@ I would be happy if you contribute :)
 
 - [New issue](https://github.com/uhooi/UhooiPicBook-Android/issues/new)
 - [New pull request](https://github.com/uhooi/UhooiPicBook-Android/compare)
+
+## Stats
+
+[![Stats](https://repobeats.axiom.co/api/embed/854645b4486364c77380b9cce747b91feb127715.svg "Repobeats analytics image")](https://github.com/uhooi/UhooiPicBook-Android)

@@ -9,7 +9,7 @@ import android.media.RingtoneManager
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.theuhooi.uhooipicbook.MainActivity
+import com.theuhooi.uhooipicbook.ui.MainActivity
 import com.theuhooi.uhooipicbook.R
 
 class MessagingService : FirebaseMessagingService() {

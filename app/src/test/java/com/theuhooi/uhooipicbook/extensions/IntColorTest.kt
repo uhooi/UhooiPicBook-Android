@@ -2,10 +2,8 @@ package com.theuhooi.uhooipicbook.extensions
 
 import android.os.Build
 import androidx.core.graphics.ColorUtils
-import androidx.test.runner.AndroidJUnit4
-import org.junit.After
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertEquals
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
@@ -13,18 +11,6 @@ import org.robolectric.annotation.Config
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [Build.VERSION_CODES.P])
 class IntColorTest : IntColorInterface {
-
-    // region TestCase Life-Cycle Methods
-
-    @Before
-    fun setUp() {
-    }
-
-    @After
-    fun tearDown() {
-    }
-
-    // endregion
 
     // region Test Methods
 
