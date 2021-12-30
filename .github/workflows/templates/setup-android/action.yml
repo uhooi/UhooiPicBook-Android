@@ -1,11 +1,6 @@
 name: "Setup for Android"
 description: "Install dependencies for Android"
 
-inputs:
-  use-cache:
-    description: "Whether to use cache"
-    required: true
-
 runs:
   using: "composite"
   steps:
@@ -16,7 +11,6 @@ runs:
       java-version: '11'
 
   - uses: actions/cache@v2
-    if: ${{ inputs.use-cache }}
     with:
       path: ~/.gradle/caches
       key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}

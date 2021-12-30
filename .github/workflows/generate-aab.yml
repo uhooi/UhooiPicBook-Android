@@ -16,14 +16,12 @@ jobs:
     - uses: actions/checkout@v2
 
     - uses: ./.github/workflows/templates/setup-android
-      with:
-        use-cache: false
 
     - name: Decode Keystore
       run: echo ${{ secrets.ENCODED_RELEASE_KEYSTORE }} | base64 --decode > ./app/release.keystore
 
     - name: Generate AAB
-      run: ./gradlew :app:bundleProductionRelease
+      run: ./gradlew --no-build-cache :app:bundleProductionRelease
       env:
         RELEASE_KEYSTORE_STORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_STORE_PASSWORD }}
         RELEASE_KEYSTORE_KEY_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_KEY_PASSWORD }}
