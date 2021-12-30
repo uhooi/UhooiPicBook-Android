@@ -24,8 +24,6 @@ jobs:
     - uses: actions/checkout@v2
 
     - uses: ./.github/workflows/templates/setup-android
-      with:
-        use-cache: true
 
     - name: Run Compile
       run: ./gradlew assembleDebug
@@ -36,8 +34,6 @@ jobs:
     - uses: actions/checkout@v2
 
     - uses: ./.github/workflows/templates/setup-android
-      with:
-        use-cache: true
 
     - name: Test with Gradle
       run: ./gradlew test --stacktrace
