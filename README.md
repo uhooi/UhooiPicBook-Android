@@ -6,7 +6,7 @@
 [![Twitter](https://img.shields.io/twitter/follow/the_uhooi?style=social)](https://twitter.com/the_uhooi)
 
 |Branch|CI|Code coverage|
-|:--|:--|:--|
+|:--|:--:|:--:|
 |[main](https://github.com/uhooi/UhooiPicBook-Android/tree/main)|[![CI](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook-Android/branch/main/graph/badge.svg?token=NXWCPDDFIR)](https://codecov.io/gh/uhooi/UhooiPicBook-Android)|
 |[develop](https://github.com/uhooi/UhooiPicBook-Android/tree/develop)|[![CI](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/uhooi/UhooiPicBook-Android/actions/workflows/ci.yml)|[![codecov](https://codecov.io/gh/uhooi/UhooiPicBook-Android/branch/develop/graph/badge.svg?token=NXWCPDDFIR)](https://codecov.io/gh/uhooi/UhooiPicBook-Android)|
 
@@ -21,21 +21,21 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 ### Light
 
 |MonsterList|MonsterDetail|DancingMonster|
-|:--|:--|:--|
+|:--:|:--:|:--:|
 |<img src="./docs/screenshots/pixel3a/Android10/light/monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/Android10/light/monster_detail.png" width="270">|<img src="./docs/screenshots/pixel3a/Android10/light/dancing_monster.png" width="270">|
 
 |Menu opened in MonsterList|
-|:--|
+|:--:|
 |<img src="./docs/screenshots/pixel3a/Android10/light/menu_opened_in_monster_list_japanese.png" width="270">|
 
 ### Dark
 
 |MonsterList|MonsterDetail|DancingMonster|
-|:--|:--|:--|
+|:--:|:--:|:--:|
 |<img src="./docs/screenshots/pixel3a/Android10/dark/monster_list.png" width="270">|<img src="./docs/screenshots/pixel3a/Android10/dark/monster_detail.png" width="270">|<img src="./docs/screenshots/pixel3a/Android10/dark/dancing_monster.png" width="270">|
 
 |Menu opened in MonsterList|
-|:--|
+|:--:|
 |<img src="./docs/screenshots/pixel3a/Android10/dark/menu_opened_in_monster_list_japanese.png" width="270">|
 
 ## Development
@@ -53,13 +53,11 @@ You can develop this project.
 
 ### Setup
 
-1. Clone the project.
-
+1. Clone the project.  
     ```shell
     $ git clone https://github.com/uhooi/UhooiPicBook-Android.git
     $ cd UhooiPicBook-Android
     ```
-
 2. Open the project in Android Studio.
 
 ## Contribution
