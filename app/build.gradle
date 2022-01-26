@@ -28,7 +28,7 @@ android {
 
         // For LeakCanary in instrumentation tests
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunnerArgument "listener", "leakcanary.FailTestOnLeakRunListener"
+        testInstrumentationRunnerArguments listener: 'leakcanary.FailTestOnLeakRunListener'
     }
 
     signingConfigs {
