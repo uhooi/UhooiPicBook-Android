@@ -44,7 +44,7 @@ You can develop this project.
 
 ### Environment
 
-- Android Studio: Arctic Fox | 2020.3.1 Patch 4
+- Android Studio: Bumblebee | 2021.1.1
 
 ### Configuration
 
