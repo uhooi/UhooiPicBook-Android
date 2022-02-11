@@ -55,7 +55,7 @@ class MessagingService : FirebaseMessagingService() {
                 putExtra(getString(R.string.notification_url_extra_name), urlString)
             }
         }
-        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         val notification = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.mipmap.ic_notification)
