@@ -31,7 +31,7 @@ android {
     }
 
     signingConfigs {
-        getByName("release") {
+        create("release") {
             storeFile = file("release.keystore")
             storePassword = System.getenv("RELEASE_KEYSTORE_STORE_PASSWORD")
             keyAlias = "uhooipicbook"
