@@ -93,9 +93,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
 
-    // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:${rootProject.extra["navVersion"]}") // TODO: Remove because unused
-    implementation("androidx.navigation:navigation-ui-ktx:${rootProject.extra["navVersion"]}")
+    val navVersion: String by rootProject
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion") // TODO: Remove because unused
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     implementation("androidx.recyclerview:recyclerview:1.2.1")
 
@@ -104,9 +104,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutinesVersion")
 
-    // Hilt
-    implementation("com.google.dagger:hilt-android:${rootProject.extra["hiltVersion"]}")
-    kapt("com.google.dagger:hilt-android-compiler:${rootProject.extra["hiltVersion"]}")
+    val hiltVersion: String by rootProject
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
     implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
 
     // Firebase
