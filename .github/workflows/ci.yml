@@ -38,16 +38,7 @@ jobs:
     - name: Test with Gradle
       run: ./gradlew test --stacktrace
 
-    - name: Get code coverage for JaCoCo
-      run: ./gradlew jacocoDevelopDebugTestReport
-
-    - name: Upload code coverage to Codecov
-      uses: codecov/codecov-action@v2
-      with:
-        fail_ci_if_error: true
-        verbose: true
-
-    - name: Upload test results and code coverage Artifact
+    - name: Upload test results Artifact
       uses: actions/upload-artifact@v2
       if: success() || failure()
       with:
@@ -55,7 +46,6 @@ jobs:
         path: |
           **/build/reports/tests/**/*
           **/build/reports/test-results/**/*
-          **/build/reports/jacoco/**/*
         if-no-files-found: warn
         retention-days: 14
 
@@ -131,3 +121,4 @@ jobs:
           **/build/ktlint-report.xml
         if-no-files-found: error
         retention-days: 14
+
