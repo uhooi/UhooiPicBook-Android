@@ -99,10 +99,10 @@ dependencies {
 
     implementation("androidx.recyclerview:recyclerview:1.2.1")
 
-    val coroutines_version = "1.6.0"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version")
+    val coroutinesVersion = "1.6.0"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutinesVersion")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:$rootProject.hiltVersion")
@@ -121,19 +121,19 @@ dependencies {
 
     implementation("com.jakewharton.timber:timber:5.0.1")
 
-    val coil_version = "1.4.0"
-    implementation("io.coil-kt:coil:$coil_version")
-    implementation("io.coil-kt:coil-base:$coil_version")
-    implementation("io.coil-kt:coil-gif:$coil_version")
+    val coilVersion = "1.4.0"
+    implementation("io.coil-kt:coil:$coilVersion")
+    implementation("io.coil-kt:coil-base:$coilVersion")
+    implementation("io.coil-kt:coil-gif:$coilVersion")
 
     testImplementation("org.robolectric:robolectric:4.6.1")
     testImplementation("androidx.test:runner:1.4.0")
     testImplementation("androidx.test.ext:junit:1.1.3")
 
     // LeakCanary
-    val leakcanary_version = "2.7"
-    debugImplementation("com.squareup.leakcanary:leakcanary-android:$leakcanary_version")
-    androidTestImplementation("com.squareup.leakcanary:leakcanary-android-instrumentation:$leakcanary_version")
+    val leakcanaryVersion = "2.7"
+    debugImplementation("com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion")
+    androidTestImplementation("com.squareup.leakcanary:leakcanary-android-instrumentation:$leakcanaryVersion")
 }
 
 kapt {
