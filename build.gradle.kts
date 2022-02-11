@@ -2,7 +2,7 @@
 
 buildscript {
     val kotlinVersion by extra { "1.6.10" }
-    val nav_version by extra { "2.3.5" }
+    val navVersion by extra { "2.3.5" }
     val hilt_version by extra { "2.40.5" }
 
     repositories {
@@ -12,7 +12,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:7.1.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion")
 
         // Firebase
         classpath("com.google.gms:google-services:4.3.10")

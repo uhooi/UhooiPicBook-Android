@@ -94,8 +94,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
 
     // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:$rootProject.nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:2.3.5") // FIXME: Use `$rootProject.nav_version`
+    implementation("androidx.navigation:navigation-fragment-ktx:$rootProject.navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.5") // FIXME: Use `$rootProject.navVersion`
 
     implementation("androidx.recyclerview:recyclerview:1.2.1")
 
