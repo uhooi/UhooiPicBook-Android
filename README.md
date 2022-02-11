@@ -44,7 +44,7 @@ You can develop this project.
 
 ### Environment
 
-- Android Studio: Bumblebee | 2021.1.1
+- Android Studio: Bumblebee | 2021.1.1 Patch 1
 
 ### Configuration
 
