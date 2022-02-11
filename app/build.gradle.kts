@@ -105,8 +105,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version")
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:$rootProject.hilt_version")
-    kapt("com.google.dagger:hilt-android-compiler:$rootProject.hilt_version")
+    implementation("com.google.dagger:hilt-android:$rootProject.hiltVersion")
+    kapt("com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion")
     implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
 
     // Firebase

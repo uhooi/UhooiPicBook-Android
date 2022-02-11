@@ -3,7 +3,7 @@
 buildscript {
     val kotlinVersion by extra { "1.6.10" }
     val navVersion by extra { "2.3.5" }
-    val hilt_version by extra { "2.40.5" }
+    val hiltVersion by extra { "2.40.5" }
 
     repositories {
         google()
@@ -19,7 +19,7 @@ buildscript {
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.8.1")
         classpath("com.google.firebase:perf-plugin:1.3.2")
 
-        classpath("com.google.dagger:hilt-android-gradle-plugin:$hilt_version")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:$hiltVersion")
 
         classpath("com.google.android.gms:oss-licenses-plugin:0.10.4")
 
