@@ -1,8 +1,8 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    kotlin("android")
     id("kotlin-parcelize")
-    id("kotlin-kapt")
+    kotlin("kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
@@ -10,7 +10,6 @@ plugins {
     id("com.google.firebase.firebase-perf")
     id("com.google.android.gms.oss-licenses-plugin")
     id("io.gitlab.arturbosch.detekt") version "1.17.0"
-    id("jacoco")
 }
 
 android {
@@ -28,11 +27,11 @@ android {
 
         // For LeakCanary in instrumentation tests
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunnerArguments(listener: "leakcanary.FailTestOnLeakRunListener")
+        testInstrumentationRunnerArguments += mapOf("listener" to "leakcanary.FailTestOnLeakRunListener")
     }
 
     signingConfigs {
-        release {
+        getByName("release") {
             storeFile = file("release.keystore")
             storePassword = System.getenv("RELEASE_KEYSTORE_STORE_PASSWORD")
             keyAlias = "uhooipicbook"
@@ -41,10 +40,13 @@ android {
     }
 
     buildTypes {
-        release {
-            minifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            signingConfig = signingConfigs.release
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 
@@ -59,7 +61,7 @@ android {
 
     testOptions {
         unitTests {
-            includeAndroidResources = true
+            isIncludeAndroidResources = true
         }
     }
 
@@ -67,12 +69,12 @@ android {
         dataBinding = true
     }
 
-    flavorDimensions "environment"
+    flavorDimensions += "environment"
     productFlavors {
-        production {
+        create("production") {
             dimension = "environment"
         }
-        develop {
+        create("develop") {
             dimension = "environment"
             applicationIdSuffix = ".develop"
             versionNameSuffix = "-develop"
@@ -97,7 +99,7 @@ dependencies {
 
     implementation("androidx.recyclerview:recyclerview:1.2.1")
 
-    def coroutines_version = "1.6.0"
+    val coroutines_version = "1.6.0"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutines_version")
@@ -119,7 +121,7 @@ dependencies {
 
     implementation("com.jakewharton.timber:timber:5.0.1")
 
-    def coil_version = "1.4.0"
+    val coil_version = "1.4.0"
     implementation("io.coil-kt:coil:$coil_version")
     implementation("io.coil-kt:coil-base:$coil_version")
     implementation("io.coil-kt:coil-gif:$coil_version")
@@ -129,7 +131,7 @@ dependencies {
     testImplementation("androidx.test.ext:junit:1.1.3")
 
     // LeakCanary
-    def leakcanary_version = "2.7"
+    val leakcanary_version = "2.7"
     debugImplementation("com.squareup.leakcanary:leakcanary-android:$leakcanary_version")
     androidTestImplementation("com.squareup.leakcanary:leakcanary-android-instrumentation:$leakcanary_version")
 }
@@ -163,44 +165,13 @@ detekt {
     }
 }
 
-jacoco {
-    toolVersion = "0.8.7"
-}
-
-task jacocoDevelopDebugTestReport(type: JacocoReport, dependsOn: "testDevelopDebugUnitTest", group: "verification") {
-    def excludedClasses = []
-    sourceDirectories.from("$projectDir/src/main/java")
-    classDirectories.from(fileTree(
-            dir: "$buildDir/tmp/kotlin-classes/developDebug",
-            excludes: excludedClasses
-    ))
-    executionData.from("$buildDir/jacoco/testDevelopDebugUnitTest.exec")
-}
-
-jacocoDevelopDebugTestReport {
-    reports {
-        xml {
-            enabled = true
-            destination = file("$buildDir/reports/jacoco/jacoco.xml")
-        }
-        csv {
-            enabled = false
-            destination = file("$buildDir/reports/jacoco/jacoco.csv")
-        }
-        html {
-            enabled = true
-            destination = file("$buildDir/reports/jacoco/html")
-        }
-    }
-}
-
 // Workaround for using the enableAggregatingTask flag.
 // ref: https://github.com/google/dagger/issues/2744#issuecomment-901277926
-tasks.named("getDependencies").configure { task ->
-    def configured = false
+tasks.named("getDependencies").configure {
+    var configured = false
     project.android.applicationVariants.all {
         if (!configured) {
-            task.inputs.files(project.files(project.configurations.getByName("productionDebugAndroidTestRuntimeClasspath")))
+            inputs.files(project.files(project.configurations.getByName("productionDebugAndroidTestRuntimeClasspath")))
             configured = true
         }
     }
