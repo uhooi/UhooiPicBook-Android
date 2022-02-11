@@ -1,11 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext {
-        kotlin_version = "1.6.10"
-        nav_version = "2.3.5"
-        hilt_version = "2.40.5"
-    }
+    val kotlin_version by extra { "1.6.10" }
+    val nav_version by extra { "2.3.5" }
+    val hilt_version by extra { "2.40.5" }
+
     repositories {
         google()
         mavenCentral()
@@ -29,6 +28,6 @@ buildscript {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+task<Delete>("clean") {
+    delete(rootProject.buildDir)
 }
