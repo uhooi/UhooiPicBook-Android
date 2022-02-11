@@ -94,7 +94,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
 
     // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:${rootProject.extra["navVersion"]}")
+    implementation("androidx.navigation:navigation-fragment-ktx:${rootProject.extra["navVersion"]}") // TODO: Remove because unused
     implementation("androidx.navigation:navigation-ui-ktx:${rootProject.extra["navVersion"]}")
 
     implementation("androidx.recyclerview:recyclerview:1.2.1")
