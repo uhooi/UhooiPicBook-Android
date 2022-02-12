@@ -93,6 +93,7 @@ dependencies {
     val navVersion: String by rootProject
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
+    // RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.2.1")
 
     val coroutinesVersion = "1.6.0"
@@ -113,8 +114,10 @@ dependencies {
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-perf")
 
+    // OSS Licenses
     implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
 
+    // Timber
     implementation("com.jakewharton.timber:timber:5.0.1")
 
     val coilVersion = "1.4.0"
@@ -122,14 +125,14 @@ dependencies {
     implementation("io.coil-kt:coil-base:$coilVersion")
     implementation("io.coil-kt:coil-gif:$coilVersion")
 
-    testImplementation("org.robolectric:robolectric:4.6.1")
-    testImplementation("androidx.test:runner:1.4.0")
-    testImplementation("androidx.test.ext:junit:1.1.3")
-
     // LeakCanary
     val leakcanaryVersion = "2.7"
     debugImplementation("com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion")
     androidTestImplementation("com.squareup.leakcanary:leakcanary-android-instrumentation:$leakcanaryVersion")
+
+    testImplementation("org.robolectric:robolectric:4.6.1")
+    testImplementation("androidx.test:runner:1.4.0")
+    testImplementation("androidx.test.ext:junit:1.1.3")
 }
 
 kapt {

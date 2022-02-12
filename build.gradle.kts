@@ -12,6 +12,8 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:7.1.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+
+        // Safe Args
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navVersion")
 
         // Firebase
@@ -19,8 +21,10 @@ buildscript {
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.8.1")
         classpath("com.google.firebase:perf-plugin:1.3.2")
 
+        // Hilt
         classpath("com.google.dagger:hilt-android-gradle-plugin:$hiltVersion")
 
+        // OSS Licenses
         classpath("com.google.android.gms:oss-licenses-plugin:0.10.4")
 
         // NOTE: Do not place your application dependencies here; they belong
