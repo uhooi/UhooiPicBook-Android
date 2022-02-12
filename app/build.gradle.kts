@@ -91,7 +91,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
 
     val navVersion: String by rootProject
-    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion") // TODO: Remove because unused
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     implementation("androidx.recyclerview:recyclerview:1.2.1")
