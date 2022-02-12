@@ -130,9 +130,9 @@ dependencies {
     debugImplementation("com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion")
     androidTestImplementation("com.squareup.leakcanary:leakcanary-android-instrumentation:$leakcanaryVersion")
 
-    testImplementation("org.robolectric:robolectric:4.6.1")
-    testImplementation("androidx.test:runner:1.4.0")
-    testImplementation("androidx.test.ext:junit:1.1.3")
+    // Local Unit Test
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.7.3")
 }
 
 kapt {
