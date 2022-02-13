@@ -28,18 +28,15 @@ jobs:
     - name: Run Compile
       run: ./gradlew assembleDebug
 
-  test:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
 
     - uses: ./.github/workflows/templates/setup-android
 
-    - name: Unit Tests with Gradle
+    - name: Run unit tests
       run: ./gradlew test --stacktrace
-
-    - name: Instrumented Tests with Gradle
-      run: ./gradlew connectedAndroidTest --stacktrace
 
     - name: Upload test results Artifact
       uses: actions/upload-artifact@v2
@@ -49,6 +46,54 @@ jobs:
         path: |
           **/build/reports/tests/**/*
           **/build/reports/test-results/**/*
+        if-no-files-found: warn
+        retention-days: 14
+
+  instrumented-tests:
+    runs-on: macos-11
+    strategy:
+      matrix:
+        api-level: [26, 30, 31]
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: ./.github/workflows/templates/setup-android
+
+    - name: AVD cache
+      uses: actions/cache@v2
+      id: avd-cache
+      with:
+        path: |
+          ~/.android/avd/*
+          ~/.android/adb*
+        key: avd-${{ matrix.api-level }}
+
+    - name: Create AVD and generate snapshot for caching
+      if: steps.avd-cache.outputs.cache-hit != 'true'
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: ${{ matrix.api-level }}
+        force-avd-creation: false
+        emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+        disable-animations: false
+        script: echo "Generated AVD snapshot for caching."
+
+    - name: Run instrumented tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: ${{ matrix.api-level }}
+        force-avd-creation: false
+        emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+        disable-animations: true
+        ram-size: 4096M
+        script: ./gradlew connectedAndroidTest --stacktrace
+
+    - name: Upload test results Artifact
+      uses: actions/upload-artifact@v2
+      if: success() || failure()
+      with:
+        name: results
+        path: |
           **/build/reports/androidTests/connected/**/*
           **/build/outputs/androidTests/androidTest-results/connected/**/*
         if-no-files-found: warn
