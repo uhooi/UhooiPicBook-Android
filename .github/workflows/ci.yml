@@ -35,8 +35,11 @@ jobs:
 
     - uses: ./.github/workflows/templates/setup-android
 
-    - name: Test with Gradle
+    - name: Unit Tests with Gradle
       run: ./gradlew test --stacktrace
+
+    - name: Instrumented Tests with Gradle
+      run: ./gradlew connectedAndroidTest --stacktrace
 
     - name: Upload test results Artifact
       uses: actions/upload-artifact@v2
@@ -46,6 +49,8 @@ jobs:
         path: |
           **/build/reports/tests/**/*
           **/build/reports/test-results/**/*
+          **/build/reports/androidTests/connected/**/*
+          **/build/outputs/androidTests/androidTest-results/connected/**/*
         if-no-files-found: warn
         retention-days: 14
 
