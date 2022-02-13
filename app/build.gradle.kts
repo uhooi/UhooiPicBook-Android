@@ -128,11 +128,11 @@ dependencies {
     // LeakCanary
     val leakcanaryVersion = "2.7"
     debugImplementation("com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion")
-    androidTestImplementation("com.squareup.leakcanary:leakcanary-android-instrumentation:$leakcanaryVersion")
 
-    // Local Unit Test
-    testImplementation("junit:junit:4.13.2")
-    testImplementation("org.robolectric:robolectric:4.7.3")
+    // Instrumented Unit Test
+    androidTestImplementation("androidx.test:core:1.4.0")
+    androidTestImplementation("androidx.test:runner:1.4.0")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
 }
 
 kapt {

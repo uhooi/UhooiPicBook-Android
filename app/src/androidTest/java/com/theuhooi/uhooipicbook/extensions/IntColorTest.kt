@@ -1,12 +1,14 @@
 package com.theuhooi.uhooipicbook.extensions
 
 import androidx.core.graphics.ColorUtils
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.filters.SmallTest
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(AndroidJUnit4::class)
+@SmallTest
 class IntColorTest : IntColorInterface {
 
     // region Test Methods
