@@ -19,7 +19,7 @@ buildscript {
         classpath("com.google.firebase:perf-plugin:1.3.2")
 
         // OSS Licenses
-        classpath("com.google.android.gms:oss-licenses-plugin:0.10.4")
+        classpath("com.google.android.gms:oss-licenses-plugin:0.10.5")
     }
 }
 
