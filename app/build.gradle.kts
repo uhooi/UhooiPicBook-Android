@@ -163,15 +163,3 @@ detekt {
         }
     }
 }
-
-// Workaround for using the enableAggregatingTask flag.
-// ref: https://github.com/google/dagger/issues/2744#issuecomment-901277926
-tasks.named("getDependencies").configure {
-    var configured = false
-    project.android.applicationVariants.all {
-        if (!configured) {
-            inputs.files(project.files(project.configurations.getByName("productionDebugAndroidTestRuntimeClasspath")))
-            configured = true
-        }
-    }
-}
