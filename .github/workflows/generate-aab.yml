@@ -27,7 +27,7 @@ jobs:
         RELEASE_KEYSTORE_KEY_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_KEY_PASSWORD }}
 
     - name: Upload AAB Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: aab
         path: app/build/outputs/bundle/productionRelease/app-production-release.aab

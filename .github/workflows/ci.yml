@@ -39,7 +39,7 @@ jobs:
       run: ./gradlew test --stacktrace
 
     - name: Upload test results Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: success() || failure()
       with:
         name: results
@@ -63,7 +63,7 @@ jobs:
         report-path: '**/build/reports/lint-results-*.xml'
 
     - name: Upload results Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: success() || failure()
       with:
         name: results
@@ -82,7 +82,7 @@ jobs:
       run: ./gradlew detekt
 
     - name: Upload results Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: failure()
       with:
         name: results
@@ -113,7 +113,7 @@ jobs:
       continue-on-error: true
 
     - name: Upload results Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: failure()
       with:
         name: results
