@@ -18,6 +18,8 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 
 ## Screenshots
 
+<details><summary>Screenshots</summary>
+
 ### Light
 
 |MonsterList|MonsterDetail|DancingMonster|
@@ -37,6 +39,8 @@ UhooiPicBook-Android is Uhooi's character book for Android.
 |Menu opened in MonsterList|
 |:--:|
 |<img src="./docs/screenshots/pixel3a/Android10/dark/menu_opened_in_monster_list_japanese.png" width="270">|
+
+</details>
 
 ## Development
 
