@@ -77,6 +77,8 @@ android {
             versionNameSuffix = "-develop"
         }
     }
+
+    namespace = "com.theuhooi.uhooipicbook"
 }
 
 dependencies {

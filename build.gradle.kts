@@ -1,13 +1,13 @@
 buildscript {
     val kotlinVersion by extra { "1.6.10" }
-    val navVersion by extra { "2.3.5" }
+    val navVersion by extra { "2.5.3" }
 
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.2.2")
+        classpath("com.android.tools.build:gradle:7.4.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
 
         // Safe Args
