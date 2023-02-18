@@ -128,7 +128,7 @@ dependencies {
     implementation("io.coil-kt:coil-gif:$coilVersion")
 
     // LeakCanary
-    val leakcanaryVersion = "2.7"
+    val leakcanaryVersion = "2.10"
     debugImplementation("com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion")
     androidTestImplementation("com.squareup.leakcanary:leakcanary-android-instrumentation:$leakcanaryVersion")
 
