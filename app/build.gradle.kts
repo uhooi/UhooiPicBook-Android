@@ -13,13 +13,13 @@ plugins {
 }
 
 android {
-    compileSdk = 31
-    buildToolsVersion = "30.0.3"
+    compileSdk = 33
+    buildToolsVersion = "33.0.2"
 
     defaultConfig {
         applicationId = "com.theuhooi.uhooipicbook"
         minSdk = 26
-        targetSdk = 31
+        targetSdk = 33
         versionCode = 7
         versionName = "1.6.0"
 
@@ -82,15 +82,15 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.0")
-    implementation("com.google.android.material:material:1.4.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.2")
+    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.8.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     // Lifecycle
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 
     val navVersion: String by rootProject
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
@@ -128,13 +128,13 @@ dependencies {
     implementation("io.coil-kt:coil-gif:$coilVersion")
 
     // LeakCanary
-    val leakcanaryVersion = "2.7"
+    val leakcanaryVersion = "2.10"
     debugImplementation("com.squareup.leakcanary:leakcanary-android:$leakcanaryVersion")
     androidTestImplementation("com.squareup.leakcanary:leakcanary-android-instrumentation:$leakcanaryVersion")
 
     testImplementation("org.robolectric:robolectric:4.6.1")
-    testImplementation("androidx.test:runner:1.4.0")
-    testImplementation("androidx.test.ext:junit:1.1.3")
+    testImplementation("androidx.test:runner:1.5.2")
+    testImplementation("androidx.test.ext:junit:1.1.5")
 }
 
 kapt {
