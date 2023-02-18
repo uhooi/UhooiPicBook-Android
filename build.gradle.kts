@@ -16,7 +16,7 @@ buildscript {
         // Firebase
         classpath("com.google.gms:google-services:4.3.15")
         classpath("com.google.firebase:firebase-crashlytics-gradle:2.9.4")
-        classpath("com.google.firebase:perf-plugin:1.4.1")
+        classpath("com.google.firebase:perf-plugin:1.4.2")
 
         // OSS Licenses
         classpath("com.google.android.gms:oss-licenses-plugin:0.10.5")
