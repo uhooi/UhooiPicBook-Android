@@ -48,7 +48,7 @@ You can develop this project.
 
 ### Environment
 
-- Android Studio: Chipmunk | 2021.2.1 Patch 2
+- Android Studio: Electric Eel | 2022.1.1 Patch 1
 
 ### Configuration
 
