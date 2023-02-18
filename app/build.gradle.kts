@@ -14,7 +14,7 @@ plugins {
 
 android {
     compileSdk = 31
-    buildToolsVersion = "30.0.3"
+    buildToolsVersion = "33.0.2"
 
     defaultConfig {
         applicationId = "com.theuhooi.uhooipicbook"
