@@ -10,12 +10,16 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.core.content.FileProvider
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.ImageLoader
@@ -52,7 +56,27 @@ class MonsterDetailFragment : Fragment(R.layout.monster_detail_fragment), IntCol
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setHasOptionsMenu(true)
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.monster_detail_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.share_menu_item -> {
+                        shareMonster()
+                        true
+                    }
+                    else -> false
+                }
+            }
+
+            override fun onMenuClosed(menu: Menu) {
+                super.onMenuClosed(menu)
+                disposable?.dispose()
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         val binding = MonsterDetailFragmentBinding.bind(view)
         binding.monster = monster
@@ -72,23 +96,6 @@ class MonsterDetailFragment : Fragment(R.layout.monster_detail_fragment), IntCol
             )
             activity.window.statusBarColor = actionBarColor.actionBarColorToStatusBarColor
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-
-        inflater.inflate(R.menu.monster_detail_menu, menu)
-        val shareMenuItem = menu.findItem(R.id.share_menu_item)
-        shareMenuItem.setOnMenuItemClickListener {
-            shareMonster()
-            true
-        }
-    }
-
-    override fun onDestroyOptionsMenu() {
-        super.onDestroyOptionsMenu()
-
-        disposable?.dispose()
     }
 
     // endregion
