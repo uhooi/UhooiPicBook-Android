@@ -93,6 +93,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
+    // Navigation
     implementation(libs.androidx.navigation.ui.ktx)
 
     // RecyclerView
@@ -110,9 +111,9 @@ dependencies {
 
     // Firebase
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
-    implementation(libs.firebase.crashlytics)
-    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.analytics.ktx)
+    implementation(libs.firebase.crashlytics.ktx)
+    implementation(libs.firebase.firestore.ktx)
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.perf)
 
@@ -133,7 +134,7 @@ dependencies {
 
     testImplementation(libs.robolectric)
     testImplementation(libs.androidx.test.runner)
-    testImplementation(libs.androidx.test.ext)
+    testImplementation(libs.androidx.test.ext.junit)
 }
 
 kapt {
