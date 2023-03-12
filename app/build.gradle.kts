@@ -1,15 +1,15 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    id("kotlin-parcelize")
-    kotlin("kapt")
-    id("androidx.navigation.safeargs.kotlin")
-    id("com.google.dagger.hilt.android") version "2.45"
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
-    id("com.google.firebase.firebase-perf")
-    id("com.google.android.gms.oss-licenses-plugin")
-    id("io.gitlab.arturbosch.detekt") version "1.17.0"
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.navigation.safeargs.kotlin)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.gms.google.services)
+    alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.firebase.perf)
+//    alias(libs.plugins.gms.oss.licenses) // FIXME: Cause build error
+    alias(libs.plugins.detekt)
 }
 
 android {
