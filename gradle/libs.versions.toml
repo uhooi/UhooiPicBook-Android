@@ -1,49 +1,33 @@
 [versions]
 androidGradlePlugin = "7.4.2"
-androidxAppCompat = "1.6.1"
-androidxConstraintlayout = "2.1.4"
-androidxCore = "1.9.0"
-androidxFragment = "1.5.5"
 androidxLifecycle = "2.5.1"
-androidxLifecycleExtensions = "2.2.0"
 androidxNavigation = "2.5.3"
-androidxRecyclerview = "1.2.1"
-androidxTestExt = "1.1.5"
-androidxTestRunner = "1.5.2"
 coil = "1.4.0"
 detektPlugin = "1.17.0"
-firebaseBom = "29.0.3"
 firebaseCrashlyticsPlugin = "2.9.4"
 firebasePerfPlugin = "1.4.2"
-gmsGoogleServicesPlugin = "4.3.15"
-gmsOssLicenses = "17.0.0"
-gmsOssLicensesPlugin = "0.10.6"
 hilt = "2.45"
-hiltExt = "1.0.0"
 kotlin = "1.8.10"
 kotlinxCoroutines = "1.6.0"
 leakcanary = "2.10"
-material = "1.8.0"
-robolectric = "4.6.1"
-timber = "5.0.1"
 
 [libraries]
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidxConstraintlayout" }
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
-androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidxFragment" }
-androidx-lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version.ref = "androidxLifecycleExtensions" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version = "1.6.1" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version = "2.1.4" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.9.0" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version = "1.5.5" }
+androidx-lifecycle-extensions = { group = "androidx.lifecycle", name = "lifecycle-extensions", version = "2.2.0" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidxLifecycle" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "androidxNavigation" }
-androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "androidxRecyclerview" }
-androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestExt" }
-androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTestRunner" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version = "1.2.1" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version = "1.1.5" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version = "1.5.2" }
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-base = { group = "io.coil-kt", name = "coil-base", version.ref = "coil" }
 coil-gif = { group = "io.coil-kt", name = "coil-gif", version.ref = "coil" }
-gms-oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version.ref = "gmsOssLicenses" }
-firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref="firebaseBom" }
+gms-oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version = "17.0.0" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version = "29.0.3" }
 firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
 firebase-crashlytics-ktx = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
 firebase-crashlytics-gradle = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebaseCrashlyticsPlugin" }
@@ -53,15 +37,15 @@ firebase-perf = { group = "com.google.firebase", name = "firebase-perf" }
 firebase-perf-gradle = { group = "com.google.firebase", name = "perf-plugin", version.ref = "firebasePerfPlugin" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
-hilt-ext-navigation-fragment = { group = "androidx.hilt", name = "hilt-navigation-fragment", version.ref = "hiltExt" }
+hilt-ext-navigation-fragment = { group = "androidx.hilt", name = "hilt-navigation-fragment", version = "1.0.0" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "kotlinxCoroutines" }
 leakcanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakcanary" }
 leakcanary-instrumentation = { group = "com.squareup.leakcanary", name = "leakcanary-android-instrumentation", version.ref = "leakcanary" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+material = { group = "com.google.android.material", name = "material", version = "1.8.0" }
+robolectric = { group = "org.robolectric", name = "robolectric", version = "4.6.1" }
+timber = { group = "com.jakewharton.timber", name = "timber", version = "5.0.1" }
 
 # Plugins
 #androidx-navigation-safeArgs-gradlePlugin = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "androidxNavigation" }
@@ -76,8 +60,8 @@ android-application = { id = "com.android.application", version.ref = "androidGr
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detektPlugin" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsPlugin" }
 firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "firebasePerfPlugin" }
-gms-google-services = { id = "com.google.gms.google-services", version.ref = "gmsGoogleServicesPlugin" }
-gms-oss-licenses = { id = "com.google.android.gms.oss-licenses-plugin", version.ref = "gmsOssLicensesPlugin" }
+gms-google-services = { id = "com.google.gms.google-services", version = "4.3.15" }
+gms-oss-licenses = { id = "com.google.android.gms.oss-licenses-plugin", version = "0.10.6" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
