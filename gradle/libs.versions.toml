@@ -43,7 +43,7 @@ timber = { group = "com.jakewharton.timber", name = "timber", version = "5.0.1" 
 
 [plugins]
 android-application = { id = "com.android.application", version = "7.4.2" }
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "1.17.0" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.17.0" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version = "2.9.4" }
 firebase-perf = { id = "com.google.firebase.firebase-perf", version = "1.4.2" }
 gms-google-services = { id = "com.google.gms.google-services", version = "4.3.15" }
