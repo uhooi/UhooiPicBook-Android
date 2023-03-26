@@ -1,3 +1,9 @@
+# Style guide
+# - Elements within a section are sorted alphabetically
+# - Use the `versions` section only if it is referenced by more than one element
+# - Prefer `group` and `name` to `module` in the `libraries` section
+# - Don't use the `bundles` section
+
 [versions]
 androidxLifecycle = "2.5.1"
 androidxNavigation = "2.5.3"
