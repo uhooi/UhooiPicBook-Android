@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.gms.google.services)
     alias(libs.plugins.firebase.crashlytics)
     alias(libs.plugins.firebase.perf)
-//    alias(libs.plugins.gms.oss.licenses) // FIXME: Cause build error
+    alias(libs.plugins.gms.oss.licenses)
     alias(libs.plugins.detekt)
 }
 
