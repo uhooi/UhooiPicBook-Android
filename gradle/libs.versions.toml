@@ -48,7 +48,7 @@ robolectric = { group = "org.robolectric", name = "robolectric", version = "4.6.
 timber = { group = "com.jakewharton.timber", name = "timber", version = "5.0.1" }
 
 [plugins]
-android-application = { id = "com.android.application", version = "7.4.2" }
+android-application = { id = "com.android.application", version = "8.0.2" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.17.0" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version = "2.9.4" }
 firebase-perf = { id = "com.google.firebase.firebase-perf", version = "1.4.2" }
