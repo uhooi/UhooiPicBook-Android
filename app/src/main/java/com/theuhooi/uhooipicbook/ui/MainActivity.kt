@@ -42,14 +42,14 @@ class MainActivity : AppCompatActivity() {
                     ColorDrawable(
                         MaterialColors.getColor(
                             this,
-                            R.attr.colorPrimary,
+                            androidx.appcompat.R.attr.colorPrimary,
                             "colorPrimary is not set in the current theme"
                         )
                     )
                 )
                 window.statusBarColor = MaterialColors.getColor(
                     this,
-                    R.attr.colorPrimaryVariant,
+                    com.google.android.material.R.attr.colorPrimaryVariant,
                     "colorPrimaryVariant is not set in the current theme"
                 )
             }

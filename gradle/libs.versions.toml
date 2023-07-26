@@ -44,11 +44,11 @@ kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "ko
 leakcanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakcanary" }
 leakcanary-instrumentation = { group = "com.squareup.leakcanary", name = "leakcanary-android-instrumentation", version.ref = "leakcanary" }
 material = { group = "com.google.android.material", name = "material", version = "1.8.0" }
-robolectric = { group = "org.robolectric", name = "robolectric", version = "4.6.1" }
+robolectric = { group = "org.robolectric", name = "robolectric", version = "4.10.3" }
 timber = { group = "com.jakewharton.timber", name = "timber", version = "5.0.1" }
 
 [plugins]
-android-application = { id = "com.android.application", version = "7.4.2" }
+android-application = { id = "com.android.application", version = "8.0.2" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.17.0" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version = "2.9.4" }
 firebase-perf = { id = "com.google.firebase.firebase-perf", version = "1.4.2" }

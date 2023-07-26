@@ -54,6 +54,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - uses: ./.github/workflows/templates/setup-android
+
     - name: Run Inspection
       run: ./gradlew lint
 
@@ -78,6 +80,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - uses: ./.github/workflows/templates/setup-android
+
     - name: Lint with detekt
       run: ./gradlew detekt
 
@@ -95,6 +99,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - uses: ./.github/workflows/templates/setup-android
 
     - name: Install ktlint
       run: |
