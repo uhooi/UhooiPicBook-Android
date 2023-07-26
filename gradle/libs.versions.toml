@@ -44,7 +44,7 @@ kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "ko
 leakcanary = { group = "com.squareup.leakcanary", name = "leakcanary-android", version.ref = "leakcanary" }
 leakcanary-instrumentation = { group = "com.squareup.leakcanary", name = "leakcanary-android-instrumentation", version.ref = "leakcanary" }
 material = { group = "com.google.android.material", name = "material", version = "1.8.0" }
-robolectric = { group = "org.robolectric", name = "robolectric", version = "4.6.1" }
+robolectric = { group = "org.robolectric", name = "robolectric", version = "4.10.3" }
 timber = { group = "com.jakewharton.timber", name = "timber", version = "5.0.1" }
 
 [plugins]
