@@ -48,7 +48,7 @@ You can develop this project.
 
 ### Environment
 
-- Android Studio: Flamingo | 2022.2.1 Patch 2
+- Android Studio: Giraffe | 2022.3.1
 
 ### Configuration
 
